@@ -1,0 +1,82 @@
+﻿@using Pizza.Mvc.HtmlHelpers
+@model Pizza.Mvc.Grid.Metamodel.GridMetamodel
+
+@if (Model.NewItemLink.IsEnabled)
+{
+    <p>
+        @(Html.ActionLink(Model.NewItemLink.Text, ScriptKeys.Create))
+    </p>
+}
+
+@Html.JqGrid(Model, Url.Action(Model.GetGridDataActionName))
+
+
+<div id="divConfirmDialog" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content panel-warning">
+            <div class="modal-header panel-heading">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+                <h3>Delete confirmation</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure to delete this record?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" id="btnYes" class="btn btn-danger">Yes</a>
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="btn btn-default">No</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    var detailsLink = '@(Html.ActionLink("Details", ScriptKeys.Details, new { id = "_id_" }))';
+    var editLink = '@(Html.ActionLink("Edit", ScriptKeys.Edit, new { id = "_id_" }))';
+
+    function buildDetailsLink(cellvalue, options, rowobject) {
+        var link = detailsLink.replace("_id_", options.rowId);
+        return link;
+    }
+
+    function buildEditLink(cellvalue, options, rowobject) {
+        var link = editLink.replace("_id_", options.rowId);
+        return link;
+    }
+
+    function buildDeleteLink(cellvalue, options, rowobject) {
+        var link = "<a name='delete' data-id='" + options.rowId + "' href=''>Delete</a>";
+        return link;
+    }
+
+    function gridComplete() {
+
+        $("[name='delete']").click(function (e) {
+            e.preventDefault();
+            var rowId = $(this).attr('data-id');
+            $('#divConfirmDialog').data('rowId', rowId).modal({ show: true });
+        });
+
+        $('#btnYes').click(function () {
+            var rowId = $('#divConfirmDialog').data('rowId');
+
+            $.ajax({
+                dataType: "json",
+                type: 'DELETE',
+                url: '@Url.Action(ScriptKeys.Delete)',
+                data: { id: rowId },
+                success: function (result) {
+                    $('#mainGrid').trigger('reloadGrid');
+                }
+            });
+
+            $('#divConfirmDialog').modal('hide');
+        });
+
+        // Hack for missing 'All' option in dropdowns
+        $("select[id^='gs_']").each(function () {
+            var option = $(this).find('option:first');
+            option.text('All');
+        });
+    }
+</script>

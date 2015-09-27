@@ -1,0 +1,16 @@
+﻿@using Pizza.Mvc.HtmlHelpers
+@model Pizza.Contracts.Presentation.IDetailsModelBase
+
+<h2>
+    @ViewBag.PageTitle
+</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        @Html.ModelDisplay(Model)
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

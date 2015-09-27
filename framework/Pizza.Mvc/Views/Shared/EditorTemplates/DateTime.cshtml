@@ -1,0 +1,39 @@
+﻿@model DateTime
+
+@{
+    var controlId = ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty);
+}
+
+<div id="@controlId-container">
+    <div class="input-group date">
+        @Html.TextBoxFor(x => Model, new { @class = "form-control" })
+        <span class="input-group-addon">
+            <i class="glyphicon glyphicon-calendar"></i>
+        </span>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        var dp = $('#@controlId');
+
+        dp.datepicker({
+            format: "yyyy-mm-dd",
+            clearBtn: true,
+            orientation: "bottom auto",
+            autoclose: true
+        });
+
+        if (dp.val() === "0001-01-01 00:00:00") {
+            dp.datepicker('update', '');
+        }
+        else {
+            var dateOnly = dp.val().substring(0, 10);
+            dp.datepicker('update', dateOnly);
+        }
+
+        $('#@controlId-container .input-group-addon').click(function () {
+            $('#@controlId').datepicker('show');
+        });
+    });
+</script>

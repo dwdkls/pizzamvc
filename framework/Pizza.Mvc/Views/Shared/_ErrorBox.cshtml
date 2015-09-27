@@ -1,0 +1,55 @@
+﻿<div id="errorDialog" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content panel-danger">
+            <div class="modal-header panel-heading">
+                <button type="button" class="btnClose close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Application error</h4>
+            </div>
+            <div id="errorText" class="modal-body fade in">
+                <p>Will be replaced by real error text.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btnClose btn btn-default">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var showErrorWindow = function (text, reload) {
+
+        $('#errorDialog').on('show.bs.modal', function () {
+            var dialog = $('#errorDialog');
+
+            dialog.find('#errorText').html(text);
+
+            $('.btnClose').click(function () {
+                if (reload) {
+                    window.location.href = window.location.href;
+                }
+
+                dialog.modal('hide');
+            });
+        });
+
+        $('#errorDialog').modal({ show: true });
+    }
+
+    $.ajaxSetup({
+        error: function loadError(xhr, status, error) {
+            showErrorWindow(xhr.responseText, true);
+        }
+    });
+
+</script>
+
+@if (TempData[ScriptKeys.Error] != null)
+{
+    <script type="text/javascript">
+        $(function () {
+            showErrorWindow("@(TempData[ScriptKeys.Error])", true);
+        });
+    </script>
+}

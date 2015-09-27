@@ -1,0 +1,11 @@
+﻿@using Pizza.Mvc.HtmlHelpers
+@model Pizza.Framework.Operations.Results.PagingInfo
+
+@if (Model.TotalPages > 0)
+{
+    <div class="float-left full-row">
+        <div class="centered-content paginator">
+            @Html.PageLinks(Model, x => Url.Action((string)this.ViewContext.RouteData.Values["action"], new { pageNumber = x }))
+        </div>
+    </div>
+}

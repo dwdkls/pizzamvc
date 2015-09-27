@@ -1,0 +1,34 @@
+﻿@using Pizza.Mvc.HtmlHelpers
+@model Pizza.Contracts.Presentation.ICreateModelBase
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/tinymce")
+}
+
+<h2>
+    @ViewBag.PageTitle
+</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="form-horizontal">
+        
+        @Html.ValidationSummary(true, string.Empty, new {@class = "text-danger"})
+        @Html.ModelEditor(Model)
+
+        <div class="form-group">
+            <div class="col-md-offset-11 col-md-12">
+                <input type="submit" value="Create" class="btn btn-default"/>
+            </div>
+        </div>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
