@@ -55,6 +55,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{E2125E24-C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KebabManager.Contracts", "sample\KebabManager.Contracts\KebabManager.Contracts.csproj", "{D16CB493-E4A6-4069-890D-9E151DD897BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KebabManager.Common", "sample\KebabManager.Common\KebabManager.Common.csproj", "{F83BB15C-90A6-4690-B950-16C6F28C1FE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,10 @@ Global
 		{D16CB493-E4A6-4069-890D-9E151DD897BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D16CB493-E4A6-4069-890D-9E151DD897BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D16CB493-E4A6-4069-890D-9E151DD897BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F83BB15C-90A6-4690-B950-16C6F28C1FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F83BB15C-90A6-4690-B950-16C6F28C1FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F83BB15C-90A6-4690-B950-16C6F28C1FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F83BB15C-90A6-4690-B950-16C6F28C1FE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -121,5 +127,6 @@ Global
 		{54AF111D-7E76-429D-9917-0BB30830AEA1} = {D86F5054-0BDC-496F-BB2C-6E7A23656FA7}
 		{98DD60F4-BF38-4403-8AFD-492CFEEDBD66} = {D86F5054-0BDC-496F-BB2C-6E7A23656FA7}
 		{D16CB493-E4A6-4069-890D-9E151DD897BD} = {D86F5054-0BDC-496F-BB2C-6E7A23656FA7}
+		{F83BB15C-90A6-4690-B950-16C6F28C1FE4} = {D86F5054-0BDC-496F-BB2C-6E7A23656FA7}
 	EndGlobalSection
 EndGlobal

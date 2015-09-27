@@ -1,4 +1,4 @@
-namespace KebabManager.Contracts.Common
+namespace KebabManager.Common.Enums
 {
     public enum PaymentState
     {

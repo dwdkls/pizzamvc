@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C905BCDF-7022-4819-A279-C38B25AC3BD6}</ProjectGuid>
+    <ProjectGuid>{F83BB15C-90A6-4690-B950-16C6F28C1FE4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KebabManager.Model</RootNamespace>
-    <AssemblyName>KebabManager.Model</AssemblyName>
+    <RootNamespace>KebabManager.Common</RootNamespace>
+    <AssemblyName>KebabManager.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,23 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\PaymentInfo.cs" />
-    <Compile Include="PersistenceModels\Customer.cs" />
-    <Compile Include="PersistenceModels\Order.cs" />
+    <Compile Include="Enums\AnimalSpecies.cs" />
+    <Compile Include="Enums\CustomerType.cs" />
+    <Compile Include="Enums\OrderType.cs" />
+    <Compile Include="Enums\PaymentState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\framework\Pizza.Contracts\Pizza.Contracts.csproj">
-      <Project>{65522799-b34b-4cda-9e93-0bc9b6c0fea8}</Project>
+      <Project>{65522799-B34B-4CDA-9E93-0BC9B6C0FEA8}</Project>
       <Name>Pizza.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\KebabManager.Common\KebabManager.Common.csproj">
-      <Project>{F83BB15C-90A6-4690-B950-16C6F28C1FE4}</Project>
-      <Name>KebabManager.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

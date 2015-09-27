@@ -1,5 +1,5 @@
 using System;
-using KebabManager.Contracts.Common;
+using KebabManager.Common.Enums;
 using Pizza.Contracts.Default.Presentation;
 
 namespace KebabManager.Contracts.ViewModels.Orders

@@ -1,5 +1,5 @@
 using System;
-using KebabManager.Contracts.Common;
+using KebabManager.Common.Enums;
 using Pizza.Contracts.Default.Persistence;
 using Pizza.Contracts.Persistence.Attributes;
 

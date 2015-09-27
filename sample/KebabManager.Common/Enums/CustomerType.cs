@@ -1,6 +1,6 @@
 ﻿using Pizza.Contracts.Presentation.Attributes;
 
-namespace KebabManager.Contracts.Common
+namespace KebabManager.Common.Enums
 {
     public enum CustomerType
     {
@@ -10,15 +10,5 @@ namespace KebabManager.Contracts.Common
         Enterprise,
         [EnumDisplayName("Government customer")]
         Government,
-    }
-
-    public enum AnimalSpecies
-    {
-        [EnumDisplayName("Cat")]
-        Cat,
-        [EnumDisplayName("Dog")]
-        Dog,
-        [EnumDisplayName("Frozen chicken")]
-        FrozenChicken,
     }
 }
