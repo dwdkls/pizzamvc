@@ -180,8 +180,8 @@ public class CustomersController
 }
 ```
 
-That's all! You don't have to call ORM, write any HTML views, similar actions in all controllers, pass and map identical objects through seven layers 
-of application just because some "architect" in past said that this is good design.
+That's all! You don't have to call ORM, write any HTML views, similar actions in all controllers. 
+You don't even have to pass and map identical objects through seven layers of application just because some guy called "architect" said that this is good design.
 
 ## Features
 
@@ -195,7 +195,7 @@ of application just because some "architect" in past said that this is good desi
 
 ### Backend
 
-1. Efficient loading data for grid. Only values wich are needed to display in grid will be retrive from database. 
+1. Efficient loading data for grid. Only values wich are needed to display in grid will be retrived from database. 
 PizzaMVC does projections instead of reading whole rows.
 2. Simple audit (creation date, creation user, last edit date, last edit user).
 3. Soft delete (for every model marked as soft deletable on ORM level).
