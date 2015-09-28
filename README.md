@@ -1,5 +1,5 @@
 # PizzaMVC
-Fast and simply CRUD framework based on ASP.NET MVC
+Fast and simple CRUD framework based on ASP.NET MVC
 
 ## Important!
 
@@ -7,6 +7,7 @@ This is only proof of concept with few large gaps:
 
  - user context and security is mocked (I mean really mocked, using NSubsitute ;))
  - grids are created using jqGrid library which is not free for commercial purposes.
+ - there is no ability to change type of database ID.
 
 All those defects will be fixed soon.
 
@@ -62,8 +63,8 @@ public class Customer : SoftDeletableModelBase
 }
 ```
 
-Then you have to define models for views: grid, create, edit and details. These types defines what users will see on interface.
-Obviously, models for create and edit operations will probably have some validation attributes.
+Then you have to define models for views: grid, create, edit and details. These types defines what users will see on interface. Obviously, models for create and edit operations will probably have some validation attributes.
+**Very important thing** - you have to keep same names and types for properties in persistence model and view model if you want them to be automatically maped. You also shouldn't use reserved names like 'Id', 'Version'. But nested properties are handled, so if you have `Order` type with property of type `Customer` with has `string Name` property, you can define it in viewmodel as `string CustomerName` and this property will be handled by framework.
 
 ```C#
 public sealed class CustomerGridModel : GridModelBase
@@ -71,8 +72,8 @@ public sealed class CustomerGridModel : GridModelBase
     [Display(Name = "Login")]
     public string Login { get; set; }
 
-     [Display(Name = "First name")]
-     public string FirstName { get; set; }
+    [Display(Name = "First name")]
+    public string FirstName { get; set; }
         
     [Display(Name = "Last name")]
     public string LastName { get; set; }
@@ -140,8 +141,7 @@ public class CustomersGridService
 }
 ```
 
-Then you need an ASP.NET MVC controller. This is most complicated part because you have to define how grid will look like, 
-    define default sort and other column attributes. You can also disable new/edit/delete/details links.
+Then you need an ASP.NET MVC controller. This is most complicated part because you have to define how grid will look like, define default sort and other column attributes. You can also disable new/edit/delete/details links.
 
 ```C#
 public class CustomersController
