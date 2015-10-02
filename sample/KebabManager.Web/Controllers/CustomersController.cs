@@ -2,7 +2,6 @@
 using Pizza.Framework.Operations.Requests.Configuration;
 using Pizza.Mvc.Controllers;
 using Pizza.Mvc.Grid.Metamodel;
-using KebabManager.Application.Services;
 using KebabManager.Contracts.Services;
 using KebabManager.Contracts.ViewModels.Customers;
 

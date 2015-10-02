@@ -22,6 +22,7 @@ namespace Pizza.Framework.Utils
             Expression<Func<TObject, object>> propertyExpression, Expression<Func<TAttribute, TResult>> attributeExpression)
             where TAttribute : Attribute
             where TObject : new()
+            where TResult : class
         {
             return GetPropertyAttributeValue((LambdaExpression)propertyExpression, attributeExpression);
         }
@@ -29,6 +30,7 @@ namespace Pizza.Framework.Utils
         public static TResult GetPropertyAttributeValue<TAttribute, TResult>(
             LambdaExpression propertyExpression, Expression<Func<TAttribute, TResult>> attributeExpression)
             where TAttribute : Attribute
+            where TResult : class
         {
             var body = propertyExpression.Body as MemberExpression;
 
@@ -45,7 +47,8 @@ namespace Pizza.Framework.Utils
             var attribute = body.Member.GetAttribute<TAttribute>();
             if (attribute == null)
             {
-                throw new ArgumentNullException("attributeExpression");
+                return null;
+                //throw new ArgumentNullException("attributeExpression");
             }
 
             var result = attributeExpression.Compile().Invoke(attribute);

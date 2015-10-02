@@ -73,6 +73,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="Services\ICustomersService.cs" />
+    <Compile Include="Services\IOrdersService.cs" />
     <Compile Include="ViewModels\Customers\CustomerCreateModel.cs" />
     <Compile Include="ViewModels\Customers\CustomerDetailsModel.cs" />
     <Compile Include="ViewModels\Customers\CustomerEditModel.cs" />

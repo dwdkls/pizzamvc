@@ -12,6 +12,7 @@ namespace Pizza.Mvc.HtmlHelpers
     {
         public static MvcHtmlString JqGrid(this HtmlHelper html, GridMetamodel gridModel, string gridDataAction)
         {
+            // TODO: fluent API
             var grid = html.Grid("mainGrid");
             grid = ConfigureGrid(grid, gridModel, gridDataAction);
             grid = ConfigureDataColumns(grid, gridModel);

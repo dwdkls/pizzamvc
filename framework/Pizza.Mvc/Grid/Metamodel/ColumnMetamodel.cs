@@ -16,7 +16,10 @@ namespace Pizza.Mvc.Grid.Metamodel
         public ColumnMetamodel(LambdaExpression property, int width, ColumnWidthMode widthMode, FilterMetamodel filterMetamodel)
         {
             this.PropertyName = ObjectHelper.GetPropertyName(property);
-            this.DisplayName = AttributesHelper.GetPropertyDisplayName(property);
+
+            var displayName = AttributesHelper.GetPropertyDisplayName(property);
+            this.DisplayName = displayName ?? property.Name;
+
             this.PropertyType = property.ReturnType;
             this.Width = width;
             this.IsFixedWidth = widthMode == ColumnWidthMode.Fixed;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Linq;
 using KebabManager.Model.PersistenceModels;
 using NHibernate.Tool.hbm2ddl;
 using Pizza.Framework.DataGeneration;
@@ -21,14 +22,19 @@ namespace KebabManager.SchemaBuilder
             Console.WriteLine("Created!");
 
             var fixture = FixtureFactory.Build();
-            var customers = fixture.CreateMany<Customer>(27);
+
+            var customers = fixture.CreateMany<Customer>(27).ToList();
+            var orders = fixture.CreateMany<Order>(27 * 13)
+                .SetRandomValuesForAllItems(o => o.Customer, customers);
+
             var sessionFactory = configuration.BuildSessionFactory();
-           
+
             using (var session = sessionFactory.OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
                     session.SaveMany(customers);
+                    session.SaveMany(orders);
                     transaction.Commit();
                 }
             }

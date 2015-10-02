@@ -178,16 +178,14 @@ WriteLiteral(@"';
         return link;
     }
 
-    function gridComplete() {
+    function showConfirmDeleteDialog(e) {
+        e.preventDefault();
+        var rowId = $(this).attr('data-id');
 
-        $(""[name='delete']"").click(function (e) {
-            e.preventDefault();
-            var rowId = $(this).attr('data-id');
-            $('#divConfirmDialog').data('rowId', rowId).modal({ show: true });
-        });
-
-        $('#btnYes').click(function () {
+        var sendDeleteRequest = function () {
             var rowId = $('#divConfirmDialog').data('rowId');
+
+            console.log('Deleting: ' + rowId);
 
             $.ajax({
                 dataType: ""json"",
@@ -195,7 +193,7 @@ WriteLiteral(@"';
                 url: '");
 
             
-            #line 66 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 64 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                  Write(Url.Action(ScriptKeys.Delete));
 
             
@@ -209,7 +207,16 @@ WriteLiteral(@"',
             });
 
             $('#divConfirmDialog').modal('hide');
-        });
+            $('#btnYes').unbind();
+        }
+
+        $('#btnYes').click(sendDeleteRequest);
+
+        $('#divConfirmDialog').data('rowId', rowId).modal({ show: true });
+    }
+
+    function gridComplete() {
+        $(""[name='delete']"").click(showConfirmDeleteDialog);
 
         // Hack for missing 'All' option in dropdowns
         $(""select[id^='gs_']"").each(function () {
