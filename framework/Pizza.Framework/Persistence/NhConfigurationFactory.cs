@@ -1,16 +1,14 @@
-﻿using System;
-using System.Reflection;
-using FluentNHibernate;
+﻿using FluentNHibernate;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate.Cfg;
 using NHibernate.Event;
-using NSubstitute;
 using Pizza.Framework.Persistence.Audit;
 using Pizza.Framework.Persistence.Config;
 using Pizza.Framework.Persistence.SoftDelete;
-using Pizza.Framework.Security;
+using System;
+using System.Reflection;
 
 namespace Pizza.Framework.Persistence
 {
@@ -30,18 +28,10 @@ namespace Pizza.Framework.Persistence
 
         private static Configuration BuildConfiguration(string connectionString, AutoPersistenceModel autoPersistenceModel)
         {
-            IPizzaPrincipal pizzaPrincipal = Substitute.For<IPizzaPrincipal>();
-            pizzaPrincipal.Id.Returns(997);
-
-            IUserContext userContext = Substitute.For<IUserContext>();
-            userContext.User.Returns(pizzaPrincipal);
-
-            var auditor = new PersistenceModelAuditor(userContext);
-
             Action<Configuration> config = c =>
             {
-                c.EventListeners.PreUpdateEventListeners = new IPreUpdateEventListener[] { new AuditingEventListener(auditor) };
-                c.EventListeners.PreInsertEventListeners = new IPreInsertEventListener[] { new AuditingEventListener(auditor) };
+                c.EventListeners.PreUpdateEventListeners = new IPreUpdateEventListener[] { new AuditingEventListener() };
+                c.EventListeners.PreInsertEventListeners = new IPreInsertEventListener[] { new AuditingEventListener() };
                 c.EventListeners.PreDeleteEventListeners = new IPreDeleteEventListener[] { new SoftDeleteEventListener() };
             };
 

@@ -5,9 +5,9 @@ Fast and simple CRUD framework based on ASP.NET MVC
 
 This is only proof of concept with few large gaps:
 
- - user context and security is mocked (I mean really mocked, using NSubsitute ;))
- - grids are created using jqGrid library which is not free for commercial purposes.
- - there is no ability to change type of database ID.
+ - grids are created using jqGrid library which is not free for commercial purposes
+ - there is no ability to change type of database ID
+ - probably few more
 
 All those defects will be fixed soon.
 

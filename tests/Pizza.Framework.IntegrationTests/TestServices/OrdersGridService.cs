@@ -2,7 +2,7 @@
 using NHibernate;
 using Pizza.Framework.Operations;
 using Pizza.Framework.Persistence.Transactions;
-using Pizza.Framework.TestTypes.Domain.PersistenceModels;
+using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels.Orders;
 using Pizza.Framework.Utils.ValueInjection;
 

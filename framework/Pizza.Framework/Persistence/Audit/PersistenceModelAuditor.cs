@@ -14,11 +14,11 @@ namespace Pizza.Framework.Persistence.Audit
         private readonly string changedBy = ObjectHelper.GetPropertyName<IAuditable>(x => x.ChangedBy);
         private readonly string changedTime = ObjectHelper.GetPropertyName<IAuditable>(x => x.ChangedTime);
 
-        private readonly IUserContext userContext;
+        private readonly IPizzaUserContext _applicationUserContext;
 
-        public PersistenceModelAuditor(IUserContext userContext)
+        public PersistenceModelAuditor(IPizzaUserContext applicationUserContext)
         {
-            this.userContext = userContext;
+            this._applicationUserContext = applicationUserContext;
         }
 
         public void Insert(IAuditable auditable, object[] state, IEntityPersister persister)
@@ -68,7 +68,7 @@ namespace Pizza.Framework.Persistence.Audit
 
         private int GetUserId()
         {
-            return this.userContext.User.Id;
+            return this._applicationUserContext.CurrentUser.Id;
         }
     }
 }

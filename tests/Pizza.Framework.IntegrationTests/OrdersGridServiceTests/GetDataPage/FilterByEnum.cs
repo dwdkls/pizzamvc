@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using Pizza.Framework.DataGeneration;
 using Pizza.Framework.IntegrationTests.OrdersGridServiceTests.GetDataPage.Base;
-using Pizza.Framework.TestTypes.Domain.PersistenceModels;
+using Pizza.Framework.TestTypes.Model.Common;
+using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels.Orders;
 using System.Linq.Expressions;
 using System;
 using System.Linq;
-using Pizza.Framework.TestTypes.Domain.Common;
 
 namespace Pizza.Framework.IntegrationTests.OrdersGridServiceTests.GetDataPage
 {

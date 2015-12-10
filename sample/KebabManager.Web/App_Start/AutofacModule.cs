@@ -1,6 +1,6 @@
-﻿using System.Reflection;
-using Autofac;
+﻿using Autofac;
 using Autofac.Integration.Mvc;
+using System.Reflection;
 
 namespace KebabManager.Web
 {

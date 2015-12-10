@@ -1,6 +1,6 @@
 using System;
 using Pizza.Contracts.Default.Presentation;
-using Pizza.Framework.TestTypes.Domain.Common;
+using Pizza.Framework.TestTypes.Model.Common;
 
 namespace Pizza.Framework.TestTypes.ViewModels.Orders
 {

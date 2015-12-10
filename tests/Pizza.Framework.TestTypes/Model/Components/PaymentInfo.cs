@@ -1,8 +1,8 @@
 using System;
 using Pizza.Contracts.Persistence.Attributes;
-using Pizza.Framework.TestTypes.Domain.Common;
+using Pizza.Framework.TestTypes.Model.Common;
 
-namespace Pizza.Framework.TestTypes.Domain.Components
+namespace Pizza.Framework.TestTypes.Model.Components
 {
     [Component]
     public class PaymentInfo

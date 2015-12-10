@@ -3,7 +3,7 @@ using System.Linq;
 using NUnit.Framework;
 using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata;
 using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata.Types;
-using Pizza.Framework.TestTypes.Domain.PersistenceModels;
+using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels;
 using Pizza.Framework.TestTypes.ViewModels.Orders;
 using Pizza.Framework.Utils;

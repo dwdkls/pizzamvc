@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata;
 using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata.Types;
-using Pizza.Framework.TestTypes.Domain.PersistenceModels;
+using Pizza.Framework.TestTypes.Model.PersistenceModels;
 
 namespace Pizza.Framework.Tests.Operations.Utils
 {

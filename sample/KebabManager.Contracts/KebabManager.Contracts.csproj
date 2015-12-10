@@ -78,6 +78,7 @@
     <Compile Include="ViewModels\Customers\CustomerDetailsModel.cs" />
     <Compile Include="ViewModels\Customers\CustomerEditModel.cs" />
     <Compile Include="ViewModels\Customers\CustomerGridModel.cs" />
+    <Compile Include="ViewModels\KebabUserViewModel.cs" />
     <Compile Include="ViewModels\Orders\OrderCreateModel.cs" />
     <Compile Include="ViewModels\Orders\OrderDetailsModel.cs" />
     <Compile Include="ViewModels\Orders\OrderEditModel.cs" />
@@ -95,6 +96,10 @@
     <ProjectReference Include="..\KebabManager.Common\KebabManager.Common.csproj">
       <Project>{F83BB15C-90A6-4690-B950-16C6F28C1FE4}</Project>
       <Name>KebabManager.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KebabManager.Model\KebabManager.Model.csproj">
+      <Project>{C905BCDF-7022-4819-A279-C38B25AC3BD6}</Project>
+      <Name>KebabManager.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

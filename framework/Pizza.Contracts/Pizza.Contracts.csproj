@@ -37,6 +37,7 @@
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -71,6 +72,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Security\ServiceContracts\ChangePasswordRequest.cs" />
+    <Compile Include="Security\ServiceContracts\ChangePasswordResult.cs" />
+    <Compile Include="Security\ServiceContracts\LoginRequest.cs" />
+    <Compile Include="Security\ServiceContracts\LoginResult.cs" />
+    <Compile Include="Security\ViewModels\ChangePasswordViewModel.cs" />
+    <Compile Include="Security\IPizzaUser.cs" />
+    <Compile Include="Security\ViewModels\LoginViewModel.cs" />
+    <Compile Include="Security\ViewModels\UserViewModel.cs" />
     <Compile Include="Default\Persistence\PersistenceModelBase.cs" />
     <Compile Include="Default\Persistence\SoftDeletableModelBase.cs" />
     <Compile Include="Default\Persistence\AuditInfo.cs" />

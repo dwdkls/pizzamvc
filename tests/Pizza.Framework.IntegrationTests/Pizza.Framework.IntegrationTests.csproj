@@ -115,12 +115,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\Config\ContainerProvider.cs" />
+    <Compile Include="Base\Config\TestContainerProvider.cs" />
     <Compile Include="Base\Helpers\FilterData.cs" />
     <Compile Include="Base\Helpers\GridConfigurationHelper.cs" />
     <Compile Include="Base\GridServiceTestsBase.cs" />
     <Compile Include="Base\Config\LogManagerConfigurator.cs" />
-    <Compile Include="Base\Config\NhConfigurationProvider.cs" />
+    <Compile Include="Base\Config\TestedPeristenceModelsSource.cs" />
     <Compile Include="CustomersGridServiceTests\GetDataPageTests.cs" />
     <Compile Include="CustomersGridServiceTests\CustomersGridServiceTests.cs" />
     <Compile Include="Extensions\TestExtensions.cs" />

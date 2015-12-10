@@ -1,10 +1,10 @@
 ﻿using System;
 using Pizza.Contracts.Default.Persistence;
 using Pizza.Contracts.Persistence.Attributes;
-using Pizza.Framework.TestTypes.Domain.Common;
-using Pizza.Framework.TestTypes.Domain.Components;
+using Pizza.Framework.TestTypes.Model.Common;
+using Pizza.Framework.TestTypes.Model.Components;
 
-namespace Pizza.Framework.TestTypes.Domain.PersistenceModels
+namespace Pizza.Framework.TestTypes.Model.PersistenceModels
 {
     //public class OrderInfo : Base
     //{

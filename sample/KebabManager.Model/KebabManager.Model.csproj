@@ -42,6 +42,7 @@
     <Compile Include="Components\PaymentInfo.cs" />
     <Compile Include="PersistenceModels\Customer.cs" />
     <Compile Include="PersistenceModels\Order.cs" />
+    <Compile Include="PersistenceModels\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

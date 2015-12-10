@@ -40,6 +40,9 @@
       <HintPath>..\..\packages\Autofac.Extras.DynamicProxy2.3.0.7\lib\net40\Autofac.Extras.DynamicProxy2.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Autofac.Extras.NHibernate">
+      <HintPath>..\..\packages\Autofac.Extras.NHibernate.3.0.1\lib\net40\Autofac.Extras.NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
@@ -50,6 +53,9 @@
     <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="KebabManager.Contracts">
+      <HintPath>..\..\sample\KebabManager.Web\Bin\KebabManager.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="MvcJqGrid">
       <HintPath>..\..\packages\MvcJqGrid.1.0.15\lib\net40\MvcJqGrid.dll</HintPath>
@@ -92,6 +98,7 @@
     <Compile Include="DataGeneration\FixtureFactory.cs" />
     <Compile Include="DataGeneration\SpecimenBuilders\StringSpecimenBuilderBase.cs" />
     <Compile Include="DataGeneration\SpecimenBuilders\UnicodeStringSpecimenBuilder.cs" />
+    <Compile Include="PizzaServerContext.cs" />
     <Compile Include="Persistence\Config\Conventions\EnumConvention.cs" />
     <Compile Include="Persistence\Config\Conventions\SoftDeletableConvention.cs" />
     <Compile Include="Persistence\Config\Conventions\VersionedConvention.cs" />
@@ -134,19 +141,22 @@
     <Compile Include="Operations\Results\DataPageResult.cs" />
     <Compile Include="Operations\Results\PagingInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\IAuthService.cs" />
+    <Compile Include="Security\DefaultPizzaPrincipal.cs" />
+    <Compile Include="Security\AuthServiceBase.cs" />
     <Compile Include="Utils\ValueInjection\Injector.cs" />
     <Compile Include="Utils\ValueInjection\NullableValueInjection.cs" />
     <Compile Include="Utils\ValueInjection\VersionInjection.cs" />
     <Compile Include="Utils\ValueInjection\ViewModelToPersistenceModelInjection.cs" />
     <Compile Include="Utils\ValueInjection\ObjectInjectionExtensions.cs" />
     <Compile Include="Security\IPizzaPrincipal.cs" />
-    <Compile Include="Security\IUserContext.cs" />
+    <Compile Include="Security\IPizzaUserContext.cs" />
     <Compile Include="Utils\ReflectionExtensions.cs" />
     <Compile Include="Utils\StringExtensions.cs" />
     <Compile Include="DataGeneration\StringGenerator.cs" />
     <Compile Include="Utils\AttributesHelper.cs" />
     <Compile Include="Utils\ObjectHelper.cs" />
-    <Compile Include="Security\HashGenerator.cs" />
+    <Compile Include="Utils\HashGenerator.cs" />
     <Compile Include="Utils\SimpleCache.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +169,7 @@
       <Name>Pizza.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

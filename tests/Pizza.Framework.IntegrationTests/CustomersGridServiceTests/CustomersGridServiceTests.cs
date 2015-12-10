@@ -1,11 +1,11 @@
 ﻿using NUnit.Framework;
-using Pizza.Framework.TestTypes.Domain.PersistenceModels;
 using System;
 using System.Linq;
 using NHibernate;
 using Pizza.Framework.IntegrationTests.Base;
 using Pizza.Framework.IntegrationTests.TestServices;
 using Pizza.Framework.Persistence.Exceptions;
+using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels.Customers;
 using Pizza.Framework.Utils.ValueInjection;
 using Ploeh.AutoFixture;

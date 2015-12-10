@@ -1,4 +1,4 @@
-namespace Pizza.Framework.TestTypes.Domain.Common
+namespace Pizza.Framework.TestTypes.Model.Common
 {
     public enum OrderType
     {

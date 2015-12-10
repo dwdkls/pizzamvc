@@ -4,10 +4,10 @@ using Pizza.Framework.IntegrationTests.Base;
 using Pizza.Framework.IntegrationTests.TestServices;
 using Pizza.Framework.Operations.Requests;
 using Pizza.Framework.Operations.Requests.Configuration;
-using Pizza.Framework.TestTypes.Domain.PersistenceModels;
 using Pizza.Framework.DataGeneration;
 using Pizza.Framework.IntegrationTests.Base.Helpers;
 using Pizza.Framework.IntegrationTests.Extensions;
+using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels.Customers;
 using Ploeh.AutoFixture;
 

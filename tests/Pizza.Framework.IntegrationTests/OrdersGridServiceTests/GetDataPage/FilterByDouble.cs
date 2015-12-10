@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using NUnit.Framework;
 using Pizza.Framework.DataGeneration;
 using Pizza.Framework.IntegrationTests.OrdersGridServiceTests.GetDataPage.Base;
-using Pizza.Framework.TestTypes.Domain.PersistenceModels;
+using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels.Orders;
 
 namespace Pizza.Framework.IntegrationTests.OrdersGridServiceTests.GetDataPage

@@ -1,11 +1,13 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using KebabManager.Application;
+using KebabManager.Web.Security;
+using Pizza.Mvc;
 
 namespace KebabManager.Web
 {
-    public class MvcApplication : HttpApplication
+    public class MvcApplication : PizzaMvcApplicationBase<KebabPrincipal, KebabPrincipalSerializeModel>
     {
         protected void Application_Start()
         {

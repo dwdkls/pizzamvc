@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.Web;
 using Pizza.Framework.Operations.Requests.Configuration;
 using Pizza.Mvc.Controllers;
 using Pizza.Mvc.Grid.Metamodel;
 using KebabManager.Contracts.Services;
 using KebabManager.Contracts.ViewModels.Customers;
+using System.Web.Mvc;
 
 namespace KebabManager.Web.Controllers
 {
+    [Authorize]
     public class CustomersController
         : GridControllerBase<ICustomersService, CustomerGridModel, CustomerDetailsModel, CustomerEditModel, CustomerCreateModel>
     {

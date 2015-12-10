@@ -4,9 +4,11 @@ using KebabManager.Contracts.ViewModels.Orders;
 using Pizza.Framework.Operations.Requests.Configuration;
 using Pizza.Mvc.Controllers;
 using Pizza.Mvc.Grid.Metamodel;
+using System.Web.Mvc;
 
 namespace KebabManager.Web.Controllers
 {
+    [Authorize]
     public class OrdersController
         : GridControllerBase<IOrdersService, OrderGridModel, OrderDetailsModel, OrderEditModel, OrderCreateModel>
     {

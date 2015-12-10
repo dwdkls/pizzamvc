@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using NHibernate;
+using NHibernate.Cfg;
 using Pizza.Contracts.Persistence;
-using Pizza.Framework.IntegrationTests.Base.Config;
 using Pizza.Framework.Persistence.Extensions;
 using Pizza.Framework.Persistence.SoftDelete;
 
 namespace Pizza.Framework.IntegrationTests.Base.Helpers
 {
-    // This class HAVE TO be completely out of IoC.
-
     public sealed class NhSessionHelper
     {
         public readonly ISessionFactory sessionFactory;
-        
-        public NhSessionHelper(string connectionString)
+
+        public NhSessionHelper(Configuration nhConfiguration)
         {
-            var nhConfiguration = NhConfigurationProvider.BuildNHibernateConfiguration(connectionString);
             this.sessionFactory = nhConfiguration.BuildSessionFactory();
         }
 

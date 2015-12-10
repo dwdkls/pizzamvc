@@ -1,13 +1,13 @@
-using System;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.WebPages;
 using Autofac;
 using Autofac.Integration.Mvc;
+using Pizza.Framework;
 using Pizza.Mvc;
 using Pizza.Mvc.Filters;
 using RazorGenerator.Mvc;
+using System;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.WebPages;
 
 [assembly: WebActivatorEx.PostApplicationStartMethod(typeof(PizzaMvcPostApplicationStart), "Start")]
 
@@ -38,16 +38,17 @@ namespace Pizza.Mvc
         private static void RegisterGlobalFilters()
         {
             GlobalFilters.Filters.Add(new UniversalExceptionFilter());
-            GlobalFilters.Filters.Add(new UniversalExceptionFilter());
         }
 
         private static void BootstrapAutofac()
         {
             var builder = new ContainerBuilder();
             var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-            builder.RegisterAssemblyModules(loadedAssemblies.ToArray());
+            builder.RegisterAssemblyModules(loadedAssemblies);
             var container = builder.Build();
+            
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            PizzaServerContext.Initialize(container);
         }
     }
 }

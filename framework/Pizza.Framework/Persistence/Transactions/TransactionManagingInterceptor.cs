@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using System.Text;
 using Castle.DynamicProxy;
 using NHibernate;
@@ -27,7 +26,7 @@ namespace Pizza.Framework.Persistence.Transactions
         {
             string methodName = string.Format("{0}.{1}", invocation.Method.DeclaringType.Name, invocation.Method.Name);
             var argumentsList = BuildArgumentsList(invocation);
-            bool isTransactional = this.IsTransactional(invocation.Method);
+            bool isTransactional = this.IsTransactional(invocation);
 
             if (isTransactional)
             {
@@ -123,13 +122,14 @@ namespace Pizza.Framework.Persistence.Transactions
         }
 
 
-        private bool IsTransactional(MethodInfo methodInfo)
+        private bool IsTransactional(IInvocation invocation)
         {
-            var classAttribute = methodInfo.DeclaringType.GetAttribute<TransactionalAttribute>();
-            var methodAttribute = methodInfo.GetAttribute<TransactionalAttribute>();
+            //var classAttribute = methodInfo.DeclaringType.GetAttribute<TransactionalAttribute>();
+            var classAttribute = invocation.TargetType.GetAttribute<TransactionalAttribute>();
+            var methodAttribute = invocation.Method.GetAttribute<TransactionalAttribute>();
 
             // properties are ignored
-            return (classAttribute != null || methodAttribute != null) && !methodInfo.IsSpecialName;
+            return (classAttribute != null || methodAttribute != null) && !invocation.Method.IsSpecialName;
         }
     }
 }

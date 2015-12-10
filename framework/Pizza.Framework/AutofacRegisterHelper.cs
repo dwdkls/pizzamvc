@@ -1,19 +1,21 @@
-﻿using System.Reflection;
-using Autofac;
+﻿using Autofac;
 using Autofac.Extras.DynamicProxy2;
 using NHibernate;
-using Pizza.Framework.Persistence;
+using NHibernate.Cfg;
+using Pizza.Framework.Persistence.Audit;
 using Pizza.Framework.Persistence.SoftDelete;
 using Pizza.Framework.Persistence.Transactions;
+using System.Reflection;
 
 namespace Pizza.Framework
 {
     public class AutofacRegisterHelper
     {
-        public static void RegisterPersistenceStuffAndServices(ContainerBuilder builder, 
-            string connectionString, Assembly persistenceModelsAssembly, Assembly servicesAssembly)
+        public static void RegisterPersistenceStuffAndServices(ContainerBuilder builder,
+            Configuration configuration, Assembly persistenceModelsAssembly, Assembly servicesAssembly)
         {
-            var configuration = NhConfigurationFactory.BuildConfiguration(connectionString, persistenceModelsAssembly);
+            builder.RegisterType<PersistenceModelAuditor>().AsSelf();
+            builder.RegisterType<TransactionManagingInterceptor>().AsSelf();
 
             var sessionFactory = configuration.BuildSessionFactory();
             builder.RegisterInstance(sessionFactory).As<ISessionFactory>().SingleInstance();
@@ -25,12 +27,10 @@ namespace Pizza.Framework
                 return session;
             }).As<ISession>().InstancePerLifetimeScope();
 
-            builder.RegisterType<TransactionManagingInterceptor>().AsSelf();
-
             builder.RegisterAssemblyTypes(servicesAssembly)
                 .Where(t => t.IsClass && t.Name.EndsWith("Service")) // TODO: don't use sufix...
                 .AsImplementedInterfaces()
-                .EnableClassInterceptors()
+                .EnableInterfaceInterceptors()
                 .InterceptedBy(typeof(TransactionManagingInterceptor));
         }
     }
