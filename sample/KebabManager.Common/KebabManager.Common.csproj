@@ -46,9 +46,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\framework\Pizza.Contracts\Pizza.Contracts.csproj">
-      <Project>{65522799-B34B-4CDA-9E93-0BC9B6C0FEA8}</Project>
-      <Name>Pizza.Contracts</Name>
+    <ProjectReference Include="..\..\framework\Pizza.Contracts.Presentation\Pizza.Contracts.Presentation.csproj">
+      <Project>{10a3ee1d-414c-4a89-9f05-5749f5feee7b}</Project>
+      <Name>Pizza.Contracts.Presentation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

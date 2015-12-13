@@ -1,7 +1,6 @@
 ﻿using System.Web.Mvc;
-using Pizza.Contracts.Presentation;
 
-namespace Pizza.Contracts.Default.Presentation
+namespace Pizza.Contracts.Presentation.Default
 {
     public abstract class GridModelBase : IGridModelBase
     {

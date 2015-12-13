@@ -1,6 +1,6 @@
-using Pizza.Contracts.Security.ViewModels;
+using Pizza.Contracts.Presentation.Security.ViewModels;
 
-namespace Pizza.Contracts.Security.ServiceContracts
+namespace Pizza.Contracts.Presentation.Security.ServiceContracts
 {
     public class LoginResult<TUserViewModel>
         where TUserViewModel : PizzaUserViewModel

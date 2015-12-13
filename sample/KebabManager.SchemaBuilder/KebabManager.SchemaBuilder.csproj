@@ -68,10 +68,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\framework\Pizza.Contracts\Pizza.Contracts.csproj">
-      <Project>{65522799-B34B-4CDA-9E93-0BC9B6C0FEA8}</Project>
-      <Name>Pizza.Contracts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\framework\Pizza.Framework\Pizza.Framework.csproj">
       <Project>{c4ad1d8c-b782-4ee4-9ab0-36ba8c46d98e}</Project>
       <Name>Pizza.Framework</Name>

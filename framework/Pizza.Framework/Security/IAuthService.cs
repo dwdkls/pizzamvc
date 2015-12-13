@@ -1,5 +1,5 @@
-﻿using Pizza.Contracts.Security.ServiceContracts;
-using Pizza.Contracts.Security.ViewModels;
+﻿using Pizza.Contracts.Presentation.Security.ServiceContracts;
+using Pizza.Contracts.Presentation.Security.ViewModels;
 
 namespace Pizza.Framework.Security
 {

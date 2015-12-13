@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using KebabManager.Common.Enums;
-using Pizza.Contracts.Default.Presentation;
+using Pizza.Contracts.Presentation.Default;
 
 namespace KebabManager.Contracts.ViewModels.Orders
 {

@@ -1,7 +1,6 @@
 using System.Web.Mvc;
-using Pizza.Contracts.Presentation;
 
-namespace Pizza.Contracts.Default.Presentation
+namespace Pizza.Contracts.Presentation.Default
 {
     // TODO: thus optimistic concurrency, this class makes no sense
     public abstract class CreateAndEditModelBase : IEditModelBase, ICreateModelBase

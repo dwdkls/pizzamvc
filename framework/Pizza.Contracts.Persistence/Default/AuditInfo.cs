@@ -1,8 +1,7 @@
 using System;
-using Pizza.Contracts.Persistence;
 using Pizza.Contracts.Persistence.Attributes;
 
-namespace Pizza.Contracts.Default.Persistence
+namespace Pizza.Contracts.Persistence.Default
 {
     [Component]
     public class AuditInfo : IAuditable

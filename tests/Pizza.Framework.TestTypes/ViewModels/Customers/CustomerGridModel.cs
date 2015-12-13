@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Pizza.Contracts.Default.Presentation;
+using Pizza.Contracts.Presentation.Default;
 
 namespace Pizza.Framework.TestTypes.ViewModels.Customers
 {

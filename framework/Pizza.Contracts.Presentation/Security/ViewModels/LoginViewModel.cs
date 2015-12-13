@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Pizza.Contracts.Security.ViewModels
+namespace Pizza.Contracts.Presentation.Security.ViewModels
 {
     public class LoginViewModel
     {

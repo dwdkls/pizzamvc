@@ -54,9 +54,6 @@
       <HintPath>..\..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="KebabManager.Contracts">
-      <HintPath>..\..\sample\KebabManager.Web\Bin\KebabManager.Contracts.dll</HintPath>
-    </Reference>
     <Reference Include="MvcJqGrid">
       <HintPath>..\..\packages\MvcJqGrid.1.0.15\lib\net40\MvcJqGrid.dll</HintPath>
     </Reference>
@@ -164,12 +161,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Pizza.Contracts\Pizza.Contracts.csproj">
-      <Project>{65522799-b34b-4cda-9e93-0bc9b6c0fea8}</Project>
-      <Name>Pizza.Contracts</Name>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pizza.Contracts.Persistence\Pizza.Contracts.Persistence.csproj">
+      <Project>{6046f8a1-fdf2-4f58-ae09-76c397580923}</Project>
+      <Name>Pizza.Contracts.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pizza.Contracts.Presentation\Pizza.Contracts.Presentation.csproj">
+      <Project>{10a3ee1d-414c-4a89-9f05-5749f5feee7b}</Project>
+      <Name>Pizza.Contracts.Presentation</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

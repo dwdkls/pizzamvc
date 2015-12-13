@@ -1,6 +1,4 @@
-using Pizza.Contracts.Persistence;
-
-namespace Pizza.Contracts.Default.Persistence
+namespace Pizza.Contracts.Persistence.Default
 {
     public abstract class PersistenceModelBase : IPersistenceModel, IVersionable
     {

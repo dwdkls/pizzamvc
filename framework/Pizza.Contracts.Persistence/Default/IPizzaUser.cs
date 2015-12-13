@@ -1,6 +1,4 @@
-using Pizza.Contracts.Persistence;
-
-namespace Pizza.Contracts.Security
+namespace Pizza.Contracts.Persistence.Default
 {
     public interface IPizzaUser : IPersistenceModel
     {

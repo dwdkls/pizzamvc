@@ -1,4 +1,4 @@
-namespace Pizza.Contracts.Security.ServiceContracts
+namespace Pizza.Contracts.Presentation.Security.ServiceContracts
 {
     public class LoginRequest
     {

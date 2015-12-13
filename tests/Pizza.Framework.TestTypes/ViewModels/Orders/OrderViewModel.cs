@@ -1,5 +1,5 @@
 using System;
-using Pizza.Contracts.Default.Presentation;
+using Pizza.Contracts.Presentation.Default;
 using Pizza.Framework.TestTypes.Model.Common;
 
 namespace Pizza.Framework.TestTypes.ViewModels.Orders

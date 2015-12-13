@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Pizza.Contracts")]
+[assembly: AssemblyTitle("Pizza.Contracts.Presentation")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Pizza.Contracts")]
+[assembly: AssemblyProduct("Pizza.Contracts.Presentation")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bea1ea80-bb9f-499a-a239-09f51db73c6c")]
+[assembly: Guid("10a3ee1d-414c-4a89-9f05-5749f5feee7b")]
 
 // Version information for an assembly consists of the following four values:
 //

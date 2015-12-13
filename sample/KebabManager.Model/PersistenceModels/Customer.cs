@@ -1,7 +1,7 @@
 using System;
 using KebabManager.Common.Enums;
-using Pizza.Contracts.Default.Persistence;
 using Pizza.Contracts.Persistence.Attributes;
+using Pizza.Contracts.Persistence.Default;
 
 namespace KebabManager.Model.PersistenceModels
 {
