@@ -22,7 +22,6 @@ namespace ASP
     using System.Web;
     using System.Web.Helpers;
     using System.Web.Mvc;
-    using System.Web.Mvc.Ajax;
     using System.Web.Mvc.Html;
     using System.Web.Optimization;
     using System.Web.Routing;
@@ -30,8 +29,7 @@ namespace ASP
     using System.Web.UI;
     using System.Web.WebPages;
     using Pizza.Mvc;
-    using Pizza.Mvc.HtmlHelpers;
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Account/Login.cshtml")]
     public partial class _Views_Account_Login_cshtml : System.Web.Mvc.WebViewPage<LoginViewModel>

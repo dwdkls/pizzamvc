@@ -32,42 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,9 +56,9 @@
     <Compile Include="ViewModels\Orders\OrderGridModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\framework\Pizza.Contracts.Persistence\Pizza.Contracts.Persistence.csproj">
-      <Project>{6046f8a1-fdf2-4f58-ae09-76c397580923}</Project>
-      <Name>Pizza.Contracts.Persistence</Name>
+    <ProjectReference Include="..\..\framework\Pizza.Contracts.Presentation\Pizza.Contracts.Presentation.csproj">
+      <Project>{10a3ee1d-414c-4a89-9f05-5749f5feee7b}</Project>
+      <Name>Pizza.Contracts.Presentation</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\framework\Pizza.Contracts.Presentation\Pizza.Contracts.Presentation.csproj">
       <Project>{10a3ee1d-414c-4a89-9f05-5749f5feee7b}</Project>
@@ -100,10 +71,6 @@
     <ProjectReference Include="..\KebabManager.Common\KebabManager.Common.csproj">
       <Project>{F83BB15C-90A6-4690-B950-16C6F28C1FE4}</Project>
       <Name>KebabManager.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\KebabManager.Model\KebabManager.Model.csproj">
-      <Project>{C905BCDF-7022-4819-A279-C38B25AC3BD6}</Project>
-      <Name>KebabManager.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

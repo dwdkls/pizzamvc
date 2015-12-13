@@ -38,10 +38,6 @@
       <HintPath>..\..\packages\FluentNHibernate.2.0.1.0\lib\net40\FluentNHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
@@ -53,11 +49,6 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -71,10 +62,6 @@
     <ProjectReference Include="..\..\framework\Pizza.Framework\Pizza.Framework.csproj">
       <Project>{c4ad1d8c-b782-4ee4-9ab0-36ba8c46d98e}</Project>
       <Name>Pizza.Framework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\KebabManager.Application\KebabManager.Application.csproj">
-      <Project>{89fc6a12-41ad-4e0d-8a93-eeed3e8d5839}</Project>
-      <Name>KebabManager.Application</Name>
     </ProjectReference>
     <ProjectReference Include="..\KebabManager.Model\KebabManager.Model.csproj">
       <Project>{c905bcdf-7022-4819-a279-c38b25ac3bd6}</Project>

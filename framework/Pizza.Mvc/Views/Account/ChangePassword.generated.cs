@@ -22,9 +22,7 @@ namespace ASP
     using System.Web;
     using System.Web.Helpers;
     using System.Web.Mvc;
-    using System.Web.Mvc.Ajax;
-    
-    #line 1 "..\..\Views\Account\ChangePassword.cshtml"
+#line 1 "..\..\Views\Account\ChangePassword.cshtml"
     using System.Web.Mvc.Html;
     
     #line default
@@ -35,8 +33,7 @@ namespace ASP
     using System.Web.UI;
     using System.Web.WebPages;
     using Pizza.Mvc;
-    using Pizza.Mvc.HtmlHelpers;
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Account/ChangePassword.cshtml")]
     public partial class _Views_Account_ChangePassword_cshtml : System.Web.Mvc.WebViewPage<ChangePasswordViewModel>

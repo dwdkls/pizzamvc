@@ -33,12 +33,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Common\CustomerType.cs" />
@@ -66,9 +60,9 @@
       <Project>{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}</Project>
       <Name>Pizza.Contracts.Presentation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\framework\Pizza.Framework\Pizza.Framework.csproj">
-      <Project>{C4AD1D8C-B782-4EE4-9AB0-36BA8C46D98E}</Project>
-      <Name>Pizza.Framework</Name>
+    <ProjectReference Include="..\..\framework\Pizza.Contracts.Presentation\Pizza.Contracts.Presentation.csproj">
+      <Project>{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}</Project>
+      <Name>Pizza.Contracts.Presentation</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

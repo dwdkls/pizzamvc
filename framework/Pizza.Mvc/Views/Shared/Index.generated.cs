@@ -27,8 +27,7 @@ namespace ASP
     using System.Web.UI;
     using System.Web.WebPages;
     using Pizza.Mvc;
-    using Pizza.Mvc.HtmlHelpers;
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Shared/Index.cshtml")]
     public partial class _Views_Shared_Index_cshtml : System.Web.Mvc.WebViewPage<Pizza.Mvc.Grid.Metamodel.GridMetamodel>
