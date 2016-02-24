@@ -3,7 +3,6 @@
 Thumbs.db
 #Ignore files build by Visual Studio
 *.obj
-*.exe
 *.pdb
 *.user
 *.aps
@@ -32,3 +31,6 @@ packages/
 *.nupkg
 *.nupkg
 */Pizza.Packager/lib/net45/*
+artifacts
+.fake
+.artifacts

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{EFDC7547-6362-4745-A96E-73475D44771B}"
 	ProjectSection(SolutionItems) = preProject
@@ -15,19 +15,15 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{44B96078-E585-41B9-9A52-C7E6B1BEA193}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "publish", "publish", "{3DC2BF9F-B5FE-47F5-8BF1-36434C36B01B}"
+	ProjectSection(SolutionItems) = preProject
+		publish\Build.cmd = publish\Build.cmd
+		publish\Build.fsx = publish\Build.fsx
+		publish\Pizza.nuspec = publish\Pizza.nuspec
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza.Framework", "framework\Pizza.Framework\Pizza.Framework.csproj", "{C4AD1D8C-B782-4EE4-9AB0-36BA8C46D98E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza.Mvc", "framework\Pizza.Mvc\Pizza.Mvc.csproj", "{22932C64-3887-49DD-B430-0B050DA4C2F3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza.Packager", "publish\Pizza.Packager\Pizza.Packager.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
-	ProjectSection(ProjectDependencies) = postProject
-		{7DC9C003-2372-4615-92FB-553D2327DDDD} = {7DC9C003-2372-4615-92FB-553D2327DDDD}
-		{22932C64-3887-49DD-B430-0B050DA4C2F3} = {22932C64-3887-49DD-B430-0B050DA4C2F3}
-		{C4AD1D8C-B782-4EE4-9AB0-36BA8C46D98E} = {C4AD1D8C-B782-4EE4-9AB0-36BA8C46D98E}
-		{59E337E8-C3CD-4A65-AD3B-5ED7D3DFFFB0} = {59E337E8-C3CD-4A65-AD3B-5ED7D3DFFFB0}
-		{7D3E5BF6-1CCD-4AE9-A83E-B5802B051CA2} = {7D3E5BF6-1CCD-4AE9-A83E-B5802B051CA2}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza.Framework.Tests", "tests\Pizza.Framework.Tests\Pizza.Framework.Tests.csproj", "{7D3E5BF6-1CCD-4AE9-A83E-B5802B051CA2}"
 EndProject
@@ -49,6 +45,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{E2125E24-C
 	ProjectSection(SolutionItems) = preProject
 		LICENSE = LICENSE
 		README.md = README.md
+		ReleaseNotes.md = ReleaseNotes.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KebabManager.Contracts", "sample\KebabManager.Contracts\KebabManager.Contracts.csproj", "{D16CB493-E4A6-4069-890D-9E151DD897BD}"
@@ -73,8 +70,6 @@ Global
 		{22932C64-3887-49DD-B430-0B050DA4C2F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22932C64-3887-49DD-B430-0B050DA4C2F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22932C64-3887-49DD-B430-0B050DA4C2F3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D3E5BF6-1CCD-4AE9-A83E-B5802B051CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7D3E5BF6-1CCD-4AE9-A83E-B5802B051CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D3E5BF6-1CCD-4AE9-A83E-B5802B051CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -121,9 +116,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{3DC2BF9F-B5FE-47F5-8BF1-36434C36B01B} = {2588CAFD-487A-4138-9B17-8B3863B4056A}
 		{C4AD1D8C-B782-4EE4-9AB0-36BA8C46D98E} = {2588CAFD-487A-4138-9B17-8B3863B4056A}
 		{22932C64-3887-49DD-B430-0B050DA4C2F3} = {2588CAFD-487A-4138-9B17-8B3863B4056A}
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389} = {3DC2BF9F-B5FE-47F5-8BF1-36434C36B01B}
 		{7D3E5BF6-1CCD-4AE9-A83E-B5802B051CA2} = {44B96078-E585-41B9-9A52-C7E6B1BEA193}
 		{7DC9C003-2372-4615-92FB-553D2327DDDD} = {44B96078-E585-41B9-9A52-C7E6B1BEA193}
 		{59E337E8-C3CD-4A65-AD3B-5ED7D3DFFFB0} = {44B96078-E585-41B9-9A52-C7E6B1BEA193}
