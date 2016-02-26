@@ -3,8 +3,9 @@ using System.Linq.Expressions;
 using NHibernate;
 using Pizza.Contracts.Persistence;
 using Pizza.Contracts.Presentation;
-using Pizza.Framework.Operations.Requests;
-using Pizza.Framework.Operations.Results;
+using Pizza.Contracts.Presentation.Operations;
+using Pizza.Contracts.Presentation.Operations.Requests;
+using Pizza.Contracts.Presentation.Operations.Results;
 using Pizza.Framework.Persistence.Transactions;
 
 namespace Pizza.Framework.Operations

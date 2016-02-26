@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using Pizza.Framework.Operations.Requests.Configuration;
+using Pizza.Contracts.Presentation.Operations.Requests.Configuration;
 using Pizza.Framework.Utils;
 using Pizza.Mvc.Grid.Metamodel.Exceptions;
 using Pizza.Mvc.Helpers;

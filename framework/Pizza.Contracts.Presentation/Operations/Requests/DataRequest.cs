@@ -1,8 +1,7 @@
 ﻿using System;
-using Pizza.Contracts.Presentation;
-using Pizza.Framework.Operations.Requests.Configuration;
+using Pizza.Contracts.Presentation.Operations.Requests.Configuration;
 
-namespace Pizza.Framework.Operations.Requests
+namespace Pizza.Contracts.Presentation.Operations.Requests
 {
     public sealed class DataRequest<TGridModel>
         where TGridModel : IGridModelBase

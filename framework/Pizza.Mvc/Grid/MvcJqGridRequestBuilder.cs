@@ -2,8 +2,8 @@
 using System.Linq;
 using MvcJqGrid;
 using Pizza.Contracts.Presentation;
-using Pizza.Framework.Operations.Requests;
-using Pizza.Framework.Operations.Requests.Configuration;
+using Pizza.Contracts.Presentation.Operations.Requests;
+using Pizza.Contracts.Presentation.Operations.Requests.Configuration;
 using Pizza.Mvc.Grid.Metamodel;
 
 namespace Pizza.Mvc.Grid

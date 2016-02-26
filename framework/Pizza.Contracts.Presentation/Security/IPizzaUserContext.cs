@@ -1,4 +1,4 @@
-﻿namespace Pizza.Framework.Security
+﻿namespace Pizza.Contracts.Presentation.Security
 {
     public interface IPizzaUserContext
     {

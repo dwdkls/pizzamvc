@@ -47,9 +47,6 @@
     <Reference Include="FluentNHibernate">
       <HintPath>..\..\packages\FluentNHibernate.2.0.1.0\lib\net40\FluentNHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="MvcJqGrid">
-      <HintPath>..\..\packages\MvcJqGrid.1.0.15\lib\net40\MvcJqGrid.dll</HintPath>
-    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
     </Reference>
@@ -88,14 +85,7 @@
     <Compile Include="Persistence\Exceptions\OptimisticConcurrencyException.cs" />
     <Compile Include="Operations\PersistenceModelsStore.cs" />
     <Compile Include="Operations\ViewModelsProvider.cs" />
-    <Compile Include="Operations\Requests\Configuration\FilterCondition.cs" />
-    <Compile Include="Operations\Requests\Configuration\FilterConfiguration.cs" />
-    <Compile Include="Operations\Requests\Configuration\FilterOperator.cs" />
-    <Compile Include="Operations\Requests\DataRequest.cs" />
-    <Compile Include="Operations\Requests\Configuration\SortConfiguration.cs" />
-    <Compile Include="Operations\Requests\Configuration\SortMode.cs" />
     <Compile Include="Operations\GridServiceBase.cs" />
-    <Compile Include="Operations\IGridServiceBase.cs" />
     <Compile Include="Persistence\Transactions\TransactionalAttribute.cs" />
     <Compile Include="Persistence\Config\AutomappingConfiguration.cs" />
     <Compile Include="Persistence\Config\Conventions\FixedLengthAnsiStringConvention.cs" />
@@ -117,20 +107,13 @@
     <Compile Include="Operations\InternalUtils\RuntimeMetadata\ViewModelToPersistenceModelPropertyNamesMapsGenerator.cs" />
     <Compile Include="Persistence\Audit\PersistenceModelAuditor.cs" />
     <Compile Include="Persistence\Audit\AuditingEventListener.cs" />
-    <Compile Include="Operations\Requests\SimpleDataPageRequest.cs" />
-    <Compile Include="Operations\Results\DataPageResult.cs" />
-    <Compile Include="Operations\Results\PagingInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\IAuthService.cs" />
-    <Compile Include="Security\DefaultPizzaPrincipal.cs" />
     <Compile Include="Security\AuthServiceBase.cs" />
     <Compile Include="Utils\ValueInjection\Injector.cs" />
     <Compile Include="Utils\ValueInjection\NullableValueInjection.cs" />
     <Compile Include="Utils\ValueInjection\VersionInjection.cs" />
     <Compile Include="Utils\ValueInjection\ViewModelToPersistenceModelInjection.cs" />
     <Compile Include="Utils\ValueInjection\ObjectInjectionExtensions.cs" />
-    <Compile Include="Security\IPizzaPrincipal.cs" />
-    <Compile Include="Security\IPizzaUserContext.cs" />
     <Compile Include="Utils\ReflectionExtensions.cs" />
     <Compile Include="Utils\StringExtensions.cs" />
     <Compile Include="DataGeneration\StringGenerator.cs" />
@@ -142,9 +125,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pizza.Contracts.Persistence\Pizza.Contracts.Persistence.csproj">

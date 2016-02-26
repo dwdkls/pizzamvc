@@ -1,7 +1,7 @@
 ﻿using Pizza.Contracts.Presentation.Security.ServiceContracts;
 using Pizza.Contracts.Presentation.Security.ViewModels;
 
-namespace Pizza.Framework.Security
+namespace Pizza.Contracts.Presentation.Security
 {
     public interface IAuthService
     {

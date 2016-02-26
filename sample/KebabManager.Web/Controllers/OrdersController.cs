@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using KebabManager.Contracts.Services;
 using KebabManager.Contracts.ViewModels.Orders;
-using Pizza.Framework.Operations.Requests.Configuration;
 using Pizza.Mvc.Controllers;
 using Pizza.Mvc.Grid.Metamodel;
 using System.Web.Mvc;
+using Pizza.Contracts.Presentation.Operations.Requests.Configuration;
 
 namespace KebabManager.Web.Controllers
 {

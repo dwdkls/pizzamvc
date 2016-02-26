@@ -5,8 +5,8 @@ using NHibernate.SqlCommand;
 using NHibernate.Transform;
 using Pizza.Contracts.Persistence;
 using Pizza.Contracts.Presentation;
+using Pizza.Contracts.Presentation.Operations.Requests.Configuration;
 using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata.Types;
-using Pizza.Framework.Operations.Requests.Configuration;
 
 namespace Pizza.Framework.Operations.InternalUtils
 {

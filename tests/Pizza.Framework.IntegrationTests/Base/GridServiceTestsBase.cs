@@ -20,11 +20,11 @@ namespace Pizza.Framework.IntegrationTests.Base
 
         protected IFixture fixture;
         protected NhSessionHelper nhSessionHelper;
-        protected TestContainerProvider TestContainerProvider;
+        protected TestContainerProvider testContainerProvider;
 
         protected IContainer Container
         {
-            get { return this.TestContainerProvider.Container; }
+            get { return this.testContainerProvider.Container; }
         }
 
         [TestFixtureSetUp]
@@ -37,7 +37,7 @@ namespace Pizza.Framework.IntegrationTests.Base
             this.nhConfiguration = NhConfigurationFactory.BuildConfiguration(connectionString, peristenceModelsSource);
             this.nhSessionHelper = new NhSessionHelper(this.nhConfiguration);
 
-            this.TestContainerProvider = new TestContainerProvider(this.nhConfiguration);
+            this.testContainerProvider = new TestContainerProvider(this.nhConfiguration);
 
             this.PrepareFixture();
         }
@@ -50,7 +50,7 @@ namespace Pizza.Framework.IntegrationTests.Base
 
         public TService GetService()
         {
-            this.TestContainerProvider.RefreshNhSessionRegistrationForNewScope();
+            this.testContainerProvider.RefreshNhSessionRegistrationForNewScope();
             return this.Container.Resolve<TService>();
         }
 

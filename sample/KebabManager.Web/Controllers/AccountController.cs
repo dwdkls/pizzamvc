@@ -1,6 +1,6 @@
 ﻿using KebabManager.Contracts.ViewModels;
 using KebabManager.Web.Security;
-using Pizza.Framework.Security;
+using Pizza.Contracts.Presentation.Security;
 using Pizza.Mvc.Controllers;
 
 namespace KebabManager.Web.Controllers

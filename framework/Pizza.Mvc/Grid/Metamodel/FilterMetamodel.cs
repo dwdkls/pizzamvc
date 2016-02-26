@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Pizza.Framework.Operations.Requests.Configuration;
+using Pizza.Contracts.Presentation.Operations.Requests.Configuration;
 
 namespace Pizza.Mvc.Grid.Metamodel
 {

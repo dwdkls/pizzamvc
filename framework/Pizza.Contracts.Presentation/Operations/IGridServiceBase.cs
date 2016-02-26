@@ -1,8 +1,7 @@
-﻿using Pizza.Contracts.Presentation;
-using Pizza.Framework.Operations.Requests;
-using Pizza.Framework.Operations.Results;
+﻿using Pizza.Contracts.Presentation.Operations.Requests;
+using Pizza.Contracts.Presentation.Operations.Results;
 
-namespace Pizza.Framework.Operations
+namespace Pizza.Contracts.Presentation.Operations
 {
     public interface IGridServiceBase<TGridModel, TDetailsModel, TEditModel, TCreateModel> 
         where TGridModel : IGridModelBase

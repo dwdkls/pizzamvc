@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Pizza.Framework.Operations.Results
+namespace Pizza.Contracts.Presentation.Operations.Results
 {
     public sealed class PagingInfo
     {

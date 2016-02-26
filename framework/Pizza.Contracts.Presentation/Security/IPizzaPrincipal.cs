@@ -1,6 +1,6 @@
 ﻿using System.Security.Principal;
 
-namespace Pizza.Framework.Security
+namespace Pizza.Contracts.Presentation.Security
 {
     public interface IPizzaPrincipal : IPrincipal
     {

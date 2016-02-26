@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using MvcJqGrid;
 using MvcJqGrid.Enums;
-using Pizza.Framework.Operations.Requests.Configuration;
+using Pizza.Contracts.Presentation.Operations.Requests.Configuration;
 using Pizza.Mvc.Grid.Metamodel;
 
 namespace Pizza.Mvc.HtmlHelpers

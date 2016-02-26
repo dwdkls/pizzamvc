@@ -1,3 +1,4 @@
+using Pizza.Contracts.Presentation.Security;
 using Pizza.Framework.Security;
 
 namespace KebabManager.Application

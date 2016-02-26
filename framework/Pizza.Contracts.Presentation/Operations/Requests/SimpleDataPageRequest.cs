@@ -1,4 +1,4 @@
-﻿namespace Pizza.Framework.Operations.Requests
+﻿namespace Pizza.Contracts.Presentation.Operations.Requests
 {
     public sealed class SimpleDataPageRequest
     {

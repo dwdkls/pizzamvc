@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using Pizza.Framework.Operations.Requests.Configuration;
+using Pizza.Contracts.Presentation.Operations.Requests.Configuration;
 using Pizza.Framework.TestTypes.ViewModels.Orders;
 
 namespace Pizza.Framework.IntegrationTests.OrdersGridServiceTests.GetDataPage.Base

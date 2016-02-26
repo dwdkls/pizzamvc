@@ -1,6 +1,6 @@
 using System;
 
-namespace Pizza.Framework.Operations.Requests.Configuration
+namespace Pizza.Contracts.Presentation.Operations.Requests.Configuration
 {
     public sealed class FilterCondition
     {

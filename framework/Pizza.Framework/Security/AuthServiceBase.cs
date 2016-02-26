@@ -2,6 +2,7 @@ using System.Security.Authentication;
 using NHibernate;
 using Pizza.Contracts.Persistence;
 using Pizza.Contracts.Persistence.Default;
+using Pizza.Contracts.Presentation.Security;
 using Pizza.Contracts.Presentation.Security.ServiceContracts;
 using Pizza.Contracts.Presentation.Security.ViewModels;
 using Pizza.Framework.Persistence.Transactions;

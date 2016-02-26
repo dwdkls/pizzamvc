@@ -3,6 +3,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Web.Security;
+using Pizza.Contracts.Presentation.Security;
 using Pizza.Contracts.Presentation.Security.ServiceContracts;
 using Pizza.Contracts.Presentation.Security.ViewModels;
 using Pizza.Framework.Security;

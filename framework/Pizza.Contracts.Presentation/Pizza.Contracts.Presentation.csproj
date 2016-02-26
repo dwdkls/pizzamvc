@@ -52,7 +52,21 @@
     <Compile Include="IGridModelBase.cs" />
     <Compile Include="IVersionableEditModelBase.cs" />
     <Compile Include="IViewModelBase.cs" />
+    <Compile Include="Operations\IGridServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Operations\Requests\Configuration\FilterCondition.cs" />
+    <Compile Include="Operations\Requests\Configuration\FilterConfiguration.cs" />
+    <Compile Include="Operations\Requests\Configuration\FilterOperator.cs" />
+    <Compile Include="Operations\Requests\Configuration\SortConfiguration.cs" />
+    <Compile Include="Operations\Requests\Configuration\SortMode.cs" />
+    <Compile Include="Operations\Requests\DataRequest.cs" />
+    <Compile Include="Operations\Requests\SimpleDataPageRequest.cs" />
+    <Compile Include="Operations\Results\DataPageResult.cs" />
+    <Compile Include="Operations\Results\PagingInfo.cs" />
+    <Compile Include="Security\DefaultPizzaPrincipal.cs" />
+    <Compile Include="Security\IAuthService.cs" />
+    <Compile Include="Security\IPizzaPrincipal.cs" />
+    <Compile Include="Security\IPizzaUserContext.cs" />
     <Compile Include="Security\ServiceContracts\ChangePasswordRequest.cs" />
     <Compile Include="Security\ServiceContracts\ChangePasswordResult.cs" />
     <Compile Include="Security\ServiceContracts\LoginRequest.cs" />
@@ -63,7 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Pizza.Contracts.Presentation.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

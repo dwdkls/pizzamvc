@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using Pizza.Contracts.Presentation.Security;
 using Pizza.Framework.Security;
 
 namespace Pizza.Mvc.Security

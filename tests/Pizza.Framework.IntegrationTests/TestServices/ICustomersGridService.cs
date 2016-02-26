@@ -1,3 +1,4 @@
+using Pizza.Contracts.Presentation.Operations;
 using Pizza.Framework.Operations;
 using Pizza.Framework.TestTypes.ViewModels.Customers;
 

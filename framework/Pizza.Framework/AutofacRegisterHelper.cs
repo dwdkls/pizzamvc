@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System.Linq;
+using Autofac;
 using Autofac.Extras.DynamicProxy2;
 using NHibernate;
 using NHibernate.Cfg;
@@ -27,8 +28,16 @@ namespace Pizza.Framework
                 return session;
             }).As<ISession>().InstancePerLifetimeScope();
 
-            builder.RegisterAssemblyTypes(servicesAssembly)
-                .Where(t => t.IsClass && t.Name.EndsWith("Service")) // TODO: don't use sufix...
+            var services = servicesAssembly.DefinedTypes
+                .Where(t => t.IsClass && t.Name.EndsWith("Service"))
+                .ToArray();
+
+            builder.RegisterTypes(services)
+                .AsSelf()
+                .EnableClassInterceptors()
+                .InterceptedBy(typeof(TransactionManagingInterceptor));
+
+            builder.RegisterTypes(services)
                 .AsImplementedInterfaces()
                 .EnableInterfaceInterceptors()
                 .InterceptedBy(typeof(TransactionManagingInterceptor));

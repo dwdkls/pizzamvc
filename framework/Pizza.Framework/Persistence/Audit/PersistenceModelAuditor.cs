@@ -2,6 +2,7 @@
 using System.Linq;
 using NHibernate.Persister.Entity;
 using Pizza.Contracts.Persistence;
+using Pizza.Contracts.Presentation.Security;
 using Pizza.Framework.Security;
 using Pizza.Framework.Utils;
 

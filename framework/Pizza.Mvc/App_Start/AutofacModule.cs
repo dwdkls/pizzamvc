@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Autofac;
 using Autofac.Integration.Mvc;
-using Pizza.Framework.Security;
+using Pizza.Contracts.Presentation.Security;
 using Pizza.Mvc.Security;
 
 namespace Pizza.Mvc

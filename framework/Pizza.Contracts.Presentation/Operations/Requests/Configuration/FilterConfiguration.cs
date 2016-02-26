@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Pizza.Contracts.Presentation;
 
-namespace Pizza.Framework.Operations.Requests.Configuration
+namespace Pizza.Contracts.Presentation.Operations.Requests.Configuration
 {
     public sealed class FilterConfiguration<TGridModel>
         where TGridModel : IGridModelBase

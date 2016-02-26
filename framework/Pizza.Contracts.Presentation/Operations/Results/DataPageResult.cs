@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace Pizza.Framework.Operations.Results
+namespace Pizza.Contracts.Presentation.Operations.Results
 {
     public sealed class DataPageResult<T>
     {

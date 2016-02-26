@@ -20,6 +20,8 @@ let releaseNotesPath = @"..\ReleaseNotes.md"
 
 let nupkgOutDir = @"C:\LocalNuget"
 
+let releaseNotes = LoadReleaseNotes releaseNotesPath
+
 // Helpers
 let getOutputDirName proj =
     let folderName = Directory.GetParent(proj).Name
@@ -28,32 +30,41 @@ let getOutputDirName proj =
 
 let buildProject proj =
     let outputDir = proj |> getOutputDirName
-    MSBuildRelease outputDir "Build" [proj] |> ignore
+    MSBuildDebug outputDir "Build" [proj] |> ignore
 
 
-let getFrameworkReferencesFromCsproj (csprojFile: string) =
-    let csprojContent = XDocument.Load(csprojFile)
+let getFrameworkReferencesFromCsproj (csprojContent: XDocument) =
     csprojContent.Root.Descendants() 
         |> Seq.filter (fun el -> el.Name.LocalName = "Reference" && not el.HasElements)
-        |> Seq.map (fun el -> el.Attribute(XName.Get("Include")).Value)
-        |> Seq.map (fun name -> { AssemblyName = name; FrameworkVersions = [ "4.5" ] } )
+        |> Seq.map (fun el -> el.Attribute(XName.Get("Include")))
+        |> Seq.map (fun el -> { AssemblyName = el.Value; FrameworkVersions = [ "4.5" ] } )
+        |> Seq.toList
+
+
+let getProjectReferencesFromCsproj (csprojContent: XDocument) =
+    csprojContent.Root.Descendants() 
+        |> Seq.filter (fun el -> el.Name.LocalName = "ProjectReference")
+        |> Seq.map (fun el -> el.Element(XName.Get("Name", "http://schemas.microsoft.com/developer/msbuild/2003")))
+        |> Seq.map (fun el -> (el.Value, releaseNotes.NugetVersion))
         |> Seq.toList
 
 
 let getSourceInfo packageName = 
     let srcPath = Path.Combine(srcRootDir, packageName)
-    let csprojFile = sprintf "%s\%s.csproj" srcPath packageName
-    let packagesConfig = Path.Combine(srcPath, "packages.config")
 
-    trace ("Reading csproj file: " @@ csprojFile)
-    let frameworkAssemblies = getFrameworkReferencesFromCsproj csprojFile
-    
-    trace ("Reading dependencies: " @@ packagesConfig)
+    let csprojFile = sprintf "%s\%s.csproj" srcPath packageName
+    trace ("Reading dependencies from csproj file: " @@ csprojFile)
+    let csprojContent = XDocument.Load(csprojFile)
+    let frameworkAssemblies = getFrameworkReferencesFromCsproj csprojContent
+    let projectDependencies = getProjectReferencesFromCsproj csprojContent
+   
+    let packagesConfig = Path.Combine(srcPath, "packages.config") 
+    trace ("Reading dependencies from packages.config: " @@ packagesConfig)
     let dependencies =
         if TestFile packagesConfig then getDependencies packagesConfig
         else []
-
-    (dependencies, frameworkAssemblies)
+    
+    (dependencies @ projectDependencies, frameworkAssemblies)
 
 
 let createPackage (buildDir: DirectoryInfo) =
@@ -66,10 +77,10 @@ let createPackage (buildDir: DirectoryInfo) =
     CopyDir packagePath buildDir.FullName (fun filePath -> Path.GetFileName(filePath).StartsWith(packageName))
 
     let dependencies, frameworkAssemblies = getSourceInfo packageName
-    let releaseNotes = LoadReleaseNotes releaseNotesPath
 
     trace "Starting NuGet packaging..."
     trace packagePath
+
     NuGet (fun app -> 
         { app with
             NoPackageAnalysis = true
@@ -87,6 +98,8 @@ let createPackage (buildDir: DirectoryInfo) =
             Dependencies = dependencies
         }) nuspecFile 
 
+
+
 // Targets
 Target "Clean" (fun _ ->
    trace "Cleanup..."
@@ -95,8 +108,8 @@ Target "Clean" (fun _ ->
 
 
 Target "RestorePackages" (fun _ -> 
-     "../Pizza.sln"
-     |> RestoreMSSolutionPackages (fun p ->
+    "../Pizza.sln"
+    |> RestoreMSSolutionPackages (fun p ->
          { p with
              OutputPath = "../packages"
              Retries = 3 })
@@ -104,9 +117,9 @@ Target "RestorePackages" (fun _ ->
 
 
 Target "BuildAll" (fun _ ->
-   trace "Building framework projects..."
-   !! "../framework/**/*.csproj"
-   |> Seq.iter buildProject
+    trace "Building framework projects..."
+    !! "../framework/**/*.csproj"
+        |> Seq.iter buildProject
 )
 
 
