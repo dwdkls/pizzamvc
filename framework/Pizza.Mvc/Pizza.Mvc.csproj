@@ -224,9 +224,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Pizza.Contracts.Presentation\Pizza.Contracts.Presentation.csproj">
+    <ProjectReference Include="..\Pizza.Contracts\Pizza.Contracts.csproj">
       <Project>{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}</Project>
-      <Name>Pizza.Contracts.Presentation</Name>
+      <Name>Pizza.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\Pizza.Framework\Pizza.Framework.csproj">
       <Project>{c4ad1d8c-b782-4ee4-9ab0-36ba8c46d98e}</Project>

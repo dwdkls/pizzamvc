@@ -2,7 +2,7 @@ using System;
 using System.Globalization;
 using System.Text;
 using System.Web.Mvc;
-using Pizza.Contracts.Presentation.Operations.Results;
+using Pizza.Contracts.Operations.Results;
 
 namespace Pizza.Mvc.HtmlHelpers
 {

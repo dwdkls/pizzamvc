@@ -1,6 +1,6 @@
 using System;
-using Pizza.Contracts.Persistence.Attributes;
 using Pizza.Framework.TestTypes.Model.Common;
+using Pizza.Persistence.Attributes;
 
 namespace Pizza.Framework.TestTypes.Model.Components
 {

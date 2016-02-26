@@ -5,7 +5,7 @@ using Pizza.Mvc.Grid.Metamodel;
 using KebabManager.Contracts.Services;
 using KebabManager.Contracts.ViewModels.Customers;
 using System.Web.Mvc;
-using Pizza.Contracts.Presentation.Operations.Requests.Configuration;
+using Pizza.Contracts.Operations.Requests.Configuration;
 
 namespace KebabManager.Web.Controllers
 {

@@ -1,4 +1,4 @@
-using Pizza.Contracts.Presentation.Security.ViewModels;
+using Pizza.Contracts.Security.ViewModels;
 
 namespace KebabManager.Contracts.ViewModels
 {

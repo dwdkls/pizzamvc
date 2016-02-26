@@ -1,5 +1,5 @@
 using System;
-using Pizza.Contracts.Presentation.Default;
+using Pizza.Contracts.Default;
 
 namespace Pizza.Framework.TestTypes.ViewModels.Customers
 {

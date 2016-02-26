@@ -2,7 +2,7 @@
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Security;
-using Pizza.Contracts.Presentation.Security;
+using Pizza.Contracts.Security;
 using Pizza.Framework.Security;
 using Pizza.Framework.Utils.ValueInjection;
 using Pizza.Mvc.Security;

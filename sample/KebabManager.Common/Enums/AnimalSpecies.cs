@@ -1,4 +1,4 @@
-using Pizza.Contracts.Presentation.Attributes;
+using Pizza.Contracts.Attributes;
 
 namespace KebabManager.Common.Enums
 {

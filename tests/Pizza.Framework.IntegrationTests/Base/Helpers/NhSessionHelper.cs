@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Cfg;
-using Pizza.Contracts.Persistence;
 using Pizza.Framework.Persistence.Extensions;
 using Pizza.Framework.Persistence.SoftDelete;
+using Pizza.Persistence;
 
 namespace Pizza.Framework.IntegrationTests.Base.Helpers
 {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using Pizza.Contracts.Persistence;
-using Pizza.Contracts.Presentation;
+using Pizza.Contracts;
+using Pizza.Persistence;
 
 namespace Pizza.Framework.Utils.ValueInjection
 {

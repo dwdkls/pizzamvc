@@ -1,6 +1,6 @@
 using System.Linq;
 using NHibernate.Criterion;
-using Pizza.Contracts.Presentation;
+using Pizza.Contracts;
 using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata.Types;
 using Pizza.Framework.Utils;
 

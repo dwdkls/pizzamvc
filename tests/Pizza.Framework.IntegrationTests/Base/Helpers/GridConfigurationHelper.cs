@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
-using Pizza.Contracts.Presentation;
-using Pizza.Contracts.Presentation.Operations.Requests.Configuration;
+using Pizza.Contracts;
+using Pizza.Contracts.Operations.Requests.Configuration;
 using Pizza.Framework.Utils;
 
 namespace Pizza.Framework.IntegrationTests.Base.Helpers

@@ -3,10 +3,10 @@ using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.SqlCommand;
 using NHibernate.Transform;
-using Pizza.Contracts.Persistence;
-using Pizza.Contracts.Presentation;
-using Pizza.Contracts.Presentation.Operations.Requests.Configuration;
+using Pizza.Contracts;
+using Pizza.Contracts.Operations.Requests.Configuration;
 using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata.Types;
+using Pizza.Persistence;
 
 namespace Pizza.Framework.Operations.InternalUtils
 {

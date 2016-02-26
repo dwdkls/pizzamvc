@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using Pizza.Contracts.Persistence.Attributes;
+using Pizza.Persistence.Attributes;
 using Ploeh.AutoFixture.Kernel;
 
 namespace Pizza.Framework.DataGeneration.SpecimenBuilders

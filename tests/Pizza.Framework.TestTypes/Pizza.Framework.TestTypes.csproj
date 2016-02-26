@@ -52,17 +52,17 @@
     <Compile Include="ViewModels\Orders\OrderViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\framework\Pizza.Contracts.Persistence\Pizza.Contracts.Persistence.csproj">
+    <ProjectReference Include="..\..\framework\Pizza.Contracts\Pizza.Contracts.csproj">
+      <Project>{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}</Project>
+      <Name>Pizza.Contracts.Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\framework\Pizza.Contracts\Pizza.Contracts.csproj">
+      <Project>{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}</Project>
+      <Name>Pizza.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\framework\Pizza.Persistence\Pizza.Persistence.csproj">
       <Project>{6046F8A1-FDF2-4F58-AE09-76C397580923}</Project>
-      <Name>Pizza.Contracts.Persistence</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\framework\Pizza.Contracts.Presentation\Pizza.Contracts.Presentation.csproj">
-      <Project>{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}</Project>
-      <Name>Pizza.Contracts.Presentation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\framework\Pizza.Contracts.Presentation\Pizza.Contracts.Presentation.csproj">
-      <Project>{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}</Project>
-      <Name>Pizza.Contracts.Presentation</Name>
+      <Name>Pizza.Persistence</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

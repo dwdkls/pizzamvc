@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using Pizza.Contracts.Persistence;
-using Pizza.Contracts.Persistence.Attributes;
 using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata.Types;
 using Pizza.Framework.Utils;
+using Pizza.Persistence;
+using Pizza.Persistence.Attributes;
 
 namespace Pizza.Framework.Operations.InternalUtils.RuntimeMetadata
 {

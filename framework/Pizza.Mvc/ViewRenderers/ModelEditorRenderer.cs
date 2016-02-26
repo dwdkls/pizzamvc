@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using System.Web.UI;
-using Pizza.Contracts.Presentation;
+using Pizza.Contracts;
 using Pizza.Framework.Utils;
 using Pizza.Mvc.ViewRenderers.DropDown;
 

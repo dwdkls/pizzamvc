@@ -1,7 +1,7 @@
 ﻿using System;
 using Omu.ValueInjecter;
 using Omu.ValueInjecter.Injections;
-using Pizza.Contracts.Persistence;
+using Pizza.Persistence;
 
 namespace Pizza.Framework.Utils.ValueInjection
 {

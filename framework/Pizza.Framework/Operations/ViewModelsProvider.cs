@@ -3,16 +3,16 @@ using System.Linq;
 using System.Linq.Expressions;
 using NHibernate;
 using NHibernate.Criterion;
-using Pizza.Contracts.Persistence;
-using Pizza.Contracts.Presentation;
-using Pizza.Contracts.Presentation.Operations.Requests;
-using Pizza.Contracts.Presentation.Operations.Results;
+using Pizza.Contracts;
+using Pizza.Contracts.Operations.Requests;
+using Pizza.Contracts.Operations.Results;
 using Pizza.Framework.Operations.InternalUtils;
 using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata;
 using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata.Types;
 using Pizza.Framework.Persistence.Extensions;
 using Pizza.Framework.Persistence.Transactions;
 using Pizza.Framework.Utils.ValueInjection;
+using Pizza.Persistence;
 
 namespace Pizza.Framework.Operations
 {

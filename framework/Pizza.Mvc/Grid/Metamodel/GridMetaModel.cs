@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Pizza.Contracts.Presentation.Operations.Requests.Configuration;
+using Pizza.Contracts.Operations.Requests.Configuration;
 
 namespace Pizza.Mvc.Grid.Metamodel
 {

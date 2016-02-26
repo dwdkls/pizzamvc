@@ -1,7 +1,7 @@
 using System.Linq;
 using NUnit.Asserts.Compare;
 using NUnit.Framework;
-using Pizza.Contracts.Presentation.Operations.Results;
+using Pizza.Contracts.Operations.Results;
 
 namespace Pizza.Framework.IntegrationTests.Extensions
 {

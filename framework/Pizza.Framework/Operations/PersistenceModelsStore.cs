@@ -1,9 +1,9 @@
 ﻿using System;
 using NHibernate;
-using Pizza.Contracts.Persistence;
-using Pizza.Contracts.Presentation;
+using Pizza.Contracts;
 using Pizza.Framework.Persistence.Transactions;
 using Pizza.Framework.Utils.ValueInjection;
+using Pizza.Persistence;
 
 namespace Pizza.Framework.Operations
 {

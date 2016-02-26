@@ -1,6 +1,6 @@
 using NHibernate;
 using NHibernate.Event;
-using Pizza.Contracts.Persistence;
+using Pizza.Persistence;
 
 namespace Pizza.Framework.Persistence.SoftDelete
 {

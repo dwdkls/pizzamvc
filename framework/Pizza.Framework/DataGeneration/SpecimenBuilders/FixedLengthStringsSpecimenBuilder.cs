@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using Pizza.Contracts.Persistence.Attributes;
+using Pizza.Persistence.Attributes;
 
 namespace Pizza.Framework.DataGeneration.SpecimenBuilders
 {

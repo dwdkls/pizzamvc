@@ -1,6 +1,6 @@
 using System;
 using KebabManager.Common.Enums;
-using Pizza.Contracts.Persistence.Attributes;
+using Pizza.Persistence.Attributes;
 
 namespace KebabManager.Model.Components
 {

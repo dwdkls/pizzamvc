@@ -1,7 +1,7 @@
 using System;
 using NUnit.Framework;
-using Pizza.Contracts.Presentation.Operations.Requests;
-using Pizza.Contracts.Presentation.Operations.Requests.Configuration;
+using Pizza.Contracts.Operations.Requests;
+using Pizza.Contracts.Operations.Requests.Configuration;
 using Pizza.Framework.IntegrationTests.Base;
 using Pizza.Framework.IntegrationTests.TestServices;
 using Pizza.Framework.DataGeneration;

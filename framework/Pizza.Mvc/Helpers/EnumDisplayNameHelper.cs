@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Pizza.Contracts.Presentation.Attributes;
+using Pizza.Contracts.Attributes;
 using Pizza.Framework.Utils;
 
 namespace Pizza.Mvc.Helpers

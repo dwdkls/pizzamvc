@@ -52,9 +52,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KebabManager.Contracts", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KebabManager.Common", "sample\KebabManager.Common\KebabManager.Common.csproj", "{F83BB15C-90A6-4690-B950-16C6F28C1FE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza.Contracts.Persistence", "framework\Pizza.Contracts.Persistence\Pizza.Contracts.Persistence.csproj", "{6046F8A1-FDF2-4F58-AE09-76C397580923}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza.Contracts", "framework\Pizza.Contracts\Pizza.Contracts.csproj", "{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza.Contracts.Presentation", "framework\Pizza.Contracts.Presentation\Pizza.Contracts.Presentation.csproj", "{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza.Persistence", "framework\Pizza.Persistence\Pizza.Persistence.csproj", "{6046F8A1-FDF2-4F58-AE09-76C397580923}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,14 +103,14 @@ Global
 		{F83BB15C-90A6-4690-B950-16C6F28C1FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F83BB15C-90A6-4690-B950-16C6F28C1FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F83BB15C-90A6-4690-B950-16C6F28C1FE4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6046F8A1-FDF2-4F58-AE09-76C397580923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6046F8A1-FDF2-4F58-AE09-76C397580923}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6046F8A1-FDF2-4F58-AE09-76C397580923}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6046F8A1-FDF2-4F58-AE09-76C397580923}.Release|Any CPU.Build.0 = Release|Any CPU
 		{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6046F8A1-FDF2-4F58-AE09-76C397580923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6046F8A1-FDF2-4F58-AE09-76C397580923}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6046F8A1-FDF2-4F58-AE09-76C397580923}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6046F8A1-FDF2-4F58-AE09-76C397580923}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -128,7 +128,7 @@ Global
 		{98DD60F4-BF38-4403-8AFD-492CFEEDBD66} = {D86F5054-0BDC-496F-BB2C-6E7A23656FA7}
 		{D16CB493-E4A6-4069-890D-9E151DD897BD} = {D86F5054-0BDC-496F-BB2C-6E7A23656FA7}
 		{F83BB15C-90A6-4690-B950-16C6F28C1FE4} = {D86F5054-0BDC-496F-BB2C-6E7A23656FA7}
-		{6046F8A1-FDF2-4F58-AE09-76C397580923} = {2588CAFD-487A-4138-9B17-8B3863B4056A}
 		{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B} = {2588CAFD-487A-4138-9B17-8B3863B4056A}
+		{6046F8A1-FDF2-4F58-AE09-76C397580923} = {2588CAFD-487A-4138-9B17-8B3863B4056A}
 	EndGlobalSection
 EndGlobal

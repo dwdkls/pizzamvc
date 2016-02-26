@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using Pizza.Contracts.Presentation;
+using Pizza.Contracts;
 using Pizza.Mvc.ViewRenderers;
 using Pizza.Mvc.ViewRenderers.DropDown;
 

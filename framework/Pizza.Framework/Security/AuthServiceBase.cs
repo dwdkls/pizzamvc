@@ -1,13 +1,13 @@
 using System.Security.Authentication;
 using NHibernate;
-using Pizza.Contracts.Persistence;
-using Pizza.Contracts.Persistence.Default;
-using Pizza.Contracts.Presentation.Security;
-using Pizza.Contracts.Presentation.Security.ServiceContracts;
-using Pizza.Contracts.Presentation.Security.ViewModels;
+using Pizza.Contracts.Security;
+using Pizza.Contracts.Security.ServiceContracts;
+using Pizza.Contracts.Security.ViewModels;
 using Pizza.Framework.Persistence.Transactions;
 using Pizza.Framework.Utils;
 using Pizza.Framework.Utils.ValueInjection;
+using Pizza.Persistence;
+using Pizza.Persistence.Default;
 
 namespace Pizza.Framework.Security
 {

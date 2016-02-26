@@ -1,5 +1,5 @@
-﻿using Pizza.Contracts.Persistence;
-using Pizza.Framework.DataGeneration.SpecimenBuilders;
+﻿using Pizza.Framework.DataGeneration.SpecimenBuilders;
+using Pizza.Persistence;
 using Ploeh.AutoFixture;
 
 namespace Pizza.Framework.DataGeneration

@@ -1,8 +1,8 @@
 using System;
 using FluentNHibernate.Conventions;
 using FluentNHibernate.Conventions.Instances;
-using Pizza.Contracts.Persistence.Attributes;
 using Pizza.Framework.Utils;
+using Pizza.Persistence.Attributes;
 
 namespace Pizza.Framework.Persistence.Config.Conventions
 {

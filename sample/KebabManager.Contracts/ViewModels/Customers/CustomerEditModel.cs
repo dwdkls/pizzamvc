@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using KebabManager.Common.Enums;
-using Pizza.Contracts.Presentation.Default;
+using Pizza.Contracts.Default;
 
 namespace KebabManager.Contracts.ViewModels.Customers
 {

@@ -1,8 +1,8 @@
 ﻿using System;
-using Pizza.Contracts.Persistence.Attributes;
-using Pizza.Contracts.Persistence.Default;
 using Pizza.Framework.TestTypes.Model.Common;
 using Pizza.Framework.TestTypes.Model.Components;
+using Pizza.Persistence.Attributes;
+using Pizza.Persistence.Default;
 
 namespace Pizza.Framework.TestTypes.Model.PersistenceModels
 {

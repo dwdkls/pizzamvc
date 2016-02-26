@@ -1,4 +1,4 @@
-﻿using Pizza.Contracts.Presentation.Operations.Results;
+﻿using Pizza.Contracts.Operations.Results;
 
 #pragma warning disable 1591
 //------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 using FluentNHibernate.Conventions;
 using FluentNHibernate.Conventions.Instances;
-using Pizza.Contracts.Persistence;
 using Pizza.Framework.Persistence.SoftDelete;
+using Pizza.Persistence;
 
 namespace Pizza.Framework.Persistence.Config.Conventions
 {

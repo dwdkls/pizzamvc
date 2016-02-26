@@ -5,7 +5,7 @@ using NSubstitute;
 using Pizza.Framework.Persistence.SoftDelete;
 using Pizza.Framework.Security;
 using System.Reflection;
-using Pizza.Contracts.Presentation.Security;
+using Pizza.Contracts.Security;
 using Pizza.Framework.TestTypes.Model.PersistenceModels;
 
 namespace Pizza.Framework.IntegrationTests.Base.Config

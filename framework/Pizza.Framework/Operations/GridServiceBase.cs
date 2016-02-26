@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq.Expressions;
 using NHibernate;
-using Pizza.Contracts.Persistence;
-using Pizza.Contracts.Presentation;
-using Pizza.Contracts.Presentation.Operations;
-using Pizza.Contracts.Presentation.Operations.Requests;
-using Pizza.Contracts.Presentation.Operations.Results;
+using Pizza.Contracts;
+using Pizza.Contracts.Operations;
+using Pizza.Contracts.Operations.Requests;
+using Pizza.Contracts.Operations.Results;
 using Pizza.Framework.Persistence.Transactions;
+using Pizza.Persistence;
 
 namespace Pizza.Framework.Operations
 {
