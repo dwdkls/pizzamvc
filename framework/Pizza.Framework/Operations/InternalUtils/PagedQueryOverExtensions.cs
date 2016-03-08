@@ -33,6 +33,11 @@ namespace Pizza.Framework.Operations.InternalUtils
         {
             foreach (var condition in filterConfiguration.Conditions)
             {
+                if (!viewModelToPersistenceModelMap.AllProperties.ContainsKey(condition.PropertyName))
+                {
+                    throw new ApplicationException("Property used to filter records can not be found in ViewModelToPersistenceModelMap. Grid metamodel is probably broken.");
+                }
+
                 string conditionPropertyName = viewModelToPersistenceModelMap.AllProperties[condition.PropertyName];
 
                 switch (condition.Operator)
@@ -61,6 +66,11 @@ namespace Pizza.Framework.Operations.InternalUtils
                 SortConfiguration sortSettings, ViewModelToPersistenceModelPropertyNamesMaps viewModelToPersistenceModelMap)
             where TPersistenceModel : IPersistenceModel
         {
+            if (!viewModelToPersistenceModelMap.AllProperties.ContainsKey(sortSettings.PropertyName))
+            {
+                throw new ApplicationException("Property used to sort can not be found in ViewModelToPersistenceModelMap. Grid metamodel is probably broken.");
+            }
+
             bool ascending = sortSettings.Mode == SortMode.Ascending;
             string sortPropertyName = viewModelToPersistenceModelMap.AllProperties[sortSettings.PropertyName];
             query.UnderlyingCriteria.AddOrder(new Order(sortPropertyName, ascending));

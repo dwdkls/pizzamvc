@@ -13,7 +13,7 @@ namespace Pizza.Framework.Security
 {
     [Transactional]
     public abstract class AuthServiceBase<TUser> : IAuthService
-        where TUser : IPizzaUser, IPersistenceModel 
+        where TUser : IPizzaUser, IPersistenceModel // TODO: remove IPizzaUser to allow use really any persistence model to be used?
     {
         protected readonly ISession session;
 

@@ -1,14 +1,19 @@
-﻿using System;
-using System.Configuration;
-using System.Linq;
+﻿using Autofac;
 using KebabManager.Model.PersistenceModels;
 using NHibernate.Tool.hbm2ddl;
+using NSubstitute;
+using Pizza.Contracts.Security;
+using Pizza.Framework;
 using Pizza.Framework.DataGeneration;
 using Pizza.Framework.Persistence;
+using Pizza.Framework.Persistence.Audit;
 using Pizza.Framework.Persistence.Extensions;
-using Pizza.Framework.Security;
+using Pizza.Framework.Persistence.Transactions;
 using Pizza.Framework.Utils;
 using Ploeh.AutoFixture;
+using System;
+using System.Configuration;
+using System.Linq;
 
 namespace KebabManager.SchemaBuilder
 {
@@ -18,6 +23,16 @@ namespace KebabManager.SchemaBuilder
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             var configuration = NhConfigurationFactory.BuildConfiguration(connectionString, typeof(Customer).Assembly);
+
+            var builder = new ContainerBuilder();
+
+            builder.RegisterType<PersistenceModelAuditor>().AsSelf();
+            builder.RegisterType<TransactionManagingInterceptor>().AsSelf();
+
+            RegisterMockedUserContext(builder);
+
+            var container = builder.Build();
+            PizzaServerContext.Initialize(container);
 
             var exporter = new SchemaExport(configuration);
             exporter.Create(true, true);
@@ -76,6 +91,17 @@ namespace KebabManager.SchemaBuilder
 
             var users = new[] {user1, user2, user3};
             return users;
+        }
+
+        private static void RegisterMockedUserContext(ContainerBuilder builder)
+        {
+            var pizzaPrincipal = Substitute.For<IPizzaPrincipal>();
+            pizzaPrincipal.Id.Returns(997);
+
+            var userContext = Substitute.For<IPizzaUserContext>();
+            userContext.CurrentUser.Returns(pizzaPrincipal);
+
+            builder.RegisterInstance(userContext).AsImplementedInterfaces();
         }
     }
 }

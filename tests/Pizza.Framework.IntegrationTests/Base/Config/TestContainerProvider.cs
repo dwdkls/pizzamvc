@@ -3,7 +3,6 @@ using NHibernate;
 using NHibernate.Cfg;
 using NSubstitute;
 using Pizza.Framework.Persistence.SoftDelete;
-using Pizza.Framework.Security;
 using System.Reflection;
 using Pizza.Contracts.Security;
 using Pizza.Framework.TestTypes.Model.PersistenceModels;

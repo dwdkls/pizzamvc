@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Web;
+﻿using KebabManager.Contracts.Services;
+using KebabManager.Contracts.ViewModels.Customers;
+using Pizza.Contracts.Operations.Requests.Configuration;
 using Pizza.Mvc.Controllers;
 using Pizza.Mvc.Grid.Metamodel;
-using KebabManager.Contracts.Services;
-using KebabManager.Contracts.ViewModels.Customers;
+using System.Collections.Generic;
 using System.Web.Mvc;
-using Pizza.Contracts.Operations.Requests.Configuration;
 
 namespace KebabManager.Web.Controllers
 {
@@ -39,6 +38,8 @@ namespace KebabManager.Web.Controllers
                 .AddColumn(x => x.FirstName, 200)
                 .AddDefaultSortColumn(x => x.FingersCount, SortMode.Descending, 150, ColumnWidthMode.Fixed, FilterOperator.Disabled)
                 .AddColumn(x => x.PreviousSurgeryDate, 150, ColumnWidthMode.Fixed, FilterOperator.DateEquals)
+                .AddColumn(x => x.Animal, 100)
+                .AddColumn(x => x.Type, 100)
                 .Build();
 
             return gridMetaModel;

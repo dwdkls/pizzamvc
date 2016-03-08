@@ -108,7 +108,7 @@ namespace Pizza.Mvc.ViewRenderers
 
         private void RenderEditableProperty(PropertyInfo propertyInfo)
         {
-            var type = Nullable.GetUnderlyingType(propertyInfo.PropertyType) ?? propertyInfo.PropertyType;
+            var type = propertyInfo.PropertyType.GetRealType();
             var value = propertyInfo.GetValue(this.model);
 
             if (typeof(Enum).IsAssignableFrom(type))

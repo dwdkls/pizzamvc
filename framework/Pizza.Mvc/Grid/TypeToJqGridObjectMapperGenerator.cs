@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using Pizza.Framework.Utils;
 using Pizza.Mvc.Helpers;
 
 namespace Pizza.Mvc.Grid
@@ -69,19 +70,21 @@ namespace Pizza.Mvc.Grid
         {
             Expression propertyExpression = Expression.Property(sourceObjectParameter, propertyInfo);
 
-            if (propertyInfo.PropertyType.IsValueType)
-            {
-                // Calling Convert.ToString(property type, IFormatProvider)
-                var methodParmetersTypes = new[] { propertyInfo.PropertyType, typeof(IFormatProvider) };
-                MethodInfo convertToStringMethod = typeof(Convert).GetMethod("ToString", methodParmetersTypes);
-                propertyExpression = Expression.Call(convertToStringMethod, propertyExpression, polishCultureExpression);
-            }
-            else if (propertyInfo.PropertyType.IsEnum)
+            var propertyType = propertyInfo.PropertyType.GetRealType();
+
+            if (propertyType.IsEnum)
             {
                 // Calling EnumHelper.GetDisplayName(Type enumType, object enumValue)
-                var propertyTypeExpression = Expression.Constant(propertyInfo.PropertyType);
+                var propertyTypeExpression = Expression.Constant(propertyType);
                 var enumValueExpression = Expression.Convert(propertyExpression, typeof(object));
                 propertyExpression = Expression.Call(getEnumDisplayNameMethodInfo, propertyTypeExpression, enumValueExpression);
+            }
+            else if (propertyType.IsValueType)
+            {
+                // Calling Convert.ToString(property type, IFormatProvider)
+                var methodParmetersTypes = new[] { propertyType, typeof(IFormatProvider) };
+                MethodInfo convertToStringMethod = typeof(Convert).GetMethod("ToString", methodParmetersTypes);
+                propertyExpression = Expression.Call(convertToStringMethod, propertyExpression, polishCultureExpression);
             }
 
             return propertyExpression;

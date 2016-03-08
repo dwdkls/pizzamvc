@@ -39,6 +39,8 @@ namespace Pizza.Framework.Tests.Operations.Utils
                 { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.Type), "Type" },
                 { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.OrderDate), "OrderDate" },
                 { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.TotalPrice), "TotalPrice" },
+                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.Note), "Note" },
+                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.ItemsCount), "ItemsCount" },
             };
 
             var allProps = joinedModels.Union(components).Union(simpleProps).ToDictionary(x => x.Key, x => x.Value);
@@ -49,7 +51,7 @@ namespace Pizza.Framework.Tests.Operations.Utils
 
             // ASSERT
             map.Should(Be.Not.Null);
-            map.AllProperties.Count.Should(Be.EqualTo(15));
+            map.AllProperties.Count.Should(Be.EqualTo(17));
             map.AllProperties.Should(Be.EquivalentTo(allProps));
         }
 
@@ -65,6 +67,8 @@ namespace Pizza.Framework.Tests.Operations.Utils
                 PropInfo.FromPropertyExpression<Order>(v => v.Type), 
                 PropInfo.FromPropertyExpression<Order>(v => v.OrderDate),
                 PropInfo.FromPropertyExpression<Order>(v => v.TotalPrice),
+                PropInfo.FromPropertyExpression<Order>(v => v.Note),
+                PropInfo.FromPropertyExpression<Order>(v => v.ItemsCount),
             };
 
             return new PersistenceModelPropertiesDescription(simpleProps, components, joinedModels);

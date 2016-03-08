@@ -28,5 +28,13 @@ namespace Pizza.Framework.Utils
 
             return result;
         }
+
+        /// <summary>
+        /// Returns real (not nullable) type of property.
+        /// </summary>
+        public static Type GetRealType(this Type type)
+        {
+            return Nullable.GetUnderlyingType(type) ?? type;
+        }
     }
 }

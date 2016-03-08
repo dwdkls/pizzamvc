@@ -17,6 +17,7 @@ namespace Pizza.Contracts.Operations.Requests.Configuration
 
         private static object GetValue(Type propertyType, string valueAsString)
         {
+            propertyType = Nullable.GetUnderlyingType(propertyType) ?? propertyType;
             if (propertyType.IsEnum)
             {
                 return Enum.Parse(propertyType, valueAsString);

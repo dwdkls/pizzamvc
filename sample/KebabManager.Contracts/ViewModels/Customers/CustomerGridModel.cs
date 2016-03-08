@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using KebabManager.Common.Enums;
 using Pizza.Contracts.Default;
 
 namespace KebabManager.Contracts.ViewModels.Customers
@@ -20,5 +21,11 @@ namespace KebabManager.Contracts.ViewModels.Customers
 
         [Display(Name = "Fingers count")]
         public int FingersCount { get; set; }
+
+        [Display(Name = "Type")]
+        public CustomerType Type { get; set; }
+
+        [Display(Name = "Favourite animal")]
+        public AnimalSpecies? Animal { get; set; }
     }
 }

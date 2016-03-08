@@ -28,11 +28,7 @@ namespace Pizza.Mvc.Helpers
 
         public static Dictionary<int, string> GetValueNameMap(Type enumType)
         {
-            // handle nullable enums
-            if (enumType.IsGenericType && enumType.GetGenericTypeDefinition() == typeof(Nullable<>))
-            {
-                enumType = Nullable.GetUnderlyingType(enumType);
-            }
+            enumType = enumType.GetRealType();
 
             var nameValueMapFromEnum = new Dictionary<int, string>();
             var enumMembers = enumType.GetMembers(BindingFlags.Public | BindingFlags.Static);
@@ -53,7 +49,7 @@ namespace Pizza.Mvc.Helpers
 
         public static string GetDisplayName(Type enumType, object enumValue)
         {
-            var enumMembers = enumType.GetMembers(BindingFlags.Public | BindingFlags.Static);
+            var enumMembers = enumType.GetMembers(BindingFlags.Public | BindingFlags.Static); // TODO: create GetPublicStaticMembers method?
             var enumMember = enumMembers.SingleOrDefault(x => x.Name == enumValue.ToString());
             var enumAttribute = enumMember.GetAttribute<EnumDisplayNameAttribute>();
 

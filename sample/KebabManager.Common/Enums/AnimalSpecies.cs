@@ -10,5 +10,9 @@ namespace KebabManager.Common.Enums
         Dog,
         [EnumDisplayName("Frozen chicken")]
         FrozenChicken,
+        [EnumDisplayName("Fish and chips")]
+        Fish,
+        [EnumDisplayName("Big bird")]
+        BigBird
     }
 }

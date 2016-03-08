@@ -8,7 +8,7 @@ namespace Pizza.Framework.Operations.InternalUtils.RuntimeMetadata
     public class ViewModelToPersistenceModelPropertyNamesMapsGenerator
     {
         public static ViewModelToPersistenceModelPropertyNamesMaps Generate(
-            Type viewModelType, 
+            Type viewModelType,
             PersistenceModelPropertiesDescription persistenceModelDescription)
         {
             var viewModelProps = viewModelType.GetProperties().Select(PropInfo.FromPropertyInfo).ToList();
@@ -21,6 +21,14 @@ namespace Pizza.Framework.Operations.InternalUtils.RuntimeMetadata
                 .Union(componentsMap)
                 .Union(joinedMap)
                 .ToDictionary(x => x.Key, x => x.Value);
+
+            var missingInPersistenceModel = viewModelProps.Where(x => allProps.All(v => v.Key != x.Name)).ToList();
+            if (missingInPersistenceModel.Count > 0)
+            {
+                var propNames = missingInPersistenceModel.Select(x => x.Name).ToArray();
+                var message = "Properties from view model not found in persistence model: " + string.Join(",", propNames);
+                throw new ApplicationException(message);
+            }
 
             return new ViewModelToPersistenceModelPropertyNamesMaps(allProps);
         }

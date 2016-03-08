@@ -110,22 +110,22 @@ namespace Pizza.Mvc.Grid.Metamodel
             Dictionary<string, string> selectFilterMap = null;
             var filterOperator = FilterOperator.Auto;
 
-            var columnType = typeof(TColumn);
+            var columnType = typeof(TColumn).GetRealType();
 
             if (columnType == typeof(string))
             {
                 filterOperator = FilterOperator.Like;
             }
-            if (columnType == typeof(DateTime))
+            else if (columnType == typeof(DateTime))
             {
                 filterOperator = FilterOperator.DateEquals;
             }
-            if (columnType.IsEnum)
+            else if (columnType.IsEnum)
             {
                 selectFilterMap = EnumDisplayNameHelper.GetValueAndDescriptionMap(columnType);
                 filterOperator = FilterOperator.Select;
             }
-            if (columnType.IsValueType)
+            else if (columnType.IsValueType)
             {
                 // TODO: change to Equals
                 filterOperator = FilterOperator.Disabled;

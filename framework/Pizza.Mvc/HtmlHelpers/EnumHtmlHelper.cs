@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
+using Pizza.Framework.Utils;
 using Pizza.Mvc.Helpers;
 
 namespace Pizza.Mvc.HtmlHelpers
@@ -14,7 +15,7 @@ namespace Pizza.Mvc.HtmlHelpers
         public static IHtmlString EnumDropDownListFor<TModel, TEnum>(this HtmlHelper<TModel> html, Expression<Func<TModel, TEnum>> expression)
         {
             var metadata = ModelMetadata.FromLambdaExpression(expression, html.ViewData);
-            var enumType = Nullable.GetUnderlyingType(metadata.ModelType) ?? metadata.ModelType;
+            var enumType = metadata.ModelType.GetRealType();
             var enumValues = EnumDisplayNameHelper.GetValueNameMap(enumType);
             var selectedValue = (int)metadata.Model;
 
@@ -32,7 +33,7 @@ namespace Pizza.Mvc.HtmlHelpers
         public static IHtmlString EnumDisplayFor<TModel, TEnum>(this HtmlHelper<TModel> html, Expression<Func<TModel, TEnum>> expression)
         {
             var metadata = ModelMetadata.FromLambdaExpression(expression, html.ViewData);
-            var enumType = Nullable.GetUnderlyingType(metadata.ModelType) ?? metadata.ModelType;
+            var enumType = metadata.ModelType.GetRealType();
             var name = EnumDisplayNameHelper.GetDisplayName(enumType, metadata.Model);
 
             return html.Raw(name);
