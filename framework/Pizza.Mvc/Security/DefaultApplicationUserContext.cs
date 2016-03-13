@@ -1,6 +1,5 @@
 ﻿using System.Web;
 using Pizza.Contracts.Security;
-using Pizza.Framework.Security;
 
 namespace Pizza.Mvc.Security
 {
@@ -8,7 +7,7 @@ namespace Pizza.Mvc.Security
     {
         public IPizzaPrincipal CurrentUser
         {
-            get { return (IPizzaPrincipal)HttpContext.Current.User; }
+            get { return HttpContext.Current.User as IPizzaPrincipal; }
         }
     }
 }

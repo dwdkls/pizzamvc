@@ -2,7 +2,6 @@
 using System.Linq;
 using NHibernate.Persister.Entity;
 using Pizza.Contracts.Security;
-using Pizza.Framework.Security;
 using Pizza.Framework.Utils;
 using Pizza.Persistence;
 
@@ -69,7 +68,9 @@ namespace Pizza.Framework.Persistence.Audit
 
         private int GetUserId()
         {
-            return this._applicationUserContext.CurrentUser.Id;
+            var user = this._applicationUserContext.CurrentUser;
+
+            return user != null ? user.Id : 0;
         }
     }
 }

@@ -6,7 +6,6 @@ using System.Web.Security;
 using Pizza.Contracts.Security;
 using Pizza.Contracts.Security.ServiceContracts;
 using Pizza.Contracts.Security.ViewModels;
-using Pizza.Framework.Security;
 using Pizza.Framework.Utils.ValueInjection;
 using Pizza.Mvc.Security;
 
