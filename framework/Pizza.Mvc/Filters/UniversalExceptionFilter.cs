@@ -34,7 +34,7 @@ namespace Pizza.Mvc.Filters
                 filterContext.HttpContext.Response.Clear();
                 filterContext.HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-                filterContext.Controller.TempData["error"] = message;
+                filterContext.Controller.TempData[ScriptKeys.Error] = message;
 
                 filterContext.Result = new ViewResult
                 {

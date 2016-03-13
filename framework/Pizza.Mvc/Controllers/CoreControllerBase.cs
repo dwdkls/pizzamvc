@@ -14,7 +14,7 @@ namespace Pizza.Mvc.Controllers
 
         protected void ShowError(string message)
         {
-            this.TempData[ScriptKeys.Error] = message;
+            this.ViewData[ScriptKeys.Error] = message;
         }
     }
 }

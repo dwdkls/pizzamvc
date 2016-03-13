@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="App_Start\AutofacModule.cs" />
     <Compile Include="App_Start\PizzaMvcPostApplicationStart.cs" />
+    <Compile Include="Helpers\RouteTableHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Filters\UniversalExceptionFilter.cs" />
     <Compile Include="Helpers\EnumDisplayNameHelper.cs" />

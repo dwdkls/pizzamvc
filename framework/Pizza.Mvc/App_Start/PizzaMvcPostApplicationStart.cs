@@ -3,6 +3,7 @@ using Autofac.Integration.Mvc;
 using Pizza.Framework;
 using Pizza.Mvc;
 using Pizza.Mvc.Filters;
+using Pizza.Mvc.Helpers;
 using RazorGenerator.Mvc;
 using System;
 using System.Web;
@@ -27,15 +28,25 @@ namespace Pizza.Mvc
 
         private static void RegisterRazorGeneratedViewEngine()
         {
-            var engine = new PrecompiledMvcEngine(typeof(PizzaMvcPostApplicationStart).Assembly)
+            var areaNames = RouteTableHelper.GetApplicationAreaNames();
+            foreach (var areaName in areaNames)
             {
-                UsePhysicalViewsIfNewer = HttpContext.Current.Request.IsLocal
+                var engine = new PrecompiledMvcEngine(typeof(PizzaMvcPostApplicationStart).Assembly, string.Format("~/Areas/{0}/", areaName))
+                {
+                    UsePhysicalViewsIfNewer = HttpContext.Current.Request.IsLocal,
+                };
+
+                ViewEngines.Engines.Add(engine);
+                VirtualPathFactoryManager.RegisterVirtualPathFactory(engine);
+            }
+
+            var mainEngine = new PrecompiledMvcEngine(typeof(PizzaMvcPostApplicationStart).Assembly)
+            {
+                UsePhysicalViewsIfNewer = HttpContext.Current.Request.IsLocal,
             };
 
-            ViewEngines.Engines.Add(engine);
-
-            // StartPage lookups are done by WebPages. 
-            VirtualPathFactoryManager.RegisterVirtualPathFactory(engine);
+            ViewEngines.Engines.Add(mainEngine);
+            VirtualPathFactoryManager.RegisterVirtualPathFactory(mainEngine);
         }
 
         private static void RegisterGlobalFilters()
@@ -49,7 +60,7 @@ namespace Pizza.Mvc
             var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
             builder.RegisterAssemblyModules(loadedAssemblies);
             var container = builder.Build();
-            
+
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
             PizzaServerContext.Initialize(container);
         }

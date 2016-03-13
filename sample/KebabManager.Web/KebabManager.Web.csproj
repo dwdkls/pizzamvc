@@ -203,6 +203,8 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
