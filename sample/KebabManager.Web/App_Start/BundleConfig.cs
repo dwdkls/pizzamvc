@@ -44,7 +44,7 @@ namespace KebabManager.Web
 
                 "~/Content/jquery.ui.theme.css",
                 
-                "~/Content/site.css",
+                "~/Content/Pizza.css",
 
                 "~/Content/jquery.jqGrid/ui.jqgrid.css",
                 "~/Content/jqGrid.bootstrap.css"
