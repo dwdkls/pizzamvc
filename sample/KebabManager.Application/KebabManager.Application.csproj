@@ -60,18 +60,6 @@
       <HintPath>..\..\packages\valueinjecter.3.1\lib\net45\Omu.ValueInjecter.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Pizza.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Pizza.Contracts.0.2\lib\net45\Pizza.Contracts.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pizza.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Pizza.Framework.0.2\lib\net45\Pizza.Framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pizza.Persistence, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Pizza.Persistence.0.2\lib\net45\Pizza.Persistence.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Ploeh.AutoFixture, Version=3.34.2.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
       <HintPath>..\..\packages\AutoFixture.3.34.2\lib\net40\Ploeh.AutoFixture.dll</HintPath>
       <Private>True</Private>
@@ -116,6 +104,18 @@
     <Compile Include="Services\MembershipService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\framework\Pizza.Contracts\Pizza.Contracts.csproj">
+      <Project>{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}</Project>
+      <Name>Pizza.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\framework\Pizza.Framework\Pizza.Framework.csproj">
+      <Project>{C4AD1D8C-B782-4EE4-9AB0-36BA8C46D98E}</Project>
+      <Name>Pizza.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\framework\Pizza.Persistence\Pizza.Persistence.csproj">
+      <Project>{6046F8A1-FDF2-4F58-AE09-76C397580923}</Project>
+      <Name>Pizza.Persistence</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KebabManager.Contracts\KebabManager.Contracts.csproj">
       <Project>{D16CB493-E4A6-4069-890D-9E151DD897BD}</Project>
       <Name>KebabManager.Contracts</Name>

@@ -72,18 +72,6 @@
       <HintPath>..\..\packages\valueinjecter.3.1\lib\net45\Omu.ValueInjecter.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Pizza.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Pizza.Contracts.0.2\lib\net45\Pizza.Contracts.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pizza.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Pizza.Framework.0.2\lib\net45\Pizza.Framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pizza.Persistence, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Pizza.Persistence.0.2\lib\net45\Pizza.Persistence.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Ploeh.AutoFixture, Version=3.34.2.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
       <HintPath>..\..\packages\AutoFixture.3.34.2\lib\net40\Ploeh.AutoFixture.dll</HintPath>
       <Private>True</Private>
@@ -113,6 +101,10 @@
     <Compile Include="ViewModels\Orders\OrderGridModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\framework\Pizza.Contracts\Pizza.Contracts.csproj">
+      <Project>{10A3EE1D-414C-4A89-9F05-5749F5FEEE7B}</Project>
+      <Name>Pizza.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KebabManager.Common\KebabManager.Common.csproj">
       <Project>{F83BB15C-90A6-4690-B950-16C6F28C1FE4}</Project>
       <Name>KebabManager.Common</Name>

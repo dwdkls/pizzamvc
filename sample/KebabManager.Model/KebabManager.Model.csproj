@@ -34,14 +34,6 @@
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Pizza.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Pizza.Contracts.0.2\lib\net45\Pizza.Contracts.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pizza.Persistence, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Pizza.Persistence.0.2\lib\net45\Pizza.Persistence.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -82,6 +74,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\framework\Pizza.Persistence\Pizza.Persistence.csproj">
+      <Project>{6046F8A1-FDF2-4F58-AE09-76C397580923}</Project>
+      <Name>Pizza.Persistence</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KebabManager.Common\KebabManager.Common.csproj">
       <Project>{f83bb15c-90a6-4690-b950-16c6f28c1fe4}</Project>
       <Name>KebabManager.Common</Name>
