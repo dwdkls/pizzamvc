@@ -1,4 +1,4 @@
-namespace Pizza.Persistence.Default
+namespace Pizza.Persistence
 {
     public interface IPizzaUser : IPersistenceModel
     {
