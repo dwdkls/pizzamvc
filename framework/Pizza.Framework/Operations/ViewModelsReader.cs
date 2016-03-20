@@ -17,7 +17,7 @@ using Pizza.Persistence;
 namespace Pizza.Framework.Operations
 {
     [Transactional]
-    public class ViewModelsProvider<TPersistenceModel, TGridModel, TDetailsModel, TEditModel, TCreateModel>
+    public class ViewModelsReader<TPersistenceModel, TGridModel, TDetailsModel, TEditModel, TCreateModel>
         where TPersistenceModel : IPersistenceModel, new()
         where TGridModel : IGridModelBase, new()
         where TDetailsModel : IDetailsModelBase, new()
@@ -30,12 +30,12 @@ namespace Pizza.Framework.Operations
 
         protected readonly ISession session;
 
-        public ViewModelsProvider(ISession session)
+        public ViewModelsReader(ISession session)
         {
             this.session = session;
         }
 
-        static ViewModelsProvider()
+        static ViewModelsReader()
         {
             persistenceModelDescription = PersistenceModelPropertiesDescriptionGenerator.GenerateDescription(typeof(TPersistenceModel));
             viewModelToPersistenceModelMap = ViewModelToPersistenceModelPropertyNamesMapsGenerator.Generate(

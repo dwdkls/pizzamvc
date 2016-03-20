@@ -3,7 +3,7 @@ using Pizza.Contracts.Operations.Results;
 
 namespace Pizza.Contracts.Operations
 {
-    public interface IGridServiceBase<TGridModel, TDetailsModel, TEditModel, TCreateModel> 
+    public interface ICrudServiceBase<TGridModel, TDetailsModel, TEditModel, TCreateModel> 
         where TGridModel : IGridModelBase
         where TDetailsModel : IDetailsModelBase
         where TEditModel : IEditModelBase

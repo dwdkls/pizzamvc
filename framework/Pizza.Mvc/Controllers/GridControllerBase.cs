@@ -8,15 +8,14 @@ using Pizza.Contracts;
 using Pizza.Contracts.Operations;
 using Pizza.Contracts.Operations.Requests;
 using Pizza.Contracts.Operations.Results;
-using Pizza.Framework.Operations;
 using Pizza.Framework.Utils;
 using Pizza.Mvc.Grid;
 using Pizza.Mvc.Grid.Metamodel;
 
 namespace Pizza.Mvc.Controllers
 {
-    public abstract class GridControllerBase<TService, TGridModel, TViewModel, TEditModel, TCreateModel> : CoreControllerBase
-        where TService : IGridServiceBase<TGridModel, TViewModel, TEditModel, TCreateModel>
+    public abstract class CrudControllerBase<TService, TGridModel, TViewModel, TEditModel, TCreateModel> : CoreControllerBase
+        where TService : ICrudServiceBase<TGridModel, TViewModel, TEditModel, TCreateModel>
         where TGridModel : IGridModelBase
         where TViewModel : IDetailsModelBase
         where TEditModel : IEditModelBase
@@ -33,7 +32,7 @@ namespace Pizza.Mvc.Controllers
         protected static GridMetamodel<TGridModel> gridMetamodel;
         protected static Func<TGridModel, object> typeToJqGridObjectMapper;
 
-        protected GridControllerBase(TService service)
+        protected CrudControllerBase(TService service)
         {
             this.service = service;
             this.InitCachedConfiguration();
@@ -42,6 +41,7 @@ namespace Pizza.Mvc.Controllers
 
         private static HashSet<Type> configuredControllers = new HashSet<Type>();
 
+        // TODO: [SMELL!!] this should be handled by IoC container not controller itself!
         private void InitCachedConfiguration()
         {
             var type = this.GetType();

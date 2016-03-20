@@ -13,7 +13,7 @@ using StringGenerator = Pizza.Framework.DataGeneration.StringGenerator;
 
 namespace Pizza.Framework.IntegrationTests.CustomersGridServiceTests
 {
-    internal class CustomersGridServiceTests : GridServiceTestsBase<ICustomersGridService>
+    internal class CustomersGridServiceTests : GridServiceTestsBase<ICustomersCrudService>
     {
         protected override void PrepareTest()
         {

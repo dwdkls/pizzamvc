@@ -84,7 +84,7 @@
     <Compile Include="Persistence\SoftDelete\SoftDeleteEventListener.cs" />
     <Compile Include="Persistence\Exceptions\OptimisticConcurrencyException.cs" />
     <Compile Include="Operations\PersistenceModelsStore.cs" />
-    <Compile Include="Operations\ViewModelsProvider.cs" />
+    <Compile Include="Operations\ViewModelsReader.cs" />
     <Compile Include="Operations\GridServiceBase.cs" />
     <Compile Include="Persistence\Transactions\TransactionalAttribute.cs" />
     <Compile Include="Persistence\Config\AutomappingConfiguration.cs" />

@@ -11,8 +11,8 @@ using Pizza.Persistence;
 namespace Pizza.Framework.Operations
 {
     [Transactional]
-    public abstract class GridServiceBase<TPersistenceModel, TGridModel, TDetailsModel, TEditModel, TCreateModel>
-        : IGridServiceBase<TGridModel, TDetailsModel, TEditModel, TCreateModel>
+    public abstract class CrudServiceBase<TPersistenceModel, TGridModel, TDetailsModel, TEditModel, TCreateModel>
+        : ICrudServiceBase<TGridModel, TDetailsModel, TEditModel, TCreateModel>
         where TPersistenceModel : IPersistenceModel, new()
         where TGridModel : IGridModelBase, new()
         where TDetailsModel : IDetailsModelBase, new()
@@ -21,39 +21,39 @@ namespace Pizza.Framework.Operations
     {
         protected readonly ISession session;
         protected readonly PersistenceModelsStore<TPersistenceModel, TEditModel, TCreateModel> persistenceModelsStore;
-        protected readonly ViewModelsProvider<TPersistenceModel, TGridModel, TDetailsModel, TEditModel, TCreateModel> viewModelsProvider;
+        protected readonly ViewModelsReader<TPersistenceModel, TGridModel, TDetailsModel, TEditModel, TCreateModel> viewModelsReader;
 
-        protected GridServiceBase(ISession session)
+        protected CrudServiceBase(ISession session)
         {
             this.session = session;
             this.persistenceModelsStore = new PersistenceModelsStore<TPersistenceModel, TEditModel, TCreateModel>(session);
-            this.viewModelsProvider = new ViewModelsProvider<TPersistenceModel, TGridModel, TDetailsModel, TEditModel, TCreateModel>(session);
+            this.viewModelsReader = new ViewModelsReader<TPersistenceModel, TGridModel, TDetailsModel, TEditModel, TCreateModel>(session);
         }
 
         public DataPageResult<TGridModel> GetDataPage(DataRequest<TGridModel> request)
         {
-            return this.viewModelsProvider.GetDataPage(request, null, null);
+            return this.viewModelsReader.GetDataPage(request, null, null);
         }
 
         protected DataPageResult<TGridModel> GetDataPage(DataRequest<TGridModel> request,
             Expression<Func<TPersistenceModel, bool>> whereCondition)
         {
-            return this.viewModelsProvider.GetDataPage(request, whereCondition, null);
+            return this.viewModelsReader.GetDataPage(request, whereCondition, null);
         }
 
         public virtual TCreateModel GetCreateModel()
         {
-            return this.viewModelsProvider.GetCreateModel();
+            return this.viewModelsReader.GetCreateModel();
         }
 
         public virtual TEditModel GetEditModel(int id)
         {
-            return this.viewModelsProvider.GetEditModel(id);
+            return this.viewModelsReader.GetEditModel(id);
         }
 
         public virtual TDetailsModel GetDetailsModel(int id)
         {
-            return this.viewModelsProvider.GetDetailsModel(id);
+            return this.viewModelsReader.GetDetailsModel(id);
         }
 
         public virtual int Create(TCreateModel createModel)

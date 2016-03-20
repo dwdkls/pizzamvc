@@ -13,7 +13,7 @@ using Ploeh.AutoFixture;
 
 namespace Pizza.Framework.IntegrationTests.CustomersGridServiceTests
 {
-    internal class GetDataPageTests : GridServiceTestsBase<ICustomersGridService>
+    internal class GetDataPageTests : GridServiceTestsBase<ICustomersCrudService>
     {
         private readonly string testName = "testABCDEFGHtests";
         private readonly int testInt = 12345;

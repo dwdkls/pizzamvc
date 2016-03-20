@@ -52,7 +52,7 @@
     <Compile Include="IGridModelBase.cs" />
     <Compile Include="IVersionableEditModelBase.cs" />
     <Compile Include="IViewModelBase.cs" />
-    <Compile Include="Operations\IGridServiceBase.cs" />
+    <Compile Include="Operations\ICrudServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Operations\Requests\Configuration\FilterCondition.cs" />
     <Compile Include="Operations\Requests\Configuration\FilterConfiguration.cs" />

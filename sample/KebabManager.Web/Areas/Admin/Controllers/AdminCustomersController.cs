@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace KebabManager.Web.Areas.Admin.Controllers
 {
-    public class AdminCustomersController : GridControllerBase<ICustomersService, CustomerGridModel, CustomerDetailsModel, CustomerEditModel, CustomerCreateModel>
+    public class AdminCustomersController : CrudControllerBase<ICustomersService, CustomerGridModel, CustomerDetailsModel, CustomerEditModel, CustomerCreateModel>
     {
         public AdminCustomersController(ICustomersService service) : base(service)
         {

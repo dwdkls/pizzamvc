@@ -21,7 +21,7 @@ namespace Pizza.Framework.IntegrationTests.OrdersGridServiceTests.GetDataPage.Ba
 {
     [TestFixture(8, 19, Description = "more than one page satisfy filter condition")]
     [TestFixture(6, 6, Description = "only few records (less than one page) satisfy filter condition")]
-    internal abstract class GetOrdersDataPageTestsBase<TFilter> : GridServiceTestsBase<IOrdersGridService>
+    internal abstract class GetOrdersDataPageTestsBase<TFilter> : GridServiceTestsBase<IOrdersCrudService>
     {
         protected List<Customer> CustomersList { get; private set; }
         protected List<Order> OrdersList { get; private set; }

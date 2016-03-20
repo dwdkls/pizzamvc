@@ -10,7 +10,7 @@ namespace KebabManager.Web.Controllers
 {
     [Authorize]
     public class OrdersController
-        : GridControllerBase<IOrdersService, OrderGridModel, OrderDetailsModel, OrderEditModel, OrderCreateModel>
+        : CrudControllerBase<IOrdersService, OrderGridModel, OrderDetailsModel, OrderEditModel, OrderCreateModel>
     {
         public OrdersController(IOrdersService service)
             : base(service)

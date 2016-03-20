@@ -12,7 +12,7 @@ using Ploeh.AutoFixture;
 namespace Pizza.Framework.IntegrationTests.OrdersGridServiceTests
 {
     [TestFixture]
-    internal class OrdersGridServiceStandardCasesTests : GridServiceTestsBase<IOrdersGridService>
+    internal class OrdersGridServiceStandardCasesTests : GridServiceTestsBase<IOrdersCrudService>
     {
         private Order order;
 
@@ -109,7 +109,7 @@ namespace Pizza.Framework.IntegrationTests.OrdersGridServiceTests
     }
 
     [TestFixture]
-    internal class OrdersGridServiceDeletionTests : GridServiceTestsBase<IOrdersGridService>
+    internal class OrdersGridServiceDeletionTests : GridServiceTestsBase<IOrdersCrudService>
     {
         protected override void PrepareTest()
         {

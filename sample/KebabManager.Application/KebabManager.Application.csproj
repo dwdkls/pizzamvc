@@ -99,8 +99,8 @@
     <Compile Include="KebabPrincipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.cs" />
-    <Compile Include="Services\CustomersGridService.cs" />
-    <Compile Include="Services\OrdersGridService.cs" />
+    <Compile Include="Services\CustomersCrudService.cs" />
+    <Compile Include="Services\OrdersCrudService.cs" />
     <Compile Include="Services\MembershipService.cs" />
   </ItemGroup>
   <ItemGroup>

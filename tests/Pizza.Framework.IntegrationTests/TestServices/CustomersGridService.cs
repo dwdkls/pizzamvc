@@ -7,11 +7,11 @@ using Pizza.Framework.TestTypes.ViewModels.Customers;
 namespace Pizza.Framework.IntegrationTests.TestServices
 {
     [Transactional]
-    public class CustomersGridService :
-        GridServiceBase<Customer, CustomerGridModel, CustomerDetailsModel, CustomerEditModel, CustomerCreateModel>,
-        ICustomersGridService
+    public class CustomersCrudService :
+        CrudServiceBase<Customer, CustomerGridModel, CustomerDetailsModel, CustomerEditModel, CustomerCreateModel>,
+        ICustomersCrudService
     {
-        public CustomersGridService(ISession session) : base(session)
+        public CustomersCrudService(ISession session) : base(session)
         {
         }
     }

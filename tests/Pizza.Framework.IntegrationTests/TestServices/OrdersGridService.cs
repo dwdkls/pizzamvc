@@ -9,11 +9,11 @@ using Pizza.Framework.Utils.ValueInjection;
 namespace Pizza.Framework.IntegrationTests.TestServices
 {
     [Transactional]
-    public class OrdersGridService :
-        GridServiceBase<Order, OrderGridModel, OrderDetailsModel, OrderEditModel, OrderCreateModel>,
-        IOrdersGridService
+    public class OrdersCrudService :
+        CrudServiceBase<Order, OrderGridModel, OrderDetailsModel, OrderEditModel, OrderCreateModel>,
+        IOrdersCrudService
     {
-        public OrdersGridService(ISession session) : base(session) { }
+        public OrdersCrudService(ISession session) : base(session) { }
 
         public override int Create(OrderCreateModel createModel)
         {

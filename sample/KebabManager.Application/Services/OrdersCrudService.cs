@@ -6,10 +6,10 @@ using Pizza.Framework.Operations;
 
 namespace KebabManager.Application.Services
 {
-    public class OrdersGridService
-        : GridServiceBase<Order, OrderGridModel, OrderDetailsModel, OrderEditModel, OrderCreateModel>, IOrdersService
+    public class OrdersCrudService
+        : CrudServiceBase<Order, OrderGridModel, OrderDetailsModel, OrderEditModel, OrderCreateModel>, IOrdersService
     {
-        public OrdersGridService(ISession session)
+        public OrdersCrudService(ISession session)
             : base(session)
         {
         }

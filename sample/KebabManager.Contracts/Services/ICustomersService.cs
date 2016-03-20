@@ -4,7 +4,7 @@ using Pizza.Contracts.Operations;
 namespace KebabManager.Contracts.Services
 {
     public interface ICustomersService 
-        : IGridServiceBase<CustomerGridModel, CustomerDetailsModel, CustomerEditModel, CustomerCreateModel>
+        : ICrudServiceBase<CustomerGridModel, CustomerDetailsModel, CustomerEditModel, CustomerCreateModel>
     {
     }
 }

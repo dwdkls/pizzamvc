@@ -4,7 +4,7 @@ using Pizza.Framework.TestTypes.ViewModels.Customers;
 
 namespace Pizza.Framework.IntegrationTests.TestServices
 {
-    public interface ICustomersGridService : IGridServiceBase<CustomerGridModel, CustomerDetailsModel, CustomerEditModel, CustomerCreateModel>
+    public interface ICustomersCrudService : ICrudServiceBase<CustomerGridModel, CustomerDetailsModel, CustomerEditModel, CustomerCreateModel>
     {
     }
 }
