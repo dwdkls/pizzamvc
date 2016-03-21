@@ -1,9 +1,9 @@
 using System;
 using System.Linq.Expressions;
-using Pizza.Framework.IntegrationTests.OrdersGridServiceTests.GetDataPage.Base;
+using Pizza.Framework.IntegrationTests.OrdersCrudServiceTests.GetDataPage.Base;
 using Pizza.Framework.TestTypes.ViewModels.Orders;
 
-namespace Pizza.Framework.IntegrationTests.OrdersGridServiceTests.GetDataPage
+namespace Pizza.Framework.IntegrationTests.OrdersCrudServiceTests.GetDataPage
 {
     internal class NoFilter : GetOrdersDataPageTestsBase<object>
     {

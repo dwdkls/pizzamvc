@@ -4,11 +4,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using NUnit.Framework;
 using Pizza.Framework.DataGeneration;
-using Pizza.Framework.IntegrationTests.OrdersGridServiceTests.GetDataPage.Base;
+using Pizza.Framework.IntegrationTests.OrdersCrudServiceTests.GetDataPage.Base;
 using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels.Orders;
 
-namespace Pizza.Framework.IntegrationTests.OrdersGridServiceTests.GetDataPage
+namespace Pizza.Framework.IntegrationTests.OrdersCrudServiceTests.GetDataPage
 {
     [TestFixture]
     internal class FilterByDouble

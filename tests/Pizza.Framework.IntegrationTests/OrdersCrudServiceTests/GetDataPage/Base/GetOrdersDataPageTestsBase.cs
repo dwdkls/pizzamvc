@@ -17,11 +17,11 @@ using Pizza.Framework.TestTypes.ViewModels.Orders;
 using Pizza.Framework.Utils;
 using Ploeh.AutoFixture;
 
-namespace Pizza.Framework.IntegrationTests.OrdersGridServiceTests.GetDataPage.Base
+namespace Pizza.Framework.IntegrationTests.OrdersCrudServiceTests.GetDataPage.Base
 {
     [TestFixture(8, 19, Description = "more than one page satisfy filter condition")]
     [TestFixture(6, 6, Description = "only few records (less than one page) satisfy filter condition")]
-    internal abstract class GetOrdersDataPageTestsBase<TFilter> : GridServiceTestsBase<IOrdersCrudService>
+    internal abstract class GetOrdersDataPageTestsBase<TFilter> : CrudServiceTestsBase<IOrdersCrudService>
     {
         protected List<Customer> CustomersList { get; private set; }
         protected List<Order> OrdersList { get; private set; }

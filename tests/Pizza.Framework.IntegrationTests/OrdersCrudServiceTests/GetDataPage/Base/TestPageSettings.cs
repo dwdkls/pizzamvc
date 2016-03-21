@@ -1,4 +1,4 @@
-namespace Pizza.Framework.IntegrationTests.OrdersGridServiceTests.GetDataPage.Base
+namespace Pizza.Framework.IntegrationTests.OrdersCrudServiceTests.GetDataPage.Base
 {
     internal class TestPageSettings
     {

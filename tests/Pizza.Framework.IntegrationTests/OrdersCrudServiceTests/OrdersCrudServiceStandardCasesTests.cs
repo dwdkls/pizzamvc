@@ -9,10 +9,10 @@ using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels.Orders;
 using Ploeh.AutoFixture;
 
-namespace Pizza.Framework.IntegrationTests.OrdersGridServiceTests
+namespace Pizza.Framework.IntegrationTests.OrdersCrudServiceTests
 {
     [TestFixture]
-    internal class OrdersGridServiceStandardCasesTests : GridServiceTestsBase<IOrdersCrudService>
+    internal class OrdersCrudServiceStandardCasesTests : CrudServiceTestsBase<IOrdersCrudService>
     {
         private Order order;
 
@@ -27,34 +27,34 @@ namespace Pizza.Framework.IntegrationTests.OrdersGridServiceTests
         [Test]
         public void GetEditModel__Success()
         {
-            var editModel = this.GetService().GetEditModel(order.Id);
+            var editModel = this.GetService().GetEditModel(this.order.Id);
 
-            editModel.PaymentInfoOrderedDate = order.PaymentInfo.OrderedDate;
+            editModel.PaymentInfoOrderedDate = this.order.PaymentInfo.OrderedDate;
 
             editModel.ShouldNot(Be.Null);
-            editModel.Id.ShouldEqual(order.Id);
-            editModel.Note.ShouldEqual(order.Note);
-            editModel.CustomerFirstName.ShouldEqual(order.Customer.FirstName);
-            editModel.CustomerLastName.ShouldEqual(order.Customer.LastName);
-            editModel.PaymentInfoOrderedDate.ShouldEqual(order.PaymentInfo.OrderedDate);
-            editModel.Type.ShouldEqual(order.Type);
-            editModel.OrderDate.ShouldEqual(order.OrderDate);
+            editModel.Id.ShouldEqual(this.order.Id);
+            editModel.Note.ShouldEqual(this.order.Note);
+            editModel.CustomerFirstName.ShouldEqual(this.order.Customer.FirstName);
+            editModel.CustomerLastName.ShouldEqual(this.order.Customer.LastName);
+            editModel.PaymentInfoOrderedDate.ShouldEqual(this.order.PaymentInfo.OrderedDate);
+            editModel.Type.ShouldEqual(this.order.Type);
+            editModel.OrderDate.ShouldEqual(this.order.OrderDate);
         }
 
         [Test]
         public void GetViewModel__Success()
         {
-            var viewModel = this.GetService().GetDetailsModel(order.Id);
+            var viewModel = this.GetService().GetDetailsModel(this.order.Id);
 
             viewModel.ShouldNot(Be.Null);
-            viewModel.Id.ShouldEqual(order.Id);
-            viewModel.Note.ShouldEqual(order.Note);
-            viewModel.CustomerFirstName.ShouldEqual(order.Customer.FirstName);
-            viewModel.CustomerLastName.ShouldEqual(order.Customer.LastName);
-            viewModel.PaymentInfoOrderedDate.ShouldEqual(order.PaymentInfo.OrderedDate);
-            viewModel.Type.ShouldEqual(order.Type);
-            viewModel.OrderDate.ShouldEqual(order.OrderDate);
-            viewModel.PaymentInfoState.ShouldEqual(order.PaymentInfo.State);
+            viewModel.Id.ShouldEqual(this.order.Id);
+            viewModel.Note.ShouldEqual(this.order.Note);
+            viewModel.CustomerFirstName.ShouldEqual(this.order.Customer.FirstName);
+            viewModel.CustomerLastName.ShouldEqual(this.order.Customer.LastName);
+            viewModel.PaymentInfoOrderedDate.ShouldEqual(this.order.PaymentInfo.OrderedDate);
+            viewModel.Type.ShouldEqual(this.order.Type);
+            viewModel.OrderDate.ShouldEqual(this.order.OrderDate);
+            viewModel.PaymentInfoState.ShouldEqual(this.order.PaymentInfo.State);
         }
 
         [Test]
@@ -109,7 +109,7 @@ namespace Pizza.Framework.IntegrationTests.OrdersGridServiceTests
     }
 
     [TestFixture]
-    internal class OrdersGridServiceDeletionTests : GridServiceTestsBase<IOrdersCrudService>
+    internal class OrdersCrudServiceDeletionTests : CrudServiceTestsBase<IOrdersCrudService>
     {
         protected override void PrepareTest()
         {

@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Linq;
 using NHibernate;
+using NUnit.Framework;
 using Pizza.Framework.IntegrationTests.Base;
 using Pizza.Framework.IntegrationTests.TestServices;
 using Pizza.Framework.Persistence.Exceptions;
@@ -11,9 +11,9 @@ using Pizza.Framework.Utils.ValueInjection;
 using Ploeh.AutoFixture;
 using StringGenerator = Pizza.Framework.DataGeneration.StringGenerator;
 
-namespace Pizza.Framework.IntegrationTests.CustomersGridServiceTests
+namespace Pizza.Framework.IntegrationTests.CustomersCrudServiceTests
 {
-    internal class CustomersGridServiceTests : GridServiceTestsBase<ICustomersCrudService>
+    internal class CustomersCrudServiceTests : CrudServiceTestsBase<ICustomersCrudService>
     {
         protected override void PrepareTest()
         {

@@ -2,18 +2,18 @@ using System;
 using NUnit.Framework;
 using Pizza.Contracts.Operations.Requests;
 using Pizza.Contracts.Operations.Requests.Configuration;
-using Pizza.Framework.IntegrationTests.Base;
-using Pizza.Framework.IntegrationTests.TestServices;
 using Pizza.Framework.DataGeneration;
+using Pizza.Framework.IntegrationTests.Base;
 using Pizza.Framework.IntegrationTests.Base.Helpers;
 using Pizza.Framework.IntegrationTests.Extensions;
+using Pizza.Framework.IntegrationTests.TestServices;
 using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels.Customers;
 using Ploeh.AutoFixture;
 
-namespace Pizza.Framework.IntegrationTests.CustomersGridServiceTests
+namespace Pizza.Framework.IntegrationTests.CustomersCrudServiceTests
 {
-    internal class GetDataPageTests : GridServiceTestsBase<ICustomersCrudService>
+    internal class GetDataPageTests : CrudServiceTestsBase<ICustomersCrudService>
     {
         private readonly string testName = "testABCDEFGHtests";
         private readonly int testInt = 12345;

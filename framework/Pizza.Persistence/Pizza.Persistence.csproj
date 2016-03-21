@@ -43,7 +43,7 @@
     <Compile Include="Attributes\UnicodeStringAttribute.cs" />
     <Compile Include="Attributes\UniqueAttribute.cs" />
     <Compile Include="Default\AuditInfo.cs" />
-    <Compile Include="Default\IPizzaUser.cs" />
+    <Compile Include="IPizzaUser.cs" />
     <Compile Include="Default\PersistenceModelBase.cs" />
     <Compile Include="Default\SoftDeletableModelBase.cs" />
     <Compile Include="IAuditable.cs" />

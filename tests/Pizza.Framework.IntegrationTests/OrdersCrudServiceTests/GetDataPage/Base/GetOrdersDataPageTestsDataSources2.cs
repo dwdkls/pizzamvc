@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using Pizza.Contracts.Operations.Requests.Configuration;
 using Pizza.Framework.TestTypes.ViewModels.Orders;
 
-namespace Pizza.Framework.IntegrationTests.OrdersGridServiceTests.GetDataPage.Base
+namespace Pizza.Framework.IntegrationTests.OrdersCrudServiceTests.GetDataPage.Base
 {
     internal class GetOrdersDataPageTestsDataSources2
     {

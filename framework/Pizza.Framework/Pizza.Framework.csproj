@@ -85,7 +85,7 @@
     <Compile Include="Persistence\Exceptions\OptimisticConcurrencyException.cs" />
     <Compile Include="Operations\PersistenceModelsStore.cs" />
     <Compile Include="Operations\ViewModelsReader.cs" />
-    <Compile Include="Operations\GridServiceBase.cs" />
+    <Compile Include="Operations\CrudServiceBase.cs" />
     <Compile Include="Persistence\Transactions\TransactionalAttribute.cs" />
     <Compile Include="Persistence\Config\AutomappingConfiguration.cs" />
     <Compile Include="Persistence\Config\Conventions\FixedLengthAnsiStringConvention.cs" />

@@ -1,4 +1,5 @@
-﻿using Pizza.Persistence.Attributes;
+﻿using Pizza.Persistence;
+using Pizza.Persistence.Attributes;
 using Pizza.Persistence.Default;
 
 namespace KebabManager.Model.PersistenceModels

@@ -11,7 +11,7 @@ using Ploeh.AutoFixture;
 namespace Pizza.Framework.IntegrationTests.Base
 {
     // TODO: This could be class in framework, framework users maybe will use it for they own integration tests
-    public abstract class GridServiceTestsBase<TService>
+    public abstract class CrudServiceTestsBase<TService>
     {
         //TODO: allow user to replace this
         private const string connectionString = @"Data Source=.;Database=Pizza_Tests;Integrated Security=True;";
