@@ -4,11 +4,15 @@
 #r "System.Core.dll"
 #r "System.Xml.Linq.dll"
 
+open System
 open System.Xml.Linq
 open System.IO
 open System.Xml
+open System.Text.RegularExpressions
 open Fake
 open Fake.ReleaseNotesHelper
+open Fake.AssemblyInfoFile
+
 
 // Properties
 let artifactsBuildDir = @"..\.artifacts\build\"
@@ -27,10 +31,19 @@ let getOutputDirName proj =
     let folderName = Directory.GetParent(proj).Name
     sprintf "%s%s/" artifactsBuildDir folderName
 
+let readFrameworkAssemblyVersion () =
+    GetAttributeValue "AssemblyVersion" (srcRootDir @@ @"Pizza.Framework\Properties\AssemblyInfo.cs")
+        |> fun f -> f.Value.Trim('"')
+        |> Version.Parse 
+
+let buildPackageVersion (version: Version) =
+    sprintf "%i.%i.%i-alpha%04i" version.Major version.Minor version.Build version.Revision
+
 
 let buildProject proj =
     let outputDir = proj |> getOutputDirName
-    MSBuildDebug outputDir "Build" [proj] |> ignore
+    MSBuildDebug outputDir "Build" [proj] 
+        |> Log "AppBuild-Output: "
 
 
 let getFrameworkReferencesFromCsproj (csprojContent: XDocument) =
@@ -42,10 +55,11 @@ let getFrameworkReferencesFromCsproj (csprojContent: XDocument) =
 
 
 let getProjectReferencesFromCsproj (csprojContent: XDocument) =
+    let packageVersion = buildPackageVersion(readFrameworkAssemblyVersion())
     csprojContent.Root.Descendants() 
         |> Seq.filter (fun el -> el.Name.LocalName = "ProjectReference")
         |> Seq.map (fun el -> el.Element(XName.Get("Name", "http://schemas.microsoft.com/developer/msbuild/2003")))
-        |> Seq.map (fun el -> (el.Value, releaseNotes.NugetVersion))
+        |> Seq.map (fun el -> (el.Value, packageVersion))
         |> Seq.toList
 
 
@@ -81,6 +95,8 @@ let createPackage (buildDir: DirectoryInfo) =
     trace "Starting NuGet packaging..."
     trace packagePath
 
+    let packageVersion = buildPackageVersion(readFrameworkAssemblyVersion())
+
     NuGet (fun app -> 
         { app with
             NoPackageAnalysis = true
@@ -89,7 +105,7 @@ let createPackage (buildDir: DirectoryInfo) =
             Description = "Pizza description"                               
             Summary = "Pizza summary"  
             ReleaseNotes = releaseNotes.Notes |> toLines
-            Version = releaseNotes.NugetVersion
+            Version = packageVersion
             Publish = false
             OutputPath = nupkgOutDir
             WorkingDir = packagePath
@@ -115,7 +131,25 @@ Target "RestorePackages" (fun _ ->
              Retries = 3 })
  )
 
+Target "UpgradeAssemblyInfos" (fun _ ->
+    trace "Upgrading AssemblyInfo information"
 
+    let version = readFrameworkAssemblyVersion()
+    let currentBuildNumber =
+        match version.Revision with
+        | -1 -> 1
+        | _ -> version.Revision + 1
+
+    let currentVersion = sprintf "%s.%d" releaseNotes.NugetVersion currentBuildNumber
+
+    let assemblyInfos = !!(srcRootDir @@ "**\AssemblyInfo.cs") 
+    ReplaceAssemblyInfoVersionsBulk assemblyInfos (fun f -> 
+        { f with
+                AssemblyVersion = currentVersion
+                AssemblyFileVersion = currentVersion
+        })      
+ )
+ 
 Target "BuildAll" (fun _ ->
     trace "Building framework projects..."
     !! "../framework/**/*.csproj"
@@ -137,6 +171,7 @@ Target "Default" (fun _ ->
 // Dependencies
 "Clean"
    ==> "RestorePackages"
+   ==> "UpgradeAssemblyInfos"
    ==> "BuildAll"
    ==> "CreatePackages"
    ==> "Default"

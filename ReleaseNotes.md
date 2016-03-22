@@ -1,3 +1,8 @@
+## New in 0.2.2 (Released 2016-03-21)
+* GridServiceBase renamed to CrudServiceBase
+* GridControllerBase renamed to CrudControllerBase
+* Some namespaces adjustation
+
 ## New in 0.2.1 (Released 2016/03/13)
 * Fixed sorting by nullable enums in grid.
 * Audit works also with not authenticated users.
