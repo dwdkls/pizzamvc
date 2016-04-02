@@ -15,17 +15,17 @@ namespace KebabManager.Contracts.ViewModels.Customers
         [Display(Name = "First name")]
         public string FirstName { get; set; }
 
-        [Display(Name = "Last name"), Required(ErrorMessage = Resources.RequiredMessage)]
+        [Display(Name = "Last name"), Required]
         public string LastName { get; set; }
 
-        [Display(Name = "Fingers count"), Required(ErrorMessage = Resources.RequiredMessage)]
+        [Display(Name = "Fingers count"), Required]
         [Editable(false)]
         public int FingersCount { get; set; }
 
-        [Display(Name = "Previous surgery date"), Required(ErrorMessage = Resources.RequiredMessage)]
+        [Display(Name = "Previous surgery date"), Required]
         public DateTime PreviousSurgeryDate { get; set; }
 
-        [Display(Name = "Customer type"), Required(ErrorMessage = Resources.RequiredMessage)]
+        [Display(Name = "Customer type"), Required]
         public CustomerType Type { get; set; }
 
         [Display(Name = "Favorite animal")]

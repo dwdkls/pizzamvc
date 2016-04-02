@@ -1,4 +1,5 @@
 ﻿@using Pizza.Mvc.HtmlHelpers
+@using Pizza.Mvc.Resources
 @model Pizza.Mvc.Grid.Metamodel.GridMetamodel
 
 @if (Model.NewItemLink.IsEnabled)
@@ -16,14 +17,14 @@
         <div class="modal-content panel-warning">
             <div class="modal-header panel-heading">
                 <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
-                <h3>Delete confirmation</h3>
+                <h3>@UiTexts.Dialog_DeleteRowConfirmation_Title</h3>
             </div>
             <div class="modal-body">
-                <p>Are you sure to delete this record?</p>
+                <p>@UiTexts.Dialog_DeleteRowConfirmation_Question</p>
             </div>
             <div class="modal-footer">
-                <a href="#" id="btnYes" class="btn btn-danger">Yes</a>
-                <a href="#" data-dismiss="modal" aria-hidden="true" class="btn btn-default">No</a>
+                <a href="#" id="btnYes" class="btn btn-danger">@UiTexts.DialogButton_Yes</a>
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="btn btn-default">@UiTexts.DialogButton_No</a>
             </div>
         </div>
 
@@ -31,8 +32,8 @@
 </div>
 
 <script type="text/javascript">
-    var detailsLink = '@(Html.ActionLink("Details", ScriptKeys.Details, new { id = "_id_" }))';
-    var editLink = '@(Html.ActionLink("Edit", ScriptKeys.Edit, new { id = "_id_" }))';
+    var detailsLink = '@(Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new { id = "_id_" }))';
+    var editLink = '@(Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" }))';
 
     function buildDetailsLink(cellvalue, options, rowobject) {
         var link = detailsLink.replace("_id_", options.rowId);
@@ -45,7 +46,7 @@
     }
 
     function buildDeleteLink(cellvalue, options, rowobject) {
-        var link = "<a name='delete' data-id='" + options.rowId + "' href=''>Delete</a>";
+        var link = "<a name='delete' data-id='" + options.rowId + "' href=''>@Model.DeleteLink.Text</a>";
         return link;
     }
 
@@ -80,10 +81,13 @@
     function gridComplete() {
         $("[name='delete']").click(showConfirmDeleteDialog);
 
+        // Hack for translation "refresh" button text
+        $('.ui-pg-div').replaceWith('<div class="ui-pg-div"><span class="ui-icon ui-icon-refresh"></span>@UiTexts.GridButton_Clear</div>');
+
         // Hack for missing 'All' option in dropdowns
         $("select[id^='gs_']").each(function () {
             var option = $(this).find('option:first');
-            option.text('All');
+            option.text('@UiTexts.GridSearch_DropDown_All');
         });
     }
 </script>

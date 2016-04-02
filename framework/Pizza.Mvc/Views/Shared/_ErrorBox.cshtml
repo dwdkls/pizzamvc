@@ -1,15 +1,17 @@
-﻿<div id="errorDialog" class="modal fade" role="dialog">
+﻿@using Pizza.Mvc.Resources
+
+<div id="errorDialog" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content panel-danger">
             <div class="modal-header panel-heading">
                 <button type="button" class="btnClose close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Application error</h4>
+                <h4 class="modal-title">@UiTexts.Dialog_ApplicationError_Title</h4>
             </div>
             <div id="errorText" class="modal-body fade in">
-                <p>Will be replaced by real error text.</p>
+                <p>@UiTexts.Dialog_ApplicationError_UnknownErrorText</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btnClose btn btn-default">Close</button>
+                <button type="button" class="btnClose btn btn-default">@UiTexts.DialogButton_Close</button>
             </div>
         </div>
 

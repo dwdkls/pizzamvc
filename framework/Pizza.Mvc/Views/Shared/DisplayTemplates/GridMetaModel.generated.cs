@@ -35,6 +35,12 @@ namespace ASP
     #line default
     #line hidden
     
+    #line 2 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+    using Pizza.Mvc.Resources;
+    
+    #line default
+    #line hidden
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Shared/DisplayTemplates/GridMetaModel.cshtml")]
     public partial class _Views_Shared_DisplayTemplates_GridMetaModel_cshtml_ : System.Web.Mvc.WebViewPage<Pizza.Mvc.Grid.Metamodel.GridMetamodel>
@@ -45,7 +51,7 @@ namespace ASP
         public override void Execute()
         {
             
-            #line 4 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 5 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
  if (Model.NewItemLink.IsEnabled)
 {
 
@@ -57,7 +63,7 @@ WriteLiteral("    <p>\r\n");
 WriteLiteral("        ");
 
             
-            #line 7 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 8 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
     Write(Html.ActionLink(Model.NewItemLink.Text, ScriptKeys.Create));
 
             
@@ -66,7 +72,7 @@ WriteLiteral("        ");
 WriteLiteral("\r\n    </p>\r\n");
 
             
-            #line 9 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 10 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
 }
 
             
@@ -75,7 +81,7 @@ WriteLiteral("\r\n    </p>\r\n");
 WriteLiteral("\r\n");
 
             
-            #line 11 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 12 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
 Write(Html.JqGrid(Model, Url.Action(Model.GetGridDataActionName)));
 
             
@@ -111,13 +117,29 @@ WriteLiteral(" aria-hidden=\"true\"");
 
 WriteLiteral(" class=\"close\"");
 
-WriteLiteral(">×</a>\r\n                <h3>Delete confirmation</h3>\r\n            </div>\r\n       " +
-"     <div");
+WriteLiteral(">×</a>\r\n                <h3>");
+
+            
+            #line 20 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+               Write(UiTexts.Dialog_DeleteRowConfirmation_Title);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</h3>\r\n            </div>\r\n            <div");
 
 WriteLiteral(" class=\"modal-body\"");
 
-WriteLiteral(">\r\n                <p>Are you sure to delete this record?</p>\r\n            </div>" +
-"\r\n            <div");
+WriteLiteral(">\r\n                <p>");
+
+            
+            #line 23 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+              Write(UiTexts.Dialog_DeleteRowConfirmation_Question);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</p>\r\n            </div>\r\n            <div");
 
 WriteLiteral(" class=\"modal-footer\"");
 
@@ -129,7 +151,16 @@ WriteLiteral(" id=\"btnYes\"");
 
 WriteLiteral(" class=\"btn btn-danger\"");
 
-WriteLiteral(">Yes</a>\r\n                <a");
+WriteLiteral(">");
+
+            
+            #line 26 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+                                                          Write(UiTexts.DialogButton_Yes);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</a>\r\n                <a");
 
 WriteLiteral(" href=\"#\"");
 
@@ -139,15 +170,24 @@ WriteLiteral(" aria-hidden=\"true\"");
 
 WriteLiteral(" class=\"btn btn-default\"");
 
-WriteLiteral(">No</a>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n</div>\r\n\r\n<script");
+WriteLiteral(">");
+
+            
+            #line 27 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+                                                                                       Write(UiTexts.DialogButton_No);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</a>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n</div>\r\n\r\n<script");
 
 WriteLiteral(" type=\"text/javascript\"");
 
 WriteLiteral(">\r\n    var detailsLink = \'");
 
             
-            #line 34 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
-                   Write(Html.ActionLink("Details", ScriptKeys.Details, new { id = "_id_" }));
+            #line 35 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+                   Write(Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new { id = "_id_" }));
 
             
             #line default
@@ -155,8 +195,8 @@ WriteLiteral(">\r\n    var detailsLink = \'");
 WriteLiteral("\';\r\n    var editLink = \'");
 
             
-            #line 35 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
-                Write(Html.ActionLink("Edit", ScriptKeys.Edit, new { id = "_id_" }));
+            #line 36 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+                Write(Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" }));
 
             
             #line default
@@ -174,7 +214,16 @@ WriteLiteral(@"';
     }
 
     function buildDeleteLink(cellvalue, options, rowobject) {
-        var link = ""<a name='delete' data-id='"" + options.rowId + ""' href=''>Delete</a>"";
+        var link = ""<a name='delete' data-id='"" + options.rowId + ""' href=''>");
+
+            
+            #line 49 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+                                                                        Write(Model.DeleteLink.Text);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(@"</a>"";
         return link;
     }
 
@@ -193,7 +242,7 @@ WriteLiteral(@"';
                 url: '");
 
             
-            #line 64 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 65 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                  Write(Url.Action(ScriptKeys.Delete));
 
             
@@ -218,14 +267,28 @@ WriteLiteral(@"',
     function gridComplete() {
         $(""[name='delete']"").click(showConfirmDeleteDialog);
 
-        // Hack for missing 'All' option in dropdowns
-        $(""select[id^='gs_']"").each(function () {
-            var option = $(this).find('option:first');
-            option.text('All');
-        });
-    }
-</script>
-");
+        // Hack for translation ""refresh"" button text
+        $('.ui-pg-div').replaceWith('<div class=""ui-pg-div""><span class=""ui-icon ui-icon-refresh""></span>");
+
+            
+            #line 85 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+                                                                                                    Write(UiTexts.GridButton_Clear);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</div>\');\r\n\r\n        // Hack for missing \'All\' option in dropdowns\r\n        $(\"se" +
+"lect[id^=\'gs_\']\").each(function () {\r\n            var option = $(this).find(\'opt" +
+"ion:first\');\r\n            option.text(\'");
+
+            
+            #line 90 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+                    Write(UiTexts.GridSearch_DropDown_All);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\');\r\n        });\r\n    }\r\n</script>\r\n");
 
         }
     }

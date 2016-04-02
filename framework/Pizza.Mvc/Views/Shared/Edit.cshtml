@@ -1,4 +1,5 @@
 ﻿@using Pizza.Mvc.HtmlHelpers
+@using Pizza.Mvc.Resources
 @model Pizza.Contracts.IEditModelBase
 
 @section Scripts {
@@ -22,7 +23,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-11 col-md-12">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="@UiTexts.FormButton_Save" class="btn btn-default" />
             </div>
         </div>
 
@@ -30,5 +31,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(UiTexts.Link_BackToIndex, ScriptKeys.Index)
 </div>

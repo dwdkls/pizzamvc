@@ -14,6 +14,7 @@ namespace KebabManager.Web
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                 "~/Scripts/jquery-ui-{version}.js",
+                "~/Scripts/i18n/grid.locale-pl.js",
                 "~/Scripts/i18n/grid.locale-en.js",
                 "~/Scripts/jquery.jqGrid.js"
             ));

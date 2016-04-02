@@ -33,8 +33,7 @@ namespace KebabManager.Web.Controllers
         protected override GridMetamodel<OrderGridModel> GetGridMetamodel()
         {
             var gridMetaModel = new GridMetamodelBuilder<OrderGridModel>()
-                .SetCaption("Customers list")
-                .AllowNew("New Customer").AllowEdit().AllowDelete().AllowDetails()
+                .AllowNew("Create new Order").AllowEdit("Go to edit").AllowDelete("Delete!").AllowDetails("Go to details")
                 .AddColumn(x => x.OrderDate, 200)
                 .AddColumn(x => x.CustomerFirstName, 200)
                 .AddDefaultSortColumn(x => x.CustomerLastName, SortMode.Descending, 150, ColumnWidthMode.Fixed, FilterOperator.Disabled)

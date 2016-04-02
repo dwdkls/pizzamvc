@@ -1,4 +1,5 @@
 ﻿@using Pizza.Mvc.HtmlHelpers
+@using Pizza.Mvc.Resources
 @model Pizza.Contracts.IDetailsModelBase
 
 <h2>
@@ -12,5 +13,5 @@
 </div>
 
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(UiTexts.Link_BackToIndex, ScriptKeys.Index)
 </p>

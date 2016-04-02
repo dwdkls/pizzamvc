@@ -30,6 +30,12 @@ namespace ASP
     using Pizza.Mvc;
     using Pizza.Mvc.HtmlHelpers;
     
+    #line 1 "..\..\Views\Shared\_ErrorBox.cshtml"
+    using Pizza.Mvc.Resources;
+    
+    #line default
+    #line hidden
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Shared/_ErrorBox.cshtml")]
     public partial class _Views_Shared__ErrorBox_cshtml : System.Web.Mvc.WebViewPage<dynamic>
@@ -39,7 +45,7 @@ namespace ASP
         }
         public override void Execute()
         {
-WriteLiteral("<div");
+WriteLiteral("\r\n<div");
 
 WriteLiteral(" id=\"errorDialog\"");
 
@@ -71,14 +77,31 @@ WriteLiteral(">&times;</button>\r\n                <h4");
 
 WriteLiteral(" class=\"modal-title\"");
 
-WriteLiteral(">Application error</h4>\r\n            </div>\r\n            <div");
+WriteLiteral(">");
+
+            
+            #line 8 "..\..\Views\Shared\_ErrorBox.cshtml"
+                                   Write(UiTexts.Dialog_ApplicationError_Title);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</h4>\r\n            </div>\r\n            <div");
 
 WriteLiteral(" id=\"errorText\"");
 
 WriteLiteral(" class=\"modal-body fade in\"");
 
-WriteLiteral(">\r\n                <p>Will be replaced by real error text.</p>\r\n            </div" +
-">\r\n            <div");
+WriteLiteral(">\r\n                <p>");
+
+            
+            #line 11 "..\..\Views\Shared\_ErrorBox.cshtml"
+              Write(UiTexts.Dialog_ApplicationError_UnknownErrorText);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</p>\r\n            </div>\r\n            <div");
 
 WriteLiteral(" class=\"modal-footer\"");
 
@@ -88,8 +111,16 @@ WriteLiteral(" type=\"button\"");
 
 WriteLiteral(" class=\"btnClose btn btn-default\"");
 
-WriteLiteral(">Close</button>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n</div>\r\n\r\n<scr" +
-"ipt");
+WriteLiteral(">");
+
+            
+            #line 14 "..\..\Views\Shared\_ErrorBox.cshtml"
+                                                                  Write(UiTexts.DialogButton_Close);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</button>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n</div>\r\n\r\n<script");
 
 WriteLiteral(" type=\"text/javascript\"");
 
@@ -125,7 +156,7 @@ WriteLiteral(@">
 ");
 
             
-            #line 48 "..\..\Views\Shared\_ErrorBox.cshtml"
+            #line 50 "..\..\Views\Shared\_ErrorBox.cshtml"
  if (TempData[ScriptKeys.Error] != null)
 {
 
@@ -139,7 +170,7 @@ WriteLiteral(" type=\"text/javascript\"");
 WriteLiteral(">\r\n        $(function () {\r\n            showErrorWindow(\"");
 
             
-            #line 52 "..\..\Views\Shared\_ErrorBox.cshtml"
+            #line 54 "..\..\Views\Shared\_ErrorBox.cshtml"
                          Write(TempData[ScriptKeys.Error]);
 
             
@@ -148,7 +179,7 @@ WriteLiteral(">\r\n        $(function () {\r\n            showErrorWindow(\"");
 WriteLiteral("\", false);\r\n        });\r\n    </script>\r\n");
 
             
-            #line 55 "..\..\Views\Shared\_ErrorBox.cshtml"
+            #line 57 "..\..\Views\Shared\_ErrorBox.cshtml"
 }
             
             #line default

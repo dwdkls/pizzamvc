@@ -4,6 +4,7 @@
     {
         public const string Error = "error";
 
+        public const string Index = "Index";
         public const string Create = "Create";
         public const string Details = "Details";
         public const string Edit = "Edit";

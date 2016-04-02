@@ -37,6 +37,7 @@ namespace Pizza.Framework.Operations
 
         static ViewModelsReader()
         {
+            // TODO: this could be handled by IoC container not class itself. But maybe it's beter to store this information in static fields? Think about.
             persistenceModelDescription = PersistenceModelPropertiesDescriptionGenerator.GenerateDescription(typeof(TPersistenceModel));
             viewModelToPersistenceModelMap = ViewModelToPersistenceModelPropertyNamesMapsGenerator.Generate(
                 typeof(TGridModel), persistenceModelDescription);

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using Pizza.Framework.Utils;
 using Pizza.Mvc.Helpers;
+using Pizza.Mvc.Resources;
 
 namespace Pizza.Mvc.ViewRenderers.DropDown
 {
@@ -16,22 +17,22 @@ namespace Pizza.Mvc.ViewRenderers.DropDown
         {
             var items = GetDropDownItems(property);
 
-            // TODO: move empty item text to resources
             var dropDownHtml = htmlHelper
-                .DropDownList(property.Name, items, "Select value", new { @class = "form-control" })
+                .DropDownList(property.Name, items, UiTexts.Editor_DropDown_EmptyValue, new { @class = "form-control" })
                 .ToHtmlString();
-
+            
             dropDownHtml = this.SelectProperItem(dropDownHtml, value);
 
             if (property.GetAttribute<RequiredAttribute>() == null)
             {
                 dropDownHtml = dropDownHtml.Replace("data-val=\"true\"", string.Empty);
             }
-            //else
-            //{
+
             var validationMessage = htmlHelper.ValidationMessage(property.Name, string.Empty, new { @class = "text-danger" });
-            dropDownHtml += validationMessage.ToHtmlString();
-            //}
+            if (validationMessage != null)
+            {
+                dropDownHtml += validationMessage.ToHtmlString();
+            }
 
             return dropDownHtml;
         }

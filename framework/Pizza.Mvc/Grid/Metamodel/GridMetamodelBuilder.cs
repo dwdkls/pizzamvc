@@ -5,6 +5,7 @@ using Pizza.Contracts.Operations.Requests.Configuration;
 using Pizza.Framework.Utils;
 using Pizza.Mvc.Grid.Metamodel.Exceptions;
 using Pizza.Mvc.Helpers;
+using Pizza.Mvc.Resources;
 
 namespace Pizza.Mvc.Grid.Metamodel
 {
@@ -39,26 +40,46 @@ namespace Pizza.Mvc.Grid.Metamodel
             return this;
         }
 
-        public GridMetamodelBuilder<TGridModel> AllowNew(string text = "New item")
+        public GridMetamodelBuilder<TGridModel> AllowNew(string text = null)
         {
+            if (text == null)
+            {
+                text = UiTexts.GridButton_Create;
+            }
+
             this.newItemLink = new LinkMetamodel(true, text);
             return this;
         }
 
-        public GridMetamodelBuilder<TGridModel> AllowDetails(string text = "Details")
+        public GridMetamodelBuilder<TGridModel> AllowDetails(string text = null)
         {
+            if (text == null)
+            {
+                text = UiTexts.GridButton_Details;
+            }
+
             this.detailsLink = new LinkMetamodel(true, text);
             return this;
         }
 
-        public GridMetamodelBuilder<TGridModel> AllowEdit(string text = "Edit")
+        public GridMetamodelBuilder<TGridModel> AllowEdit(string text = null)
         {
+            if (text == null)
+            {
+                text = UiTexts.GridButton_Edit;
+            }
+
             this.editLink = new LinkMetamodel(true, text);
             return this;
         }
 
-        public GridMetamodelBuilder<TGridModel> AllowDelete(string text = "Delete")
+        public GridMetamodelBuilder<TGridModel> AllowDelete(string text = null)
         {
+            if (text == null)
+            {
+                text = UiTexts.GridButton_Delete;
+            }
+
             this.deleteLink = new LinkMetamodel(true, text);
             return this;
         }

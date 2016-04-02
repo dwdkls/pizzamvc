@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 using MvcJqGrid;
@@ -11,6 +10,7 @@ using Pizza.Contracts.Operations.Results;
 using Pizza.Framework.Utils;
 using Pizza.Mvc.Grid;
 using Pizza.Mvc.Grid.Metamodel;
+using Pizza.Mvc.Resources;
 
 namespace Pizza.Mvc.Controllers
 {
@@ -26,7 +26,7 @@ namespace Pizza.Mvc.Controllers
         private static readonly string idPropertyName = ObjectHelper.GetPropertyName<IGridModelBase>(x => x.Id);
 
         // TODO: to separate service?
-        protected static readonly CultureInfo currentCulture = new CultureInfo("en-US");
+        //protected static readonly CultureInfo currentCulture = new CultureInfo("en-US");
 
         protected readonly TService service;
         protected static GridMetamodel<TGridModel> gridMetamodel;
@@ -60,10 +60,10 @@ namespace Pizza.Mvc.Controllers
             get
             {
                 return new Dictionary<ViewType, string> {
-                    { ViewType.Index, "List" },
-                    { ViewType.Create, "New item" },
-                    { ViewType.Edit, "Edit" },
-                    { ViewType.Details, "Details" },
+                    { ViewType.Index, UiTexts.ViewTitle_Index },
+                    { ViewType.Create, UiTexts.ViewTitle_Create },
+                    { ViewType.Edit, UiTexts.ViewTitle_Edit },
+                    { ViewType.Details, UiTexts.ViewTitle_Details },
                 };
             }
         }

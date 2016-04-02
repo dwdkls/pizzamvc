@@ -1,4 +1,5 @@
 ﻿@using Pizza.Mvc.HtmlHelpers
+@using Pizza.Mvc.Resources
 @model Pizza.Contracts.ICreateModelBase
 
 @section Scripts {
@@ -16,13 +17,13 @@
     @Html.ValidationSummary(true)
 
     <div class="form-horizontal">
-        
-        @Html.ValidationSummary(true, string.Empty, new {@class = "text-danger"})
+
+        @Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
         @Html.ModelEditor(Model)
 
         <div class="form-group">
             <div class="col-md-offset-11 col-md-12">
-                <input type="submit" value="Create" class="btn btn-default"/>
+                <input type="submit" value="@UiTexts.FormButton_Create" class="btn btn-default" />
             </div>
         </div>
 
@@ -30,5 +31,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(UiTexts.Link_BackToIndex, ScriptKeys.Index)
 </div>

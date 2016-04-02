@@ -99,9 +99,29 @@
     <Compile Include="HtmlHelpers\JqGridHtmlHelper.cs" />
     <Compile Include="HtmlHelpers\MenuHtmlHelper.cs" />
     <Compile Include="PizzaMvcApplication.cs" />
+    <Compile Include="Resources\Errors.pl-pl.Designer.cs">
+      <DependentUpon>Errors.pl-pl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Errors.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Errors.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UiTexts.pl-pl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UiTexts.pl-pl.resx</DependentUpon>
+    </Compile>
     <Compile Include="ScriptKeys.cs" />
     <Compile Include="Security\DefaultApplicationUserContext.cs" />
     <Compile Include="Security\PizzaPrincipalSerializeModel.cs" />
+    <Compile Include="Resources\UiTexts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UiTexts.resx</DependentUpon>
+    </Compile>
     <Compile Include="ViewRenderers\DropDown\CreateModelDropDownRenderer.cs" />
     <Compile Include="ViewRenderers\DropDown\DropDownRendererBase.cs" />
     <Compile Include="ViewRenderers\DropDown\EditModelDropDownRenderer.cs" />
@@ -517,6 +537,24 @@
       <Project>{c4ad1d8c-b782-4ee4-9ab0-36ba8c46d98e}</Project>
       <Name>Pizza.Framework</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Errors.pl-pl.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Errors.pl-pl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Errors.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Errors.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\UiTexts.pl-pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UiTexts.pl-pl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\UiTexts.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UiTexts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

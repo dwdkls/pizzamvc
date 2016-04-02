@@ -72,7 +72,10 @@ namespace Pizza.Mvc.ViewRenderers
 
         protected void AppendMvcHtmlString(MvcHtmlString htmlString)
         {
-            this.htmlTextWriter.Write(htmlString.ToString());
+            if (htmlString != null)
+            {
+                this.htmlTextWriter.Write(htmlString.ToString());
+            }
         }
     }
 }
