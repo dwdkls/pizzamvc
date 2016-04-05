@@ -234,10 +234,10 @@ WriteLiteral(">\r\n            <input");
 
 WriteLiteral(" type=\"submit\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1403), Tuple.Create("\"", 1453)
+WriteAttribute("value", Tuple.Create(" value=\"", 1403), Tuple.Create("\"", 1452)
             
             #line 37 "..\..\Views\Account\ChangePassword.cshtml"
-, Tuple.Create(Tuple.Create("", 1411), Tuple.Create<System.Object, System.Int32>(UiTexts.ChangePasswportPage_Button_Submit
+, Tuple.Create(Tuple.Create("", 1411), Tuple.Create<System.Object, System.Int32>(UiTexts.ChangePasswordPage_Button_Submit
             
             #line default
             #line hidden

@@ -4,11 +4,11 @@ namespace Pizza.Contracts.Security.ViewModels
 {
     public class LoginViewModel
     {
-        [Required(ErrorMessage = "Field {0} is required")]
+        [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
-        [Required(ErrorMessage = "Field {0} is required")]
+        [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

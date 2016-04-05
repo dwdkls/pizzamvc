@@ -6,9 +6,12 @@ using Pizza.Mvc.Filters;
 using Pizza.Mvc.Helpers;
 using RazorGenerator.Mvc;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.WebPages;
+using Pizza.Mvc.AttributeAdapters;
 
 [assembly: WebActivatorEx.PostApplicationStartMethod(typeof(PizzaMvcPostApplicationStart), "Start")]
 
@@ -21,6 +24,8 @@ namespace Pizza.Mvc
             RegisterRazorGeneratedViewEngine();
             RegisterGlobalFilters();
             BootstrapAutofac();
+
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(RequiredAttribute), typeof(PizzaRequiredAttributeAdapter));
         }
 
         private static void RegisterRazorGeneratedViewEngine()

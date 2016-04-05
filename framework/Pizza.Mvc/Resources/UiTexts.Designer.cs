@@ -61,20 +61,20 @@ namespace Pizza.Mvc.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        public static string ChangePasswordPage_Button_Submit {
+            get {
+                return ResourceManager.GetString("ChangePasswordPage_Button_Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change Password Form.
         /// </summary>
         public static string ChangePasswordPage_Title {
             get {
                 return ResourceManager.GetString("ChangePasswordPage_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Change password.
-        /// </summary>
-        public static string ChangePasswportPage_Button_Submit {
-            get {
-                return ResourceManager.GetString("ChangePasswportPage_Button_Submit", resourceCulture);
             }
         }
         

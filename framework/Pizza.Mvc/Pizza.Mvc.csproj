@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AutofacModule.cs" />
+    <Compile Include="AttributeAdapters\PizzaRequiredAttributeAdapter.cs" />
     <Compile Include="App_Start\PizzaMvcPostApplicationStart.cs" />
     <Compile Include="Helpers\RouteTableHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -91,7 +92,7 @@
     <Compile Include="Grid\MvcJqGridRequestBuilder.cs" />
     <Compile Include="Controllers\ControllerHelper.cs" />
     <Compile Include="Controllers\CoreControllerBase.cs" />
-    <Compile Include="Controllers\GridControllerBase.cs" />
+    <Compile Include="Controllers\CrudControllerBase.cs" />
     <Compile Include="Grid\TypeToJqGridObjectMapperGenerator.cs" />
     <Compile Include="HtmlHelpers\FormHtmlHelperExtensions.cs" />
     <Compile Include="HtmlHelpers\EnumHtmlHelper.cs" />
@@ -540,11 +541,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Errors.pl-pl.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Errors.pl-pl.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Errors.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Errors.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\UiTexts.pl-pl.resx">
@@ -553,7 +554,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\UiTexts.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>UiTexts.Designer.cs</LastGenOutput>
+      <LastGenOutput>UiTexts1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

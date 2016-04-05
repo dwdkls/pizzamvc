@@ -117,11 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChangePasswordPage_Button_Submit" xml:space="preserve">
+    <value>Change password</value>
+  </data>
   <data name="ChangePasswordPage_Title" xml:space="preserve">
     <value>Change Password Form</value>
-  </data>
-  <data name="ChangePasswportPage_Button_Submit" xml:space="preserve">
-    <value>Change password</value>
   </data>
   <data name="DialogButton_Close" xml:space="preserve">
     <value>Close</value>

@@ -2,13 +2,14 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using KebabManager.Common.Enums;
+using KebabManager.Contracts.Resources;
 using Pizza.Contracts.Default;
 
 namespace KebabManager.Contracts.ViewModels.Customers
 {
     public sealed class CustomerCreateModel : CreateModelBase
     {
-        [Display(Name = "Login"), Required]
+        [Display(Name = "Login"), Required(ErrorMessage = "Very custom message for required field: \"{0}\"")]
         public string Login { get; set; }
 
         [Display(Name = "Password"), Required]
@@ -18,7 +19,7 @@ namespace KebabManager.Contracts.ViewModels.Customers
         [Display(Name = "First name")]
         public string FirstName { get; set; }
 
-        [Display(Name = "Last name"), Required]
+        [Display(Name = "Last name"), Required(ErrorMessageResourceType = typeof(KebabContractsResources), ErrorMessageResourceName = "RequiredMessage")]
         public string LastName { get; set; }
 
         [Display(Name = "Fingers count"), Required]
@@ -33,7 +34,7 @@ namespace KebabManager.Contracts.ViewModels.Customers
         [Display(Name = "Some other date"), Required]
         public DateTime SomeDateInFuture { get; set; }
 
-        [Display(Name = "Customer type"), Required]
+        [Display(Name = "Customer type"), Required(ErrorMessage = "Also custom")]
         public CustomerType Type { get; set; }
 
         [Display(Name = "Favorite animal")]
