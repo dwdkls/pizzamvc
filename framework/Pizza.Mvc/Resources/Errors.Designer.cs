@@ -63,9 +63,9 @@ namespace Pizza.Mvc.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Field {0} is required.
         /// </summary>
-        public static string DefaultModelBinder_ValueRequired {
+        public static string ValueIsRequired {
             get {
-                return ResourceManager.GetString("DefaultModelBinder_ValueRequired", resourceCulture);
+                return ResourceManager.GetString("ValueIsRequired", resourceCulture);
             }
         }
     }

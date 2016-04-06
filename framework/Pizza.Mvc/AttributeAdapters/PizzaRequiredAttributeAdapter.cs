@@ -11,7 +11,7 @@ namespace Pizza.Mvc.AttributeAdapters
         {
             if (string.IsNullOrEmpty(attribute.ErrorMessage) && string.IsNullOrEmpty(attribute.ErrorMessageResourceName))
             {
-                attribute.ErrorMessage = Errors.DefaultModelBinder_ValueRequired;
+                attribute.ErrorMessage = Errors.ValueIsRequired;
             }
         }
     }
