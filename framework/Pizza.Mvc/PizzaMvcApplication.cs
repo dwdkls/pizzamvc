@@ -4,7 +4,7 @@ using System;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Security;
-using Pizza.Framework.ValueInjection;
+using Omu.ValueInjecter;
 
 namespace Pizza.Mvc
 {

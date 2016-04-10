@@ -9,13 +9,6 @@ namespace Pizza.Framework.ValueInjection
     // TODO: probably not necessary if all types of mapping will use only one Injection
     public static class ObjectInjectionExtensions
     {
-        public static TModel InjectFrom<TModel>(this TModel target, object source)
-        {
-            target.InjectFrom<FlatLoopInjection>(source);
-
-            return target;
-        }
-
         /* Persistence Model to Model mapping.
             * 1) Flatten
             * 2) strings, numbers, enums - all by same name and same type

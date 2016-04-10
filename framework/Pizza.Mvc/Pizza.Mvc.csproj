@@ -43,6 +43,10 @@
     <Reference Include="MvcJqGrid">
       <HintPath>..\..\packages\MvcJqGrid.1.0.15\lib\net40\MvcJqGrid.dll</HintPath>
     </Reference>
+    <Reference Include="Omu.ValueInjecter, Version=3.1.0.0, Culture=neutral, PublicKeyToken=c7694541b0ac80e4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\valueinjecter.3.1\lib\net45\Omu.ValueInjecter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="RazorGenerator.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\..\packages\RazorGenerator.Mvc.2.3.6\lib\net40\RazorGenerator.Mvc.dll</HintPath>
       <Private>True</Private>

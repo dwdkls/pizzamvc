@@ -3,6 +3,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Web.Security;
+using Omu.ValueInjecter;
 using Pizza.Contracts.Security;
 using Pizza.Contracts.Security.ServiceContracts;
 using Pizza.Contracts.Security.ViewModels;
