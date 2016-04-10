@@ -3,10 +3,11 @@ using System.Linq;
 using Omu.ValueInjecter;
 using Omu.ValueInjecter.Injections;
 using Pizza.Persistence;
+using Pizza.Utils;
 
-namespace Pizza.Framework.Utils.ValueInjection
+namespace Pizza.Framework.ValueInjection.CustomInjections
 {
-    public class VersionInjection : IValueInjection
+    internal class VersionInjection : IValueInjection
     {
         private static readonly string versionPropertyName = ObjectHelper.GetPropertyName<IVersionable>(x => x.Version);
 

@@ -7,7 +7,7 @@ using Pizza.Framework.IntegrationTests.TestServices;
 using Pizza.Framework.Persistence.Exceptions;
 using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels.Customers;
-using Pizza.Framework.Utils.ValueInjection;
+using Pizza.Framework.ValueInjection;
 using Ploeh.AutoFixture;
 using StringGenerator = Pizza.Framework.DataGeneration.StringGenerator;
 

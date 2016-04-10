@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Pizza.Persistence")]
+[assembly: AssemblyTitle("Pizza.Utils")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Pizza.Persistence")]
+[assembly: AssemblyProduct("Pizza.Utils")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6046f8a1-fdf2-4f58-ae09-76c397580923")]
+[assembly: Guid("92de7979-cc08-4eec-ab11-536a102a6b43")]
 
 // Version information for an assembly consists of the following four values:
 //

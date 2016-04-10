@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web.Mvc;
 using System.Web.UI;
-using Pizza.Framework.Utils;
+using Pizza.Utils;
 
 namespace Pizza.Mvc.ViewRenderers
 {

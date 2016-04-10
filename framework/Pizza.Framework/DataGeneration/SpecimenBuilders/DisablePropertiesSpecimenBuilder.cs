@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Reflection;
-using Pizza.Framework.Utils;
+using Pizza.Utils;
 using Ploeh.AutoFixture.Kernel;
 
 namespace Pizza.Framework.DataGeneration.SpecimenBuilders

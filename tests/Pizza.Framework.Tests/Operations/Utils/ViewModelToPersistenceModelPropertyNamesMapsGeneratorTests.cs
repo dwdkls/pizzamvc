@@ -6,7 +6,7 @@ using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata.Types;
 using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels;
 using Pizza.Framework.TestTypes.ViewModels.Orders;
-using Pizza.Framework.Utils;
+using Pizza.Utils;
 
 namespace Pizza.Framework.Tests.Operations.Utils
 {

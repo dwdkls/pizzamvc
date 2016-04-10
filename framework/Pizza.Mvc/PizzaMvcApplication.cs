@@ -1,10 +1,10 @@
 ﻿using Pizza.Contracts.Security;
-using Pizza.Framework.Utils.ValueInjection;
 using Pizza.Mvc.Security;
 using System;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Security;
+using Pizza.Framework.ValueInjection;
 
 namespace Pizza.Mvc
 {

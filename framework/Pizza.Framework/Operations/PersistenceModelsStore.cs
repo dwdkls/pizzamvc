@@ -2,7 +2,7 @@
 using NHibernate;
 using Pizza.Contracts;
 using Pizza.Framework.Persistence.Transactions;
-using Pizza.Framework.Utils.ValueInjection;
+using Pizza.Framework.ValueInjection;
 using Pizza.Persistence;
 
 namespace Pizza.Framework.Operations

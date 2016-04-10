@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
 
-namespace Pizza.Framework.Utils
+namespace Pizza.Utils
 {
     public class AttributesHelper
     {

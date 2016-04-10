@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Pizza.Framework.Utils
+namespace Pizza.Utils
 {
     public class ObjectHelper
     {

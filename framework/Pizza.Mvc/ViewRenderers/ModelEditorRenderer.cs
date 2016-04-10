@@ -7,8 +7,8 @@ using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using System.Web.UI;
 using Pizza.Contracts;
-using Pizza.Framework.Utils;
 using Pizza.Mvc.ViewRenderers.DropDown;
+using Pizza.Utils;
 
 namespace Pizza.Mvc.ViewRenderers
 {

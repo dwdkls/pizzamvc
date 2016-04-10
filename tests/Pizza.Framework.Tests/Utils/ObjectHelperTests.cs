@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using NUnit.Framework;
-using Pizza.Framework.Utils;
+using Pizza.Utils;
 
 namespace Pizza.Framework.Tests.Utils
 {

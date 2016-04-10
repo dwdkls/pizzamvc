@@ -70,6 +70,10 @@
       <Project>{6046F8A1-FDF2-4F58-AE09-76C397580923}</Project>
       <Name>Pizza.Persistence</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\framework\Pizza.Utils\Pizza.Utils.csproj">
+      <Project>{92de7979-cc08-4eec-ab11-536a102a6b43}</Project>
+      <Name>Pizza.Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Pizza.Framework.TestTypes\Pizza.Framework.TestTypes.csproj">
       <Project>{59e337e8-c3cd-4a65-ad3b-5ed7d3dfffb0}</Project>
       <Name>Pizza.Framework.TestTypes</Name>

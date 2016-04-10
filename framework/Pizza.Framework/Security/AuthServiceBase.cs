@@ -4,10 +4,10 @@ using Pizza.Contracts.Security;
 using Pizza.Contracts.Security.ServiceContracts;
 using Pizza.Contracts.Security.ViewModels;
 using Pizza.Framework.Persistence.Transactions;
-using Pizza.Framework.Utils;
-using Pizza.Framework.Utils.ValueInjection;
+using Pizza.Framework.ValueInjection;
 using Pizza.Persistence;
 using Pizza.Persistence.Default;
+using Pizza.Utils;
 
 namespace Pizza.Framework.Security
 {

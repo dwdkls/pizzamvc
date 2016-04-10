@@ -2,8 +2,8 @@
 using System.Linq;
 using NHibernate.Persister.Entity;
 using Pizza.Contracts.Security;
-using Pizza.Framework.Utils;
 using Pizza.Persistence;
+using Pizza.Utils;
 
 namespace Pizza.Framework.Persistence.Audit
 {

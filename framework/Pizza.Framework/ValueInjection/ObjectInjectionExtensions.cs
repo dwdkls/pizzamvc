@@ -1,9 +1,10 @@
 ﻿using System;
 using Omu.ValueInjecter;
 using Omu.ValueInjecter.Injections;
+using Pizza.Framework.ValueInjection.CustomInjections;
 using Pizza.Persistence;
 
-namespace Pizza.Framework.Utils.ValueInjection
+namespace Pizza.Framework.ValueInjection
 {
     // TODO: probably not necessary if all types of mapping will use only one Injection
     public static class ObjectInjectionExtensions

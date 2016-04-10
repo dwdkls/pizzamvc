@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Pizza.Framework.Utils
+namespace Pizza.Utils
 {
     public class SimpleCache
     {

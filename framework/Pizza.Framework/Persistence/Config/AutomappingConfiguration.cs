@@ -1,8 +1,8 @@
 ﻿using System;
 using FluentNHibernate;
 using FluentNHibernate.Automapping;
-using Pizza.Framework.Utils;
 using Pizza.Persistence.Attributes;
+using Pizza.Utils;
 
 namespace Pizza.Framework.Persistence.Config
 {

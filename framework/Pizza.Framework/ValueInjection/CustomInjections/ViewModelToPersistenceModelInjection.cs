@@ -3,10 +3,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using Omu.ValueInjecter.Injections;
+using Pizza.Utils;
 
-namespace Pizza.Framework.Utils.ValueInjection
+namespace Pizza.Framework.ValueInjection.CustomInjections
 {
-    public class ViewModelToPersistenceModelInjection : PropertyInjection
+    internal class ViewModelToPersistenceModelInjection : PropertyInjection
     {
         public ViewModelToPersistenceModelInjection(Type sourceType)
         {

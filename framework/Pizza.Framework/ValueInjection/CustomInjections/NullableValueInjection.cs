@@ -2,9 +2,9 @@
 using Omu.ValueInjecter;
 using Omu.ValueInjecter.Injections;
 
-namespace Pizza.Framework.Utils.ValueInjection
+namespace Pizza.Framework.ValueInjection.CustomInjections
 {
-    public class NullableValueInjection : IValueInjection
+    internal class NullableValueInjection : IValueInjection
     {
         public object Map(object source, object target)
         {

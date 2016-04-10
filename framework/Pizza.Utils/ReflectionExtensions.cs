@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Pizza.Framework.Utils
+namespace Pizza.Utils
 {
     public static class ReflectionExtensions
     {

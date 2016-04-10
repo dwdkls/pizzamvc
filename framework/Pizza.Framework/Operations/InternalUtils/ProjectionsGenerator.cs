@@ -2,7 +2,7 @@ using System.Linq;
 using NHibernate.Criterion;
 using Pizza.Contracts;
 using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata.Types;
-using Pizza.Framework.Utils;
+using Pizza.Utils;
 
 namespace Pizza.Framework.Operations.InternalUtils
 {

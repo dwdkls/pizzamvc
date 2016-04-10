@@ -1,6 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
-using Pizza.Framework.Utils;
 using Pizza.Persistence;
+using Pizza.Utils;
 
 namespace Pizza.Framework.Persistence.SoftDelete
 {

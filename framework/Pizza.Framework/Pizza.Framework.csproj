@@ -109,18 +109,12 @@
     <Compile Include="Persistence\Audit\AuditingEventListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\AuthServiceBase.cs" />
-    <Compile Include="Utils\ValueInjection\Injector.cs" />
-    <Compile Include="Utils\ValueInjection\NullableValueInjection.cs" />
-    <Compile Include="Utils\ValueInjection\VersionInjection.cs" />
-    <Compile Include="Utils\ValueInjection\ViewModelToPersistenceModelInjection.cs" />
-    <Compile Include="Utils\ValueInjection\ObjectInjectionExtensions.cs" />
-    <Compile Include="Utils\ReflectionExtensions.cs" />
-    <Compile Include="Utils\StringExtensions.cs" />
     <Compile Include="DataGeneration\StringGenerator.cs" />
-    <Compile Include="Utils\AttributesHelper.cs" />
-    <Compile Include="Utils\ObjectHelper.cs" />
-    <Compile Include="Utils\HashGenerator.cs" />
-    <Compile Include="Utils\SimpleCache.cs" />
+    <Compile Include="ValueInjection\Injector.cs" />
+    <Compile Include="ValueInjection\CustomInjections\NullableValueInjection.cs" />
+    <Compile Include="ValueInjection\ObjectInjectionExtensions.cs" />
+    <Compile Include="ValueInjection\CustomInjections\VersionInjection.cs" />
+    <Compile Include="ValueInjection\CustomInjections\ViewModelToPersistenceModelInjection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -134,6 +128,10 @@
     <ProjectReference Include="..\Pizza.Persistence\Pizza.Persistence.csproj">
       <Project>{6046F8A1-FDF2-4F58-AE09-76C397580923}</Project>
       <Name>Pizza.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pizza.Utils\Pizza.Utils.csproj">
+      <Project>{92de7979-cc08-4eec-ab11-536a102a6b43}</Project>
+      <Name>Pizza.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

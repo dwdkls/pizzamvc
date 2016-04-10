@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
-using Pizza.Framework.Utils;
+using Pizza.Utils;
 
 namespace Pizza.Mvc.Grid.Metamodel
 {

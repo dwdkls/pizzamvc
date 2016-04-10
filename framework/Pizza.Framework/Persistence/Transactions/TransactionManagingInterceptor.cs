@@ -4,7 +4,7 @@ using Castle.DynamicProxy;
 using NHibernate;
 using NLog;
 using Pizza.Framework.Persistence.Exceptions;
-using Pizza.Framework.Utils;
+using Pizza.Utils;
 
 namespace Pizza.Framework.Persistence.Transactions
 {

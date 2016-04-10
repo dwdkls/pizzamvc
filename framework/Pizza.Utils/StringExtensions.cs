@@ -1,4 +1,4 @@
-﻿namespace Pizza.Framework.Utils
+﻿namespace Pizza.Utils
 {
     public static class StringExtensions
     {

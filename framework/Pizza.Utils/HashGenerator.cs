@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace Pizza.Framework.Utils
+namespace Pizza.Utils
 {
     public class HashGenerator
     {

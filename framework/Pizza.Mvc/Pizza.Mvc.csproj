@@ -538,6 +538,10 @@
       <Project>{c4ad1d8c-b782-4ee4-9ab0-36ba8c46d98e}</Project>
       <Name>Pizza.Framework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Pizza.Utils\Pizza.Utils.csproj">
+      <Project>{92de7979-cc08-4eec-ab11-536a102a6b43}</Project>
+      <Name>Pizza.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Errors.pl-pl.resx">

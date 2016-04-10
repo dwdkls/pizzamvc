@@ -5,8 +5,8 @@ using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
-using Pizza.Framework.Utils;
 using Pizza.Mvc.Helpers;
+using Pizza.Utils;
 
 namespace Pizza.Mvc.HtmlHelpers
 {

@@ -11,7 +11,7 @@ using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata;
 using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata.Types;
 using Pizza.Framework.Persistence.Extensions;
 using Pizza.Framework.Persistence.Transactions;
-using Pizza.Framework.Utils.ValueInjection;
+using Pizza.Framework.ValueInjection;
 using Pizza.Persistence;
 
 namespace Pizza.Framework.Operations

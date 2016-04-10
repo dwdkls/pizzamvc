@@ -6,7 +6,6 @@ using Pizza.Mvc.Filters;
 using Pizza.Mvc.Helpers;
 using RazorGenerator.Mvc;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Web.Mvc;

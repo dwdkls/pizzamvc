@@ -14,7 +14,7 @@ using Pizza.Framework.IntegrationTests.TestServices;
 using Pizza.Framework.TestTypes.Model.Common;
 using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels.Orders;
-using Pizza.Framework.Utils;
+using Pizza.Utils;
 using Ploeh.AutoFixture;
 
 namespace Pizza.Framework.IntegrationTests.OrdersCrudServiceTests.GetDataPage.Base

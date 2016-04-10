@@ -1,3 +1,8 @@
+## New in 0.2.3 (Released 2016-04-10)
+* All UI related texts stored in resources files. Resources for default and pl-PL culture created.
+* Validation messages (RequiredAttribute) localized. 
+* Pizza.Utils assembly created.
+
 ## New in 0.2.2 (Released 2016-03-21)
 * GridServiceBase renamed to CrudServiceBase
 * GridControllerBase renamed to CrudControllerBase

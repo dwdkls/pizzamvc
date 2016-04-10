@@ -9,11 +9,11 @@ using Pizza.Framework.Persistence;
 using Pizza.Framework.Persistence.Audit;
 using Pizza.Framework.Persistence.Extensions;
 using Pizza.Framework.Persistence.Transactions;
-using Pizza.Framework.Utils;
 using Ploeh.AutoFixture;
 using System;
 using System.Configuration;
 using System.Linq;
+using Pizza.Utils;
 
 namespace KebabManager.SchemaBuilder
 {

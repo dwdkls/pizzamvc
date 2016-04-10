@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Reflection;
 using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata.Types;
-using Pizza.Framework.Utils;
 using Pizza.Persistence;
 using Pizza.Persistence.Attributes;
+using Pizza.Utils;
 
 namespace Pizza.Framework.Operations.InternalUtils.RuntimeMetadata
 {
