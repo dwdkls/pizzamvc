@@ -5,14 +5,13 @@ using NSubstitute;
 using Pizza.Contracts.Security;
 using Pizza.Framework;
 using Pizza.Framework.DataGeneration;
-using Pizza.Framework.Persistence;
-using Pizza.Framework.Persistence.Audit;
 using Pizza.Framework.Persistence.Extensions;
-using Pizza.Framework.Persistence.Transactions;
 using Ploeh.AutoFixture;
 using System;
-using System.Configuration;
 using System.Linq;
+using NHibernate;
+using NHibernate.Cfg;
+using Pizza.Framework.Persistence;
 using Pizza.Utils;
 
 namespace KebabManager.SchemaBuilder
@@ -21,34 +20,47 @@ namespace KebabManager.SchemaBuilder
     {
         static void Main(string[] args)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            var configuration = NhConfigurationFactory.BuildConfiguration(connectionString, typeof(Customer).Assembly);
+            var container = BuildContainer();
 
-            var builder = new ContainerBuilder();
+            CreateDatabase(container);
+            Console.WriteLine("Created!");
 
-            builder.RegisterType<PersistenceModelAuditor>().AsSelf();
-            builder.RegisterType<TransactionManagingInterceptor>().AsSelf();
+            PopulateSampleData(container);
+            Console.WriteLine("Done!");
+
+            Console.ReadLine();
+        }
+
+        private static IContainer BuildContainer()
+        {
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            var builder = new ContainerBuilder()
+                .RegisterPersistence(connectionString, typeof(Customer).Assembly);
 
             RegisterMockedUserContext(builder);
 
             var container = builder.Build();
-            PizzaServerContext.Initialize(container);
+            return container;
+        }
 
+        private static void CreateDatabase(IContainer container)
+        {
+            var configuration = container.Resolve<Configuration>();
             var exporter = new SchemaExport(configuration);
             exporter.Create(true, true);
-            Console.WriteLine("Created!");
+        }
 
+        private static void PopulateSampleData(IContainer container)
+        {
             var fixture = FixtureFactory.Build();
-
             var customers = fixture.CreateMany<Customer>(27).ToList();
             var orders = fixture.CreateMany<Order>(27 * 13)
                 .SetRandomValuesForAllItems(o => o.Customer, customers);
 
             var users = CreateUsers();
 
-            var sessionFactory = configuration.BuildSessionFactory();
-
-            using (var session = sessionFactory.OpenSession())
+            using (var session = container.Resolve<ISession>())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -58,9 +70,6 @@ namespace KebabManager.SchemaBuilder
                     transaction.Commit();
                 }
             }
-
-            Console.WriteLine("Done!");
-            Console.ReadLine();
         }
 
         private static User[] CreateUsers()
@@ -89,7 +98,7 @@ namespace KebabManager.SchemaBuilder
                 Password = HashGenerator.Generate("qwe123")
             };
 
-            var users = new[] {user1, user2, user3};
+            var users = new[] { user1, user2, user3 };
             return users;
         }
 

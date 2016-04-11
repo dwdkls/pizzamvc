@@ -1,9 +1,11 @@
-## New in 0.2.3 (Released 2016-04-10)
+## New in 0.2.3 (Released 2016-04-11)
 * All UI related texts stored in resources files. Resources for default and pl-PL culture created.
 * Validation messages (RequiredAttribute) localized. 
 * Pizza.Utils assembly created.
 * ValueInjection namespace as top-level in Framework.
 * Useless ObjectInjectionExtensions.InjectFrom removed.
+* Pizza.Mvc don't have reference to Pizza.Framework
+* NHibernate configuration for IoC improved
 
 ## New in 0.2.2 (Released 2016-03-21)
 * GridServiceBase renamed to CrudServiceBase

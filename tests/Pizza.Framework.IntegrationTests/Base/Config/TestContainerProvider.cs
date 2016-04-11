@@ -1,11 +1,11 @@
 using Autofac;
+using FluentNHibernate;
 using NHibernate;
-using NHibernate.Cfg;
 using NSubstitute;
+using Pizza.Contracts.Security;
+using Pizza.Framework.Persistence;
 using Pizza.Framework.Persistence.SoftDelete;
 using System.Reflection;
-using Pizza.Contracts.Security;
-using Pizza.Framework.TestTypes.Model.PersistenceModels;
 
 namespace Pizza.Framework.IntegrationTests.Base.Config
 {
@@ -13,15 +13,15 @@ namespace Pizza.Framework.IntegrationTests.Base.Config
     {
         public IContainer Container { get; private set; }
 
-        public TestContainerProvider(Configuration configuration)
+        public TestContainerProvider(string connectionString, ITypeSource typeSource)
         {
-            var builder = new ContainerBuilder();
+            var builder = new ContainerBuilder()
+                .RegisterPersistence(connectionString, typeSource)
+                .RegisterApplicationServices(Assembly.GetExecutingAssembly());
 
             RegisterMockedUserContext(builder);
-            AutofacRegisterHelper.RegisterPersistenceStuffAndServices(builder, configuration, typeof(Customer).Assembly, Assembly.GetExecutingAssembly());
 
             this.Container = builder.Build();
-            PizzaServerContext.Initialize(this.Container);
         }
 
         private static void RegisterMockedUserContext(ContainerBuilder builder)

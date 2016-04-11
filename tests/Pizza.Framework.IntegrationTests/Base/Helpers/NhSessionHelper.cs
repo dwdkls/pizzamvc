@@ -14,11 +14,13 @@ namespace Pizza.Framework.IntegrationTests.Base.Helpers
 
         public NhSessionHelper(Configuration nhConfiguration)
         {
+            // TODO: use Container instead of session factory and Configuration
             this.sessionFactory = nhConfiguration.BuildSessionFactory();
         }
 
         private ISession OpenSession()
         {
+            
             var session = this.sessionFactory.OpenSession();
             session.EnableFilter(SoftDeletableFilter.FilterName);
 

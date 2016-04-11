@@ -11,7 +11,6 @@ namespace Pizza.Mvc
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<DefaultApplicationUserContext>().As<IPizzaUserContext>();
-
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
         }
     }

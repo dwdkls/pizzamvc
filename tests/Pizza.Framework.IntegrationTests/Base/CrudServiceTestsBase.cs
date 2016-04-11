@@ -5,7 +5,6 @@ using NUnit.Framework;
 using Pizza.Framework.DataGeneration;
 using Pizza.Framework.IntegrationTests.Base.Config;
 using Pizza.Framework.IntegrationTests.Base.Helpers;
-using Pizza.Framework.Persistence;
 using Ploeh.AutoFixture;
 
 namespace Pizza.Framework.IntegrationTests.Base
@@ -16,7 +15,10 @@ namespace Pizza.Framework.IntegrationTests.Base
         //TODO: allow user to replace this
         private const string connectionString = @"Data Source=.;Database=Pizza_Tests;Integrated Security=True;";
 
-        private Configuration nhConfiguration;
+        public Configuration NhConfiguration
+        {
+            get { return this.Container.Resolve<Configuration>(); }
+        }
 
         protected IFixture fixture;
         protected NhSessionHelper nhSessionHelper;
@@ -31,13 +33,9 @@ namespace Pizza.Framework.IntegrationTests.Base
         public void FixtureSetup()
         {
             LogManagerConfigurator.ConfigureLogManager();
+            this.testContainerProvider = new TestContainerProvider(connectionString, new TestedPeristenceModelsSource());
+            this.nhSessionHelper = new NhSessionHelper(this.NhConfiguration);
             this.fixture = FixtureFactory.Build();
-
-            var peristenceModelsSource = new TestedPeristenceModelsSource();
-            this.nhConfiguration = NhConfigurationFactory.BuildConfiguration(connectionString, peristenceModelsSource);
-            this.nhSessionHelper = new NhSessionHelper(this.nhConfiguration);
-
-            this.testContainerProvider = new TestContainerProvider(this.nhConfiguration);
 
             this.PrepareFixture();
         }
@@ -56,7 +54,7 @@ namespace Pizza.Framework.IntegrationTests.Base
 
         protected void RecreateDatabase()
         {
-            var exporter = new SchemaExport(this.nhConfiguration);
+            var exporter = new SchemaExport(this.NhConfiguration);
             exporter.Drop(false, true);
             exporter.Create(false, true);
         }

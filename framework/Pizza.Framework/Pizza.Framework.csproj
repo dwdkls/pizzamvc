@@ -67,7 +67,7 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutofacRegisterHelper.cs" />
+    <Compile Include="Persistence\AutofacRegisterExtensions.cs" />
     <Compile Include="DataGeneration\DataGenerationEnumerablesExtensions.cs" />
     <Compile Include="DataGeneration\SpecimenBuilders\DateTimeWithAccuracySpecimenBuilder.cs" />
     <Compile Include="DataGeneration\SpecimenBuilders\DisablePropertiesSpecimenBuilder.cs" />
@@ -75,11 +75,9 @@
     <Compile Include="DataGeneration\FixtureFactory.cs" />
     <Compile Include="DataGeneration\SpecimenBuilders\StringSpecimenBuilderBase.cs" />
     <Compile Include="DataGeneration\SpecimenBuilders\UnicodeStringSpecimenBuilder.cs" />
-    <Compile Include="PizzaServerContext.cs" />
     <Compile Include="Persistence\Config\Conventions\EnumConvention.cs" />
     <Compile Include="Persistence\Config\Conventions\SoftDeletableConvention.cs" />
     <Compile Include="Persistence\Config\Conventions\VersionedConvention.cs" />
-    <Compile Include="Persistence\NhConfigurationFactory.cs" />
     <Compile Include="Persistence\SoftDelete\SoftDeletableFilter.cs" />
     <Compile Include="Persistence\SoftDelete\SoftDeleteEventListener.cs" />
     <Compile Include="Persistence\Exceptions\OptimisticConcurrencyException.cs" />

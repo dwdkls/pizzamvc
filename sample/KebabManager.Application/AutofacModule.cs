@@ -1,9 +1,7 @@
 ﻿using Autofac;
 using KebabManager.Model.PersistenceModels;
-using Pizza.Framework;
-using System.Configuration;
-using System.Reflection;
 using Pizza.Framework.Persistence;
+using System.Configuration;
 
 namespace KebabManager.Application
 {
@@ -13,9 +11,8 @@ namespace KebabManager.Application
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-            var configuration = NhConfigurationFactory.BuildConfiguration(connectionString, typeof(Customer).Assembly);
-
-            AutofacRegisterHelper.RegisterPersistenceStuffAndServices(builder, configuration, typeof(Customer).Assembly, Assembly.GetExecutingAssembly());
+            builder.RegisterPersistence(connectionString, typeof(Customer).Assembly)
+                .RegisterApplicationServices(this.ThisAssembly);
         }
     }
 }

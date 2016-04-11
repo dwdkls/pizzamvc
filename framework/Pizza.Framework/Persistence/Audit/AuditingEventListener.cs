@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Autofac;
 using NHibernate.Event;
 using Pizza.Persistence;
 
@@ -7,25 +6,22 @@ namespace Pizza.Framework.Persistence.Audit
 {
     public class AuditingEventListener : IPreInsertEventListener, IPreUpdateEventListener
     {
-        private static PersistenceModelAuditor Auditor
+        private readonly PersistenceModelAuditor auditor;
+
+        public AuditingEventListener(PersistenceModelAuditor auditor)
         {
-            get
-            {
-                // TODO: this is not nice hack, find way to get access to AutofacContainer from NHibernate
-                var persistenceModelAuditor = PizzaServerContext.Current.Container.Resolve<PersistenceModelAuditor>();
-                return persistenceModelAuditor;
-            }
+            this.auditor = auditor;
         }
 
         public bool OnPreInsert(PreInsertEvent e)
         {
-            Auditor.Insert(this.FindObjectToAudit(e.Entity), e.State, e.Persister);
+            this.auditor.Insert(this.FindObjectToAudit(e.Entity), e.State, e.Persister);
             return false;
         }
 
         public bool OnPreUpdate(PreUpdateEvent e)
         {
-            Auditor.Update(this.FindObjectToAudit(e.Entity), e.OldState, e.State, e.Persister);
+            this.auditor.Update(this.FindObjectToAudit(e.Entity), e.OldState, e.State, e.Persister);
             return false;
         }
 

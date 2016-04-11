@@ -1,6 +1,5 @@
 using Autofac;
 using Autofac.Integration.Mvc;
-using Pizza.Framework;
 using Pizza.Mvc;
 using Pizza.Mvc.Filters;
 using Pizza.Mvc.Helpers;
@@ -63,7 +62,6 @@ namespace Pizza.Mvc
             var container = builder.Build();
 
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-            PizzaServerContext.Initialize(container);
         }
     }
 }

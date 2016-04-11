@@ -40,6 +40,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KebabManager.Web", "sample\KebabManager.Web\KebabManager.Web.csproj", "{54AF111D-7E76-429D-9917-0BB30830AEA1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KebabManager.SchemaBuilder", "sample\KebabManager.SchemaBuilder\KebabManager.SchemaBuilder.csproj", "{98DD60F4-BF38-4403-8AFD-492CFEEDBD66}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6046F8A1-FDF2-4F58-AE09-76C397580923} = {6046F8A1-FDF2-4F58-AE09-76C397580923}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{E2125E24-C16C-4360-B847-3F4BF7972B68}"
 	ProjectSection(SolutionItems) = preProject
