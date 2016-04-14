@@ -1,12 +1,19 @@
-﻿@model DateTime
+﻿@using System
+@using System.Threading
+
+@model System.DateTime
 
 @{
     var controlId = ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty);
+    var culture = Thread.CurrentThread.CurrentCulture;
+    var cultureName = culture.Name;
+    var netDateFormatString = culture.DateTimeFormat.ShortDatePattern;
+    var emptyDateString = DateTime.MinValue.ToString();
 }
 
 <div id="@controlId-container">
     <div class="input-group date">
-        @Html.TextBoxFor(x => Model, new { @class = "form-control" })
+        @Html.TextBox(string.Empty, this.Model, new { @class = "form-control" })
         <span class="input-group-addon">
             <i class="glyphicon glyphicon-calendar"></i>
         </span>
@@ -18,23 +25,33 @@
         var dp = $('#@controlId');
 
         dp.datepicker({
-            format: "yyyy-mm-dd",
+            language: "@cultureName",
             clearBtn: true,
-            orientation: "bottom auto",
-            orientation: "top",
+            orientation: "bottom",
             autoclose: true
         });
 
-        if (dp.val() === "0001-01-01 00:00:00") {
+        var date = dp.val();
+
+        if (date) {
+            if (date === "@emptyDateString") {
+                dp.datepicker('update', '');
+            } else {
+                var dateOnly = date.substring(0, 10);
+                dp.datepicker('update', dateOnly);
+            }
+        } else {
             dp.datepicker('update', '');
-        }
-        else {
-            var dateOnly = dp.val().substring(0, 10);
-            dp.datepicker('update', dateOnly);
         }
 
         $('#@controlId-container .input-group-addon').click(function () {
             $('#@controlId').datepicker('show');
         });
+    });
+
+    $(function () {
+        $.validator.methods.date = function (value, element) {
+            return this.optional(element) || Date.parseExact(value, "@netDateFormatString") !== null;
+        }
     });
 </script>

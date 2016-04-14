@@ -12,10 +12,18 @@ namespace KebabManager.Web
                 "~/Scripts/jquery-{version}.js"
             ));
 
+            bundles.Add(new ScriptBundle("~/bundles/datejs").Include(
+                "~/Scripts/datejs.js",
+                "~/Scripts/datejs.min.js"
+            ));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                 "~/Scripts/jquery-ui-{version}.js",
                 "~/Scripts/i18n/grid.locale-pl.js",
-                "~/Scripts/i18n/grid.locale-en.js",
+                "~/Scripts/i18n/grid.locale-en-GB.js",
+                //"~/Scripts/i18n/grid.locale-de.js",
+                //"~/Scripts/i18n/grid.locale-es.js",
+                //"~/Scripts/i18n/grid.locale-fr.js",
                 "~/Scripts/jquery.jqGrid.js"
             ));
 
@@ -37,6 +45,11 @@ namespace KebabManager.Web
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/bootstrap-datepicker.js",
+                "~/Scripts/locales/bootstrap-datepicker.en-GB.min.js",
+                "~/Scripts/locales/bootstrap-datepicker.de.min.js",
+                "~/Scripts/locales/bootstrap-datepicker.pl.min.js",
+                "~/Scripts/locales/bootstrap-datepicker.es.min.js",
+                "~/Scripts/locales/bootstrap-datepicker.fr.min.js",
                 "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
