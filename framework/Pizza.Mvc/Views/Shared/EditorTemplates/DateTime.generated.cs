@@ -59,22 +59,22 @@ WriteLiteral("\r\n");
     var culture = Thread.CurrentThread.CurrentCulture;
     var cultureName = culture.Name;
     var netDateFormatString = culture.DateTimeFormat.ShortDatePattern;
-    var emptyDateString = DateTime.MinValue.ToString();
+    var emptyDateString = DateTime.MinValue.ToShortDateString();
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n\r\n<div");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 380), Tuple.Create("\"", 405)
+WriteAttribute("id", Tuple.Create(" id=\"", 389), Tuple.Create("\"", 414)
             
             #line 14 "..\..\Views\Shared\EditorTemplates\DateTime.cshtml"
-, Tuple.Create(Tuple.Create("", 385), Tuple.Create<System.Object, System.Int32>(controlId
+, Tuple.Create(Tuple.Create("", 394), Tuple.Create<System.Object, System.Int32>(controlId
             
             #line default
             #line hidden
-, 385), false)
-, Tuple.Create(Tuple.Create("", 395), Tuple.Create("-container", 395), true)
+, 394), false)
+, Tuple.Create(Tuple.Create("", 404), Tuple.Create("-container", 404), true)
 );
 
 WriteLiteral(">\r\n    <div");
@@ -87,7 +87,7 @@ WriteLiteral("        ");
 
             
             #line 16 "..\..\Views\Shared\EditorTemplates\DateTime.cshtml"
-   Write(Html.TextBox(string.Empty, this.Model, new { @class = "form-control" }));
+   Write(Html.TextBox(string.Empty, this.Model.ToShortDateString(), new { @class = "form-control" }));
 
             
             #line default
@@ -101,16 +101,16 @@ WriteLiteral(">\r\n            <i");
 WriteLiteral(" class=\"glyphicon glyphicon-calendar\"");
 
 WriteLiteral("></i>\r\n        </span>\r\n    </div>\r\n</div>\r\n\r\n<script>\r\n    $(function () {\r\n    " +
-"    var dp = $(\'#");
+"    var dateInput = $(\'#");
 
             
             #line 25 "..\..\Views\Shared\EditorTemplates\DateTime.cshtml"
-                Write(controlId);
+                       Write(controlId);
 
             
             #line default
             #line hidden
-WriteLiteral("\');\r\n\r\n        dp.datepicker({\r\n            language: \"");
+WriteLiteral("\');\r\n\r\n        dateInput.datepicker({\r\n            language: \"");
 
             
             #line 28 "..\..\Views\Shared\EditorTemplates\DateTime.cshtml"
@@ -120,30 +120,19 @@ WriteLiteral("\');\r\n\r\n        dp.datepicker({\r\n            language: \"");
             #line default
             #line hidden
 WriteLiteral("\",\r\n            clearBtn: true,\r\n            orientation: \"bottom\",\r\n            " +
-"autoclose: true\r\n        });\r\n\r\n        var date = dp.val();\r\n\r\n        if (date" +
-") {\r\n            if (date === \"");
+"autoclose: true\r\n        });\r\n\r\n        if (dateInput.val() === \"");
 
             
-            #line 37 "..\..\Views\Shared\EditorTemplates\DateTime.cshtml"
-                     Write(emptyDateString);
+            #line 34 "..\..\Views\Shared\EditorTemplates\DateTime.cshtml"
+                            Write(emptyDateString);
 
             
             #line default
             #line hidden
-WriteLiteral(@""") {
-                dp.datepicker('update', '');
-            } else {
-                var dateOnly = date.substring(0, 10);
-                dp.datepicker('update', dateOnly);
-            }
-        } else {
-            dp.datepicker('update', '');
-        }
-
-        $('#");
+WriteLiteral("\") {\r\n            dateInput.datepicker(\"update\", \"\");\r\n        }\r\n\r\n        $(\'#");
 
             
-            #line 47 "..\..\Views\Shared\EditorTemplates\DateTime.cshtml"
+            #line 38 "..\..\Views\Shared\EditorTemplates\DateTime.cshtml"
        Write(controlId);
 
             
@@ -152,7 +141,7 @@ WriteLiteral(@""") {
 WriteLiteral("-container .input-group-addon\').click(function () {\r\n            $(\'#");
 
             
-            #line 48 "..\..\Views\Shared\EditorTemplates\DateTime.cshtml"
+            #line 39 "..\..\Views\Shared\EditorTemplates\DateTime.cshtml"
            Write(controlId);
 
             
@@ -163,7 +152,7 @@ WriteLiteral("\').datepicker(\'show\');\r\n        });\r\n    });\r\n\r\n    $(f
 "onal(element) || Date.parseExact(value, \"");
 
             
-            #line 54 "..\..\Views\Shared\EditorTemplates\DateTime.cshtml"
+            #line 45 "..\..\Views\Shared\EditorTemplates\DateTime.cshtml"
                                                                 Write(netDateFormatString);
 
             
