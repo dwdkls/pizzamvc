@@ -1,19 +1,20 @@
 ﻿@using System
-@using System.Threading
+@using System.Globalization
 
 @model System.DateTime
 
 @{
-    var controlId = ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty);
-    var culture = Thread.CurrentThread.CurrentCulture;
+    var controlId = this.ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty);
+    var culture = CultureInfo.CurrentCulture;
     var cultureName = culture.Name;
-    var netDateFormatString = culture.DateTimeFormat.ShortDatePattern;
-    var emptyDateString = DateTime.MinValue.ToShortDateString();
+
+    var dateFormatString = cultureName == "pl-PL" ? "dd.MM.yyyy" : culture.DateTimeFormat.ShortDatePattern;
+    var emptyDateString = DateTime.MinValue.ToString(dateFormatString);
 }
 
 <div id="@controlId-container">
     <div class="input-group date">
-        @Html.TextBox(string.Empty, this.Model.ToShortDateString(), new { @class = "form-control" })
+        @Html.TextBox(string.Empty, this.Model.ToString(dateFormatString), new { @class = "form-control" })
         <span class="input-group-addon">
             <i class="glyphicon glyphicon-calendar"></i>
         </span>
@@ -35,14 +36,14 @@
             dateInput.datepicker("update", "");
         }
 
-        $('#@controlId-container .input-group-addon').click(function () {
-            $('#@controlId').datepicker('show');
+        $("#@controlId-container .input-group-addon").click(function () {
+            $("#@controlId").datepicker("show");
         });
     });
 
     $(function () {
         $.validator.methods.date = function (value, element) {
-            return this.optional(element) || Date.parseExact(value, "@netDateFormatString") !== null;
+            return this.optional(element) || Date.parseExact(value, "@dateFormatString") !== null;
         }
     });
 </script>

@@ -1,6 +1,7 @@
 using Autofac;
 using Autofac.Integration.Mvc;
 using Pizza.Mvc;
+using Pizza.Mvc.AttributeAdapters;
 using Pizza.Mvc.Filters;
 using Pizza.Mvc.Helpers;
 using RazorGenerator.Mvc;
@@ -9,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.WebPages;
-using Pizza.Mvc.AttributeAdapters;
+using Pizza.Mvc.Binders;
 
 [assembly: WebActivatorEx.PostApplicationStartMethod(typeof(PizzaMvcPostApplicationStart), "Start")]
 
@@ -22,6 +23,8 @@ namespace Pizza.Mvc
             RegisterRazorGeneratedViewEngine();
             RegisterGlobalFilters();
             BootstrapAutofac();
+
+            ModelBinders.Binders.Add(typeof(DateTime), new DateTimeModelBinder());
 
             DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(RequiredAttribute), typeof(PizzaRequiredAttributeAdapter));
         }
