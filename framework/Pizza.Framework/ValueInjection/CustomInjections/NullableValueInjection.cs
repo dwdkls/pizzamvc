@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using Omu.ValueInjecter;
 using Omu.ValueInjecter.Injections;
+using Omu.ValueInjecter.Utils;
 
 namespace Pizza.Framework.ValueInjection.CustomInjections
 {

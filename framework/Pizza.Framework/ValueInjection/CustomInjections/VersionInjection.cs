@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
-using Omu.ValueInjecter;
 using Omu.ValueInjecter.Injections;
+using Omu.ValueInjecter.Utils;
 using Pizza.Persistence;
 using Pizza.Utils;
 

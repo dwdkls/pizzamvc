@@ -1,3 +1,8 @@
+## New in 0.2.4 (Released 2016-04-17)
+* Removed dependency between Pizza.Mvc and Pizza.Framework
+* Datepicker fixed
+* All dependent packages updated
+
 ## New in 0.2.3 (Released 2016-04-11)
 * All UI related texts stored in resources files. Resources for default and pl-PL culture created.
 * Validation messages (RequiredAttribute) localized. 
