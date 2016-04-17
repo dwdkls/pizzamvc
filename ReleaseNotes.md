@@ -1,5 +1,4 @@
 ## New in 0.2.4 (Released 2016-04-17)
-* Removed dependency between Pizza.Mvc and Pizza.Framework
 * Datepicker fixed
 * All dependent packages updated
 

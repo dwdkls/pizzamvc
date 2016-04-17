@@ -183,10 +183,10 @@ WriteLiteral("</a>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n
 
 WriteLiteral(" type=\"text/javascript\"");
 
-WriteLiteral(">\r\n    var detailsLink = \'");
+WriteLiteral(">\r\n    $.jgrid.defaults.guiStyle = \'bootstrap\';\r\n\r\n    var detailsLink = \'");
 
             
-            #line 35 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 37 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                    Write(Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new { id = "_id_" }));
 
             
@@ -195,7 +195,7 @@ WriteLiteral(">\r\n    var detailsLink = \'");
 WriteLiteral("\';\r\n    var editLink = \'");
 
             
-            #line 36 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 38 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                 Write(Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" }));
 
             
@@ -217,7 +217,7 @@ WriteLiteral(@"';
         var link = ""<a name='delete' data-id='"" + options.rowId + ""' href=''>");
 
             
-            #line 49 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 51 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                                                                         Write(Model.DeleteLink.Text);
 
             
@@ -242,7 +242,7 @@ WriteLiteral(@"</a>"";
                 url: '");
 
             
-            #line 65 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 67 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                  Write(Url.Action(ScriptKeys.Delete));
 
             
@@ -271,7 +271,7 @@ WriteLiteral(@"',
         $('.ui-pg-div').replaceWith('<div class=""ui-pg-div""><span class=""ui-icon ui-icon-refresh""></span>");
 
             
-            #line 85 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 87 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                                                                                                     Write(UiTexts.GridButton_Clear);
 
             
@@ -282,7 +282,7 @@ WriteLiteral("</div>\');\r\n\r\n        // Hack for missing \'All\' option in dr
 "ion:first\');\r\n            option.text(\'");
 
             
-            #line 90 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 92 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                     Write(UiTexts.GridSearch_DropDown_All);
 
             

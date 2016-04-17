@@ -19,12 +19,16 @@ namespace KebabManager.Web
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                 "~/Scripts/jquery-ui-{version}.js",
-                "~/Scripts/i18n/grid.locale-pl.js",
-                "~/Scripts/i18n/grid.locale-en-GB.js",
+                //"~/Scripts/i18n/grid.locale-pl.js",
+                //"~/Scripts/i18n/grid.locale-en-GB.js",
                 //"~/Scripts/i18n/grid.locale-de.js",
                 //"~/Scripts/i18n/grid.locale-es.js",
                 //"~/Scripts/i18n/grid.locale-fr.js",
-                "~/Scripts/jquery.jqGrid.js"
+                "~/Scripts/free-jqGrid/jquery.jqgrid.src.js",
+                "~/Scripts/free-jqGrid/i18n/grid.locale-pl.js",
+                "~/Scripts/free-jqGrid/i18n/grid.locale-de.js"
+                //"~/Scripts/free-jqGrid/i18n/grid.locale-en.js",
+                //"~/Scripts/free-jqGrid/jquery.jqgrid.src.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -56,25 +60,28 @@ namespace KebabManager.Web
                 "~/Content/bootstrap.css",
                 "~/Content/bootstrap-datepicker3.css",
 
-                "~/Content/jquery.ui.theme.css",
+                //"~/Content/jquery.ui.theme.css",
                 
                 "~/Content/Pizza.css",
 
-                "~/Content/jquery.jqGrid/ui.jqgrid.css",
-                "~/Content/jqGrid.bootstrap.css"
-                
-                //"~/Content/themes/base/jquery.ui.core.css",
-                //"~/Content/themes/base/jquery.ui.resizable.css",
-                //"~/Content/themes/base/jquery.ui.selectable.css",
-                //"~/Content/themes/base/jquery.ui.accordion.css",
-                //"~/Content/themes/base/jquery.ui.autocomplete.css",
-                //"~/Content/themes/base/jquery.ui.button.css",
-                //"~/Content/themes/base/jquery.ui.dialog.css",
-                //"~/Content/themes/base/jquery.ui.slider.css",
-                //"~/Content/themes/base/jquery.ui.tabs.css",
-                //"~/Content/themes/base/jquery.ui.datepicker.css",
-                //"~/Content/themes/base/jquery.ui.progressbar.css",
-                //"~/Content/themes/base/jquery.ui.theme.css"
+                "~/Content/ui.jqgrid.css"
+                //"~/Content/ui.jqgrid2.css"
+
+                //"~/Content/jquery.jqGrid/ui.jqgrid.css",
+                //"~/Content/jqGrid.bootstrap.css"
+
+            //"~/Content/themes/base/jquery.ui.core.css",
+            //"~/Content/themes/base/jquery.ui.resizable.css",
+            //"~/Content/themes/base/jquery.ui.selectable.css",
+            //"~/Content/themes/base/jquery.ui.accordion.css",
+            //"~/Content/themes/base/jquery.ui.autocomplete.css",
+            //"~/Content/themes/base/jquery.ui.button.css",
+            //"~/Content/themes/base/jquery.ui.dialog.css",
+            //"~/Content/themes/base/jquery.ui.slider.css",
+            //"~/Content/themes/base/jquery.ui.tabs.css",
+            //"~/Content/themes/base/jquery.ui.datepicker.css",
+            //"~/Content/themes/base/jquery.ui.progressbar.css",
+            //"~/Content/themes/base/jquery.ui.theme.css"
             ));
         }
     }

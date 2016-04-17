@@ -32,6 +32,8 @@
 </div>
 
 <script type="text/javascript">
+    $.jgrid.defaults.guiStyle = 'bootstrap';
+
     var detailsLink = '@(Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new { id = "_id_" }))';
     var editLink = '@(Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" }))';
 
