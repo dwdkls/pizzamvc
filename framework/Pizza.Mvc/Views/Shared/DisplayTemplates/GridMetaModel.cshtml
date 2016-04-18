@@ -34,17 +34,29 @@
 <script type="text/javascript">
     $.jgrid.defaults.guiStyle = 'bootstrap';
 
-    var detailsLink = '@(Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new { id = "_id_" }))';
-    var editLink = '@(Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" }))';
 
-    function buildDetailsLink(cellvalue, options, rowobject) {
-        var link = detailsLink.replace("_id_", options.rowId);
-        return link;
+    @if (Model.DetailsLink.IsEnabled)
+    {
+        <text>
+        var detailsLink = '(@Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new {id = "_id_"}))';
+
+        function buildDetailsLink(cellvalue, options, rowobject) {
+            var link = detailsLink.replace("_id_", options.rowId);
+            return link;
+        }
+        </text>
     }
 
-    function buildEditLink(cellvalue, options, rowobject) {
-        var link = editLink.replace("_id_", options.rowId);
-        return link;
+    @if (Model.EditLink.IsEnabled)
+    {
+        <text>
+        var editLink = '@(Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" }))';
+
+        function buildEditLink(cellvalue, options, rowobject) {
+            var link = editLink.replace("_id_", options.rowId);
+            return link;
+        }
+        </text>
     }
 
     function buildDeleteLink(cellvalue, options, rowobject) {

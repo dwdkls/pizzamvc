@@ -85,7 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AutofacModule.cs" />
-    <Compile Include="App_Start\RazorGeneratorMvcStart.cs" />
     <Compile Include="Binders\DateTimeModelBinder.cs" />
     <Compile Include="AttributeAdapters\PizzaRequiredAttributeAdapter.cs" />
     <Compile Include="App_Start\PizzaMvcPostApplicationStart.cs" />

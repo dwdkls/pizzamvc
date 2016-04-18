@@ -31,6 +31,14 @@ namespace Pizza.Mvc
 
         private static void RegisterRazorGeneratedViewEngine()
         {
+            var mainEngine = new PrecompiledMvcEngine(typeof(PizzaMvcPostApplicationStart).Assembly)
+            {
+                UsePhysicalViewsIfNewer = HttpContext.Current.Request.IsLocal,
+            };
+
+            ViewEngines.Engines.Insert(0, mainEngine);
+            VirtualPathFactoryManager.RegisterVirtualPathFactory(mainEngine);
+
             var areaNames = RouteTableHelper.GetApplicationAreaNames();
             foreach (var areaName in areaNames)
             {
@@ -39,17 +47,9 @@ namespace Pizza.Mvc
                     UsePhysicalViewsIfNewer = HttpContext.Current.Request.IsLocal,
                 };
 
-                ViewEngines.Engines.Add(engine);
+                ViewEngines.Engines.Insert(0, engine);
                 VirtualPathFactoryManager.RegisterVirtualPathFactory(engine);
             }
-
-            var mainEngine = new PrecompiledMvcEngine(typeof(PizzaMvcPostApplicationStart).Assembly)
-            {
-                UsePhysicalViewsIfNewer = HttpContext.Current.Request.IsLocal,
-            };
-
-            ViewEngines.Engines.Add(mainEngine);
-            VirtualPathFactoryManager.RegisterVirtualPathFactory(mainEngine);
         }
 
         private static void RegisterGlobalFilters()

@@ -183,41 +183,91 @@ WriteLiteral("</a>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n
 
 WriteLiteral(" type=\"text/javascript\"");
 
-WriteLiteral(">\r\n    $.jgrid.defaults.guiStyle = \'bootstrap\';\r\n\r\n    var detailsLink = \'");
-
-            
-            #line 37 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
-                   Write(Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new { id = "_id_" }));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\';\r\n    var editLink = \'");
+WriteLiteral(">\r\n    $.jgrid.defaults.guiStyle = \'bootstrap\';\r\n\r\n\r\n");
 
             
             #line 38 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
-                Write(Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" }));
+    
+            
+            #line default
+            #line hidden
+            
+            #line 38 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+     if (Model.DetailsLink.IsEnabled)
+    {
 
             
             #line default
             #line hidden
-WriteLiteral(@"';
+WriteLiteral("        ");
 
-    function buildDetailsLink(cellvalue, options, rowobject) {
-        var link = detailsLink.replace(""_id_"", options.rowId);
-        return link;
-    }
-
-    function buildEditLink(cellvalue, options, rowobject) {
-        var link = editLink.replace(""_id_"", options.rowId);
-        return link;
-    }
-
-    function buildDeleteLink(cellvalue, options, rowobject) {
-        var link = ""<a name='delete' data-id='"" + options.rowId + ""' href=''>");
+WriteLiteral("\r\n        var detailsLink = \'(");
 
             
-            #line 51 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 41 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+                       Write(Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new {id = "_id_"}));
+
+            
+            #line default
+            #line hidden
+WriteLiteral(")\';\r\n\r\n        function buildDetailsLink(cellvalue, options, rowobject) {\r\n      " +
+"      var link = detailsLink.replace(\"_id_\", options.rowId);\r\n            return" +
+" link;\r\n        }\r\n        ");
+
+WriteLiteral("\r\n");
+
+            
+            #line 48 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+    }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
+
+            
+            #line 50 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+    
+            
+            #line default
+            #line hidden
+            
+            #line 50 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+     if (Model.EditLink.IsEnabled)
+    {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        ");
+
+WriteLiteral("\r\n        var editLink = \'");
+
+            
+            #line 53 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+                    Write(Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\';\r\n\r\n        function buildEditLink(cellvalue, options, rowobject) {\r\n          " +
+"  var link = editLink.replace(\"_id_\", options.rowId);\r\n            return link;\r" +
+"\n        }\r\n        ");
+
+WriteLiteral("\r\n");
+
+            
+            #line 60 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+    }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n    function buildDeleteLink(cellvalue, options, rowobject) {\r\n        var link" +
+" = \"<a name=\'delete\' data-id=\'\" + options.rowId + \"\' href=\'\'>");
+
+            
+            #line 63 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                                                                         Write(Model.DeleteLink.Text);
 
             
@@ -242,7 +292,7 @@ WriteLiteral(@"</a>"";
                 url: '");
 
             
-            #line 67 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 79 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                  Write(Url.Action(ScriptKeys.Delete));
 
             
@@ -271,7 +321,7 @@ WriteLiteral(@"',
         $('.ui-pg-div').replaceWith('<div class=""ui-pg-div""><span class=""ui-icon ui-icon-refresh""></span>");
 
             
-            #line 87 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 99 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                                                                                                     Write(UiTexts.GridButton_Clear);
 
             
@@ -282,7 +332,7 @@ WriteLiteral("</div>\');\r\n\r\n        // Hack for missing \'All\' option in dr
 "ion:first\');\r\n            option.text(\'");
 
             
-            #line 92 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 104 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                     Write(UiTexts.GridSearch_DropDown_All);
 
             
