@@ -5,6 +5,7 @@
 #r "System.Xml.Linq.dll"
 
 open System
+open System.Linq
 open System.Xml.Linq
 open System.IO
 open System.Xml
@@ -39,12 +40,8 @@ let readFrameworkAssemblyVersion () =
 let buildPackageVersion (version: Version) =
     sprintf "%i.%i.%i-alpha%04i" version.Major version.Minor version.Build version.Revision
 
-
-let buildProject proj =
-    let outputDir = proj |> getOutputDirName
-    MSBuildDebug outputDir "Build" [proj] 
-        |> Log "AppBuild-Output: "
-
+let isWebProject packageName =
+    packageName = "Pizza.Mvc"
 
 let getFrameworkReferencesFromCsproj (csprojContent: XDocument) =
     csprojContent.Root.Descendants() 
@@ -80,6 +77,26 @@ let getSourceInfo packageName =
     
     (dependencies @ projectDependencies, frameworkAssemblies)
 
+let configurePackageFiles packageName buildDirPath = 
+        let compiledFiles = [ ( @"*.*", Some @"lib\net45", None ) ]
+        if isWebProject packageName then 
+            let resourceFileName = sprintf "%s.%s" packageName "resources.dll"
+            let buildDirInfo = new DirectoryInfo(buildDirPath)
+            let resourceFiles = 
+                buildDirInfo.GetDirectories()
+                |> Seq.filter (fun di -> di.GetFiles(resourceFileName).Length = 1)
+                |> Seq.map (fun di -> ( sprintf @"%s\%s" di.Name resourceFileName, Some (sprintf @"%s\%s" @"lib\net45\" di.Name), None )) 
+                |> Seq.toList
+            compiledFiles @ resourceFiles
+        else
+            compiledFiles
+
+// Build Step Functions
+
+let buildProject proj =
+    let outputDir = proj |> getOutputDirName
+    MSBuildDebug outputDir "Build" [proj] 
+        |> Log "AppBuild-Output: "
 
 let createPackage (buildDir: DirectoryInfo) =
     let packageName = buildDir.Name
@@ -87,7 +104,7 @@ let createPackage (buildDir: DirectoryInfo) =
     printfn "%s" packagePath
     trace ("Current package: " @@ packageName)
 
-    trace "Copying files..."
+    trace "Copying current assembly files..."
     CopyDir packagePath buildDir.FullName (fun filePath -> Path.GetFileName(filePath).StartsWith(packageName))
 
     let dependencies, frameworkAssemblies = getSourceInfo packageName
@@ -96,6 +113,7 @@ let createPackage (buildDir: DirectoryInfo) =
     trace packagePath
 
     let packageVersion = buildPackageVersion(readFrameworkAssemblyVersion())
+    let files = configurePackageFiles packageName buildDir.FullName
 
     NuGet (fun app -> 
         { app with
@@ -110,10 +128,9 @@ let createPackage (buildDir: DirectoryInfo) =
             OutputPath = nupkgOutDir
             WorkingDir = packagePath
             FrameworkAssemblies = frameworkAssemblies
-            Files = [ ( @"*.*", Some @"lib\net45", None ) ]
+            Files = files
             Dependencies = dependencies
         }) nuspecFile 
-
 
 
 // Targets

@@ -109,8 +109,8 @@
     <Compile Include="HtmlHelpers\JqGridHtmlHelper.cs" />
     <Compile Include="HtmlHelpers\MenuHtmlHelper.cs" />
     <Compile Include="PizzaMvcApplication.cs" />
-    <Compile Include="Resources\Errors.pl-pl.Designer.cs">
-      <DependentUpon>Errors.pl-pl.resx</DependentUpon>
+    <Compile Include="Resources\Errors.de-DE.Designer.cs">
+      <DependentUpon>Errors.de-DE.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -119,10 +119,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Errors.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\UiTexts.pl-pl.Designer.cs">
+    <Compile Include="Resources\Errors.pl-PL.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UiTexts.pl-pl.resx</DependentUpon>
+      <DependentUpon>Errors.pl-PL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UiTexts.de-DE.Designer.cs">
+      <DependentUpon>UiTexts.de-DE.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\UiTexts.pl-PL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UiTexts.pl-PL.resx</DependentUpon>
     </Compile>
     <Compile Include="ScriptKeys.cs" />
     <Compile Include="Security\DefaultApplicationUserContext.cs" />
@@ -787,17 +797,25 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Errors.pl-pl.resx">
+    <EmbeddedResource Include="Resources\Errors.de-DE.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Errors.pl-pl.Designer.cs</LastGenOutput>
+      <LastGenOutput>Errors.de-DE.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Errors.pl-PL.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Errors.pl-PL.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Errors.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Errors.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\UiTexts.pl-pl.resx">
+    <EmbeddedResource Include="Resources\UiTexts.de-DE.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>UiTexts.pl-pl.Designer.cs</LastGenOutput>
+      <LastGenOutput>UiTexts.de-DE.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\UiTexts.pl-PL.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UiTexts.pl-PL.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\UiTexts.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
