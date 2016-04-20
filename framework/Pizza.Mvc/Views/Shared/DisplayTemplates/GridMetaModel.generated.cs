@@ -201,18 +201,18 @@ WriteLiteral(">\r\n    $.jgrid.defaults.guiStyle = \'bootstrap\';\r\n\r\n\r\n");
             #line hidden
 WriteLiteral("        ");
 
-WriteLiteral("\r\n        var detailsLink = \'(");
+WriteLiteral("\r\n        var detailsLink = \'");
 
             
             #line 41 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
-                       Write(Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new {id = "_id_"}));
+                      Write(Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new {id = "_id_"}));
 
             
             #line default
             #line hidden
-WriteLiteral(")\';\r\n\r\n        function buildDetailsLink(cellvalue, options, rowobject) {\r\n      " +
-"      var link = detailsLink.replace(\"_id_\", options.rowId);\r\n            return" +
-" link;\r\n        }\r\n        ");
+WriteLiteral("\';\r\n\r\n        function buildDetailsLink(cellvalue, options, rowobject) {\r\n       " +
+"     var link = detailsLink.replace(\"_id_\", options.rowId);\r\n            return " +
+"link;\r\n        }\r\n        ");
 
 WriteLiteral("\r\n");
 
@@ -245,7 +245,7 @@ WriteLiteral("\r\n        var editLink = \'");
 
             
             #line 53 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
-                    Write(Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" }));
+                   Write(Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" }));
 
             
             #line default

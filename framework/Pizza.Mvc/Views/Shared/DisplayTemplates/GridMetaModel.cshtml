@@ -38,7 +38,7 @@
     @if (Model.DetailsLink.IsEnabled)
     {
         <text>
-        var detailsLink = '(@Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new {id = "_id_"}))';
+        var detailsLink = '@Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new {id = "_id_"})';
 
         function buildDetailsLink(cellvalue, options, rowobject) {
             var link = detailsLink.replace("_id_", options.rowId);
@@ -50,7 +50,7 @@
     @if (Model.EditLink.IsEnabled)
     {
         <text>
-        var editLink = '@(Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" }))';
+        var editLink = '@Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" })';
 
         function buildEditLink(cellvalue, options, rowobject) {
             var link = editLink.replace("_id_", options.rowId);
