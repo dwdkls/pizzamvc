@@ -25,12 +25,8 @@ namespace Pizza.Contracts.Operations.Requests.Configuration
                 return Enum.Parse(realType, valueAsString);
             }
 
-            if (realType == typeof(DateTime))
-            {
-                return Convert.ChangeType(valueAsString, propertyType, CultureInfoHelper.CurrentCultureForDateTimeConversion);
-            }
-
-            return Convert.ChangeType(valueAsString, propertyType);
+            var cultureInfo = CultureInfoHelper.GetCultureInfoForType(realType);
+            return Convert.ChangeType(valueAsString, propertyType, cultureInfo);
         }
     }
 }

@@ -36,5 +36,10 @@ namespace Pizza.Utils
         {
             return Nullable.GetUnderlyingType(type) ?? type;
         }
+
+        public static bool IsReallyDateTime(this Type type)
+        {
+            return type.GetRealType() == typeof(DateTime);
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace Pizza.Mvc.Binders
             object resultValue = null;
             try
             {
-                resultValue = Convert.ToDateTime(valueProviderResult.AttemptedValue, CultureInfoHelper.CurrentCultureForDateTimeConversion);
+                resultValue = Convert.ToDateTime(valueProviderResult.AttemptedValue, CultureInfoHelper.CurrentDateTimeCulture);
             }
             catch (FormatException e)
             {

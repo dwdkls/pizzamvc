@@ -11,7 +11,7 @@ namespace Pizza.Mvc.Grid
 {
     public class TypeToJqGridObjectMapperGenerator
     {
-        private static readonly Expression polishCultureExpression;
+        //private static readonly Expression polishCultureExpression;
         private static readonly ConstructorInfo jqGridObjectTypeCtor;
         private static readonly MethodInfo getEnumDisplayNameMethodInfo;
 
@@ -20,8 +20,8 @@ namespace Pizza.Mvc.Grid
             var jqGridObjectType = new { id = -1, cell = new object[0] }.GetType();
             jqGridObjectTypeCtor = jqGridObjectType.GetConstructor(new[] { typeof(int), typeof(object[]) });
 
-            // TODO: get from provider
-            polishCultureExpression = Expression.Constant(new CultureInfo("en-US"));
+            //// TODO: get from provider
+            //polishCultureExpression = Expression.Constant(new CultureInfo("en-US"));
 
             // EnumHelper.GetDisplayName
             getEnumDisplayNameMethodInfo = typeof(EnumDisplayNameHelper).GetMethod("GetDisplayName");
@@ -84,7 +84,11 @@ namespace Pizza.Mvc.Grid
                 // Calling Convert.ToString(property type, IFormatProvider)
                 var methodParmetersTypes = new[] { propertyType, typeof(IFormatProvider) };
                 MethodInfo convertToStringMethod = typeof(Convert).GetMethod("ToString", methodParmetersTypes);
-                propertyExpression = Expression.Call(convertToStringMethod, propertyExpression, polishCultureExpression);
+
+                var cultureInfo = CultureInfoHelper.GetCultureInfoForType(propertyType);
+                var cultureExpression = Expression.Constant(cultureInfo);
+
+                propertyExpression = Expression.Call(convertToStringMethod, propertyExpression, cultureExpression);
             }
 
             return propertyExpression;

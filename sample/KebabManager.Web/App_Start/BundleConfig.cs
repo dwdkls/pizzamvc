@@ -26,7 +26,7 @@ namespace KebabManager.Web
                 //"~/Scripts/i18n/grid.locale-fr.js",
                 "~/Scripts/free-jqGrid/jquery.jqgrid.src.js",
                 "~/Scripts/free-jqGrid/i18n/grid.locale-pl.js"
-            //"~/Scripts/free-jqGrid/i18n/grid.locale-de.js"
+                //"~/Scripts/free-jqGrid/i18n/grid.locale-de.js"
             //"~/Scripts/free-jqGrid/i18n/grid.locale-en.js"
             ));
 
