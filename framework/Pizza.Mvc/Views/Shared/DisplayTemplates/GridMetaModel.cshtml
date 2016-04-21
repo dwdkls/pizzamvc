@@ -32,9 +32,6 @@
 </div>
 
 <script type="text/javascript">
-    $.jgrid.defaults.guiStyle = 'bootstrap';
-
-
     @if (Model.DetailsLink.IsEnabled)
     {
         <text>
@@ -94,14 +91,5 @@
 
     function gridComplete() {
         $("[name='delete']").click(showConfirmDeleteDialog);
-
-        // Hack for translation "refresh" button text
-        $('.ui-pg-div').replaceWith('<div class="ui-pg-div"><span class="ui-icon ui-icon-refresh"></span>@UiTexts.GridButton_Clear</div>');
-
-        // Hack for missing 'All' option in dropdowns
-        $("select[id^='gs_']").each(function () {
-            var option = $(this).find('option:first');
-            option.text('@UiTexts.GridSearch_DropDown_All');
-        });
     }
 </script>

@@ -183,16 +183,16 @@ WriteLiteral("</a>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n
 
 WriteLiteral(" type=\"text/javascript\"");
 
-WriteLiteral(">\r\n    $.jgrid.defaults.guiStyle = \'bootstrap\';\r\n\r\n\r\n");
+WriteLiteral(">\r\n");
 
             
-            #line 38 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 35 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
     
             
             #line default
             #line hidden
             
-            #line 38 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 35 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
      if (Model.DetailsLink.IsEnabled)
     {
 
@@ -204,7 +204,7 @@ WriteLiteral("        ");
 WriteLiteral("\r\n        var detailsLink = \'");
 
             
-            #line 41 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 38 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                       Write(Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new {id = "_id_"}));
 
             
@@ -217,7 +217,7 @@ WriteLiteral("\';\r\n\r\n        function buildDetailsLink(cellvalue, options, r
 WriteLiteral("\r\n");
 
             
-            #line 48 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 45 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
     }
 
             
@@ -226,13 +226,13 @@ WriteLiteral("\r\n");
 WriteLiteral("\r\n");
 
             
-            #line 50 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 47 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
     
             
             #line default
             #line hidden
             
-            #line 50 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 47 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
      if (Model.EditLink.IsEnabled)
     {
 
@@ -244,7 +244,7 @@ WriteLiteral("        ");
 WriteLiteral("\r\n        var editLink = \'");
 
             
-            #line 53 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 50 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                    Write(Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" }));
 
             
@@ -257,7 +257,7 @@ WriteLiteral("\';\r\n\r\n        function buildEditLink(cellvalue, options, rowo
 WriteLiteral("\r\n");
 
             
-            #line 60 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 57 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
     }
 
             
@@ -267,7 +267,7 @@ WriteLiteral("\r\n    function buildDeleteLink(cellvalue, options, rowobject) {\
 " = \"<a name=\'delete\' data-id=\'\" + options.rowId + \"\' href=\'\'>");
 
             
-            #line 63 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 60 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                                                                         Write(Model.DeleteLink.Text);
 
             
@@ -292,7 +292,7 @@ WriteLiteral(@"</a>"";
                 url: '");
 
             
-            #line 79 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 76 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                  Write(Url.Action(ScriptKeys.Delete));
 
             
@@ -316,29 +316,9 @@ WriteLiteral(@"',
 
     function gridComplete() {
         $(""[name='delete']"").click(showConfirmDeleteDialog);
-
-        // Hack for translation ""refresh"" button text
-        $('.ui-pg-div').replaceWith('<div class=""ui-pg-div""><span class=""ui-icon ui-icon-refresh""></span>");
-
-            
-            #line 99 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
-                                                                                                    Write(UiTexts.GridButton_Clear);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</div>\');\r\n\r\n        // Hack for missing \'All\' option in dropdowns\r\n        $(\"se" +
-"lect[id^=\'gs_\']\").each(function () {\r\n            var option = $(this).find(\'opt" +
-"ion:first\');\r\n            option.text(\'");
-
-            
-            #line 104 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
-                    Write(UiTexts.GridSearch_DropDown_All);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\');\r\n        });\r\n    }\r\n</script>\r\n");
+    }
+</script>
+");
 
         }
     }

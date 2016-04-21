@@ -1,5 +1,4 @@
 using System;
-using System.Globalization;
 using Pizza.Utils;
 
 namespace Pizza.Contracts.Operations.Requests.Configuration
@@ -20,15 +19,18 @@ namespace Pizza.Contracts.Operations.Requests.Configuration
         private static object GetValue(Type propertyType, string valueAsString)
         {
             var realType = propertyType.GetRealType();
+
             if (realType.IsEnum)
             {
-                return Enum.Parse(propertyType, valueAsString);
+                return Enum.Parse(realType, valueAsString);
             }
 
-            var conversionCulture = realType == typeof(DateTime) ? CultureInfoHelper.CurrentCultureForDateTimeConversion : CultureInfo.CurrentCulture;
+            if (realType == typeof(DateTime))
+            {
+                return Convert.ChangeType(valueAsString, propertyType, CultureInfoHelper.CurrentCultureForDateTimeConversion);
+            }
 
-            var value = Convert.ChangeType(valueAsString, propertyType, conversionCulture);
-            return value;
+            return Convert.ChangeType(valueAsString, propertyType);
         }
     }
 }

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Pizza.Mvc.HtmlHelpers.Utils;
+using Pizza.Mvc.Resources;
 
 namespace Pizza.Mvc.HtmlHelpers
 {
@@ -21,7 +22,7 @@ namespace Pizza.Mvc.HtmlHelpers
             grid = ConfigureDataColumns(grid, gridModel);
             grid = ConfigureButtonColumns(grid, gridModel);
 
-            var gridMarkup = new JqGridRepairer(gridId).FixDatepickerConfiguration(grid.ToString());
+            var gridMarkup = JqGridConfigurationUpdater.FixGridConfiguration(grid.ToString(), gridId, UiTexts.GridButton_Clear, UiTexts.GridSearch_DropDown_All);
             return MvcHtmlString.Create(gridMarkup);
         }
 
