@@ -25,10 +25,9 @@ namespace KebabManager.Web
                 //"~/Scripts/i18n/grid.locale-es.js",
                 //"~/Scripts/i18n/grid.locale-fr.js",
                 "~/Scripts/free-jqGrid/jquery.jqgrid.src.js",
-                "~/Scripts/free-jqGrid/i18n/grid.locale-pl.js",
-                "~/Scripts/free-jqGrid/i18n/grid.locale-de.js"
-                //"~/Scripts/free-jqGrid/i18n/grid.locale-en.js",
-                //"~/Scripts/free-jqGrid/jquery.jqgrid.src.js"
+                "~/Scripts/free-jqGrid/i18n/grid.locale-pl.js"
+            //"~/Scripts/free-jqGrid/i18n/grid.locale-de.js"
+            //"~/Scripts/free-jqGrid/i18n/grid.locale-en.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -61,14 +60,14 @@ namespace KebabManager.Web
                 "~/Content/bootstrap-datepicker3.css",
 
                 //"~/Content/jquery.ui.theme.css",
-                
+
                 "~/Content/Pizza.css",
 
                 "~/Content/ui.jqgrid.css"
-                //"~/Content/ui.jqgrid2.css"
+            //"~/Content/ui.jqgrid2.css"
 
-                //"~/Content/jquery.jqGrid/ui.jqgrid.css",
-                //"~/Content/jqGrid.bootstrap.css"
+            //"~/Content/jquery.jqGrid/ui.jqgrid.css",
+            //"~/Content/jqGrid.bootstrap.css"
 
             //"~/Content/themes/base/jquery.ui.core.css",
             //"~/Content/themes/base/jquery.ui.resizable.css",

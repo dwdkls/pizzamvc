@@ -5,6 +5,7 @@ using Pizza.Mvc.Grid.Metamodel;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using Pizza.Mvc.HtmlHelpers.Utils;
 
 namespace Pizza.Mvc.HtmlHelpers
 {
@@ -12,13 +13,16 @@ namespace Pizza.Mvc.HtmlHelpers
     {
         public static MvcHtmlString JqGrid(this HtmlHelper html, GridMetamodel gridModel, string gridDataAction)
         {
+            var gridId = "mainGrid";
+
             // TODO: fluent API
-            var grid = html.Grid("mainGrid");
+            var grid = html.Grid(gridId);
             grid = ConfigureGrid(grid, gridModel, gridDataAction);
             grid = ConfigureDataColumns(grid, gridModel);
             grid = ConfigureButtonColumns(grid, gridModel);
 
-            return MvcHtmlString.Create(grid.ToString());
+            var gridMarkup = new JqGridRepairer(gridId).FixDatepickerConfiguration(grid.ToString());
+            return MvcHtmlString.Create(gridMarkup);
         }
 
         private static MvcJqGrid.Grid ConfigureGrid(MvcJqGrid.Grid grid, GridMetamodel gridModel, string gridDataAction)
@@ -86,10 +90,6 @@ namespace Pizza.Mvc.HtmlHelpers
                 if (searchtype == Searchtype.Select)
                 {
                     column.SetSearchTerms(filter.SelectFilterMap);
-                }
-                else if (searchtype == Searchtype.Datepicker)
-                {
-                    column.SetSearchDateFormat("yy-mm-dd");
                 }
             }
         }

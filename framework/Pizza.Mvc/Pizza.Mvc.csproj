@@ -106,6 +106,7 @@
     <Compile Include="HtmlHelpers\FormHtmlHelperExtensions.cs" />
     <Compile Include="HtmlHelpers\EnumHtmlHelper.cs" />
     <Compile Include="HtmlHelpers\HtmlHelperExtensions.cs" />
+    <Compile Include="HtmlHelpers\Utils\JqGridRepairer.cs" />
     <Compile Include="HtmlHelpers\JqGridHtmlHelper.cs" />
     <Compile Include="HtmlHelpers\MenuHtmlHelper.cs" />
     <Compile Include="PizzaMvcApplication.cs" />

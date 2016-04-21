@@ -1,6 +1,6 @@
 using System;
-using System.Globalization;
 using System.Web.Mvc;
+using Pizza.Utils;
 
 namespace Pizza.Mvc.Binders
 {
@@ -8,14 +8,13 @@ namespace Pizza.Mvc.Binders
     {
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
-            var conversionCulture = CultureInfo.CurrentCulture.Name == "pl-PL" ? new CultureInfo("de-DE") : CultureInfo.CurrentCulture;
             var valueProviderResult = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
             var modelState = new ModelState { Value = valueProviderResult };
 
             object resultValue = null;
             try
             {
-                resultValue = Convert.ToDateTime(valueProviderResult.AttemptedValue, conversionCulture);
+                resultValue = Convert.ToDateTime(valueProviderResult.AttemptedValue, CultureInfoHelper.CurrentCultureForDateTimeConversion);
             }
             catch (FormatException e)
             {

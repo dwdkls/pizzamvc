@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttributesHelper.cs" />
+    <Compile Include="CultureInfoHelper.cs" />
     <Compile Include="HashGenerator.cs" />
     <Compile Include="ObjectHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
