@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -11,7 +10,6 @@ namespace Pizza.Mvc.Grid
 {
     public class TypeToJqGridObjectMapperGenerator
     {
-        //private static readonly Expression polishCultureExpression;
         private static readonly ConstructorInfo jqGridObjectTypeCtor;
         private static readonly MethodInfo getEnumDisplayNameMethodInfo;
 
@@ -19,9 +17,6 @@ namespace Pizza.Mvc.Grid
         {
             var jqGridObjectType = new { id = -1, cell = new object[0] }.GetType();
             jqGridObjectTypeCtor = jqGridObjectType.GetConstructor(new[] { typeof(int), typeof(object[]) });
-
-            //// TODO: get from provider
-            //polishCultureExpression = Expression.Constant(new CultureInfo("en-US"));
 
             // EnumHelper.GetDisplayName
             getEnumDisplayNameMethodInfo = typeof(EnumDisplayNameHelper).GetMethod("GetDisplayName");
