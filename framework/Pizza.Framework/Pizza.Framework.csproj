@@ -93,7 +93,6 @@
     <Compile Include="Persistence\Config\Conventions\VersionedConvention.cs" />
     <Compile Include="Persistence\SoftDelete\SoftDeletableFilter.cs" />
     <Compile Include="Persistence\SoftDelete\SoftDeleteEventListener.cs" />
-    <Compile Include="Persistence\Exceptions\OptimisticConcurrencyException.cs" />
     <Compile Include="Operations\PersistenceModelsStore.cs" />
     <Compile Include="Operations\ViewModelsReader.cs" />
     <Compile Include="Operations\CrudServiceBase.cs" />
@@ -118,6 +117,8 @@
     <Compile Include="Operations\InternalUtils\RuntimeMetadata\ViewModelToPersistenceModelPropertyNamesMapsGenerator.cs" />
     <Compile Include="Persistence\Audit\PersistenceModelAuditor.cs" />
     <Compile Include="Persistence\Audit\AuditingEventListener.cs" />
+    <Compile Include="Persistence\Transactions\Utils\InvocationHelper.cs" />
+    <Compile Include="Persistence\Transactions\Utils\LoggingHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\AuthServiceBase.cs" />
     <Compile Include="DataGeneration\StringGenerator.cs" />

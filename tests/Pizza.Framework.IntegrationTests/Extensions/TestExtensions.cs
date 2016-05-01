@@ -11,6 +11,7 @@ namespace Pizza.Framework.IntegrationTests.Extensions
             int pageNumber, int pageSize, int expectedLoaded, int expectedTotal)
         {
             dataPage.Should(Be.Not.Null);
+            dataPage.State.Should(Be.EqualTo(CrudOperationState.Success));
             dataPage.Items.Should(Be.Not.Empty);
             dataPage.Items.Count.Should(Be.EqualTo(expectedLoaded));
             dataPage.PagingInfo.Should(Compares.To(new PagingInfo(pageNumber, pageSize, expectedTotal)));

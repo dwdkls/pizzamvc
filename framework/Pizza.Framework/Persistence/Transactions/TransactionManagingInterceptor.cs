@@ -1,17 +1,17 @@
-﻿using System;
-using System.Text;
-using Castle.DynamicProxy;
+﻿using Castle.DynamicProxy;
 using NHibernate;
 using NLog;
-using Pizza.Framework.Persistence.Exceptions;
 using Pizza.Utils;
+using System;
+using Pizza.Framework.Persistence.Transactions.Utils;
 
 namespace Pizza.Framework.Persistence.Transactions
 {
     public class TransactionManagingInterceptor : Castle.DynamicProxy.IInterceptor
     {
         // TODO: remove logger or move to client code
-        private readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private readonly Logger logger;
+        private readonly LoggingHelper loggingHelper;
 
         private readonly ISession session;
 
@@ -20,34 +20,36 @@ namespace Pizza.Framework.Persistence.Transactions
         public TransactionManagingInterceptor(ISession session)
         {
             this.session = session;
+            this.logger = LogManager.GetCurrentClassLogger();
+            this.loggingHelper = new LoggingHelper(this.logger);
         }
 
         public void Intercept(IInvocation invocation)
         {
-            string methodName = string.Format("{0}.{1}", invocation.Method.DeclaringType.Name, invocation.Method.Name);
-            var argumentsList = BuildArgumentsList(invocation);
-            bool isTransactional = this.IsTransactional(invocation);
-
-            if (isTransactional)
+            if (this.IsTransactional(invocation))
             {
-                this.LogTransactionMethodBegin(methodName, argumentsList);
+                this.loggingHelper.LogTransactionMethodBegin(invocation);
 
-                var iAmTheFirst = this.BeginTransactionIfNeeded();
-
+                bool iAmTheFirst = default(bool);
                 try
                 {
+                    iAmTheFirst = this.BeginTransactionIfNeeded();
                     invocation.Proceed();
-                    this.TryCommit(iAmTheFirst, methodName);
-                }
-                catch (StaleObjectStateException sosex)
-                {
-                    this.RollbackTransaction(iAmTheFirst, methodName, sosex);
-                    throw new OptimisticConcurrencyException("This record has been updated by someone else.", sosex);
+                    this.TryCommit(iAmTheFirst, invocation);
                 }
                 catch (Exception ex)
                 {
-                    this.RollbackTransaction(iAmTheFirst, methodName, ex);
-                    throw;
+                    this.logger.Error(ex, "Exception in method: {0}", invocation.Method.GetFullMethodName());
+                    this.RollbackTransaction(iAmTheFirst, invocation);
+
+                    if (InvocationHelper.IsKnownCrudOperation(invocation))
+                    {
+                        invocation.ReturnValue = InvocationHelper.BuildReturnValueForError(invocation, ex);
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
                 finally
                 {
@@ -56,7 +58,7 @@ namespace Pizza.Framework.Persistence.Transactions
             }
             else
             {
-                this.LogTransactionMethodIgnored(methodName, argumentsList);
+                this.loggingHelper.LogTransactionMethodIgnored(invocation);
                 invocation.Proceed();
             }
         }
@@ -72,55 +74,28 @@ namespace Pizza.Framework.Persistence.Transactions
             return false;
         }
 
-        private void TryCommit(bool iAmTheFirst, string methodName)
+        private void TryCommit(bool iAmTheFirst, IInvocation invocation)
         {
             if (iAmTheFirst)
             {
-                this.logger.Trace("Commit transaction for method: {0}", methodName);
+                this.logger.Trace("Commit transaction for method: {0}", invocation.Method.GetFullMethodName());
 
                 this.transaction.Commit();
                 this.transaction = null;
             }
         }
 
-        private void RollbackTransaction(bool iAmTheFirst, string methodName, Exception ex)
+        private void RollbackTransaction(bool iAmTheFirst, IInvocation invocation)
         {
             if (iAmTheFirst)
             {
-                this.logger.Trace("Rollback transaction for method: {0}", methodName);
+                this.logger.Trace("Rollback transaction for method: {0}", invocation.Method.GetFullMethodName());
 
                 this.transaction.Rollback();
                 this.session.Clear();
                 this.transaction = null;
             }
-
-            this.logger.ErrorException(string.Format("Error commiting transaction for method: {0}", methodName), ex);
         }
-
-
-        private static string BuildArgumentsList(IInvocation invocation)
-        {
-            var argumentsList = new StringBuilder("Arguments: " + Environment.NewLine);
-            for (int i = 0; i < invocation.Arguments.Length; i++)
-            {
-                argumentsList.AppendLine(string.Format("Id: {0}\tValue: {1}", i, invocation.Arguments[i]));
-            }
-
-            return argumentsList.ToString();
-        }
-
-        private void LogTransactionMethodBegin(string methodName, string argumentsList)
-        {
-            this.logger.Trace("TransactionManagingInterceptor executes method: {0}", methodName);
-            this.logger.Trace(argumentsList);
-        }
-
-        private void LogTransactionMethodIgnored(string methodName, string argumentsList)
-        {
-            this.logger.Trace("TransactionManagingInterceptor ignores method: {0}", methodName);
-            this.logger.Trace(argumentsList);
-        }
-
 
         private bool IsTransactional(IInvocation invocation)
         {

@@ -61,6 +61,33 @@ namespace Pizza.Mvc.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Database error occured..
+        /// </summary>
+        public static string DataBaseError {
+            get {
+                return ResourceManager.GetString("DataBaseError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This record has been updated by someone else..
+        /// </summary>
+        public static string OptimisticConcurrencyError {
+            get {
+                return ResourceManager.GetString("OptimisticConcurrencyError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Some error occured during requested operation..
+        /// </summary>
+        public static string OtherError {
+            get {
+                return ResourceManager.GetString("OtherError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Field {0} is required.
         /// </summary>
         public static string ValueIsRequired {

@@ -201,18 +201,18 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("        ");
 
-WriteLiteral("\r\n        var detailsLink = \'");
+WriteLiteral("\r\n    var detailsLink = \'");
 
             
             #line 38 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
-                      Write(Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new {id = "_id_"}));
+                  Write(Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new {id = "_id_"}));
 
             
             #line default
             #line hidden
-WriteLiteral("\';\r\n\r\n        function buildDetailsLink(cellvalue, options, rowobject) {\r\n       " +
-"     var link = detailsLink.replace(\"_id_\", options.rowId);\r\n            return " +
-"link;\r\n        }\r\n        ");
+WriteLiteral("\';\r\n\r\n    function buildDetailsLink(cellvalue, options, rowobject) {\r\n        var" +
+" link = detailsLink.replace(\"_id_\", options.rowId);\r\n        return link;\r\n    }" +
+"\r\n    ");
 
 WriteLiteral("\r\n");
 
@@ -241,18 +241,18 @@ WriteLiteral("\r\n");
             #line hidden
 WriteLiteral("        ");
 
-WriteLiteral("\r\n        var editLink = \'");
+WriteLiteral("\r\n    var editLink = \'");
 
             
             #line 50 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
-                   Write(Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" }));
+               Write(Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\';\r\n\r\n        function buildEditLink(cellvalue, options, rowobject) {\r\n          " +
-"  var link = editLink.replace(\"_id_\", options.rowId);\r\n            return link;\r" +
-"\n        }\r\n        ");
+WriteLiteral("\';\r\n\r\n    function buildEditLink(cellvalue, options, rowobject) {\r\n        var li" +
+"nk = editLink.replace(\"_id_\", options.rowId);\r\n        return link;\r\n    }\r\n    " +
+"");
 
 WriteLiteral("\r\n");
 
@@ -277,6 +277,11 @@ WriteLiteral(@"</a>"";
         return link;
     }
 
+    function showGridError(xhrResponseText) {
+        var errorMessage = $.parseJSON(xhrResponseText);
+        showErrorWindow(errorMessage, false);
+    }
+
     function showConfirmDeleteDialog(e) {
         e.preventDefault();
         var rowId = $(this).attr('data-id');
@@ -292,7 +297,7 @@ WriteLiteral(@"</a>"";
                 url: '");
 
             
-            #line 76 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
+            #line 81 "..\..\Views\Shared\DisplayTemplates\GridMetaModel.cshtml"
                  Write(Url.Action(ScriptKeys.Delete));
 
             
@@ -300,8 +305,11 @@ WriteLiteral(@"</a>"";
             #line hidden
 WriteLiteral(@"',
                 data: { id: rowId },
-                success: function (result) {
+                success: function (result, status, xhr) {
                     $('#mainGrid').trigger('reloadGrid');
+                },
+                error: function (xhr, status, error) {
+                    showGridError(xhr.responseText);
                 }
             });
 

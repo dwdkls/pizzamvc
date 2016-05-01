@@ -35,30 +35,35 @@
     @if (Model.DetailsLink.IsEnabled)
     {
         <text>
-        var detailsLink = '@Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new {id = "_id_"})';
+    var detailsLink = '@Html.ActionLink(Model.DetailsLink.Text, ScriptKeys.Details, new {id = "_id_"})';
 
-        function buildDetailsLink(cellvalue, options, rowobject) {
-            var link = detailsLink.replace("_id_", options.rowId);
-            return link;
-        }
-        </text>
+    function buildDetailsLink(cellvalue, options, rowobject) {
+        var link = detailsLink.replace("_id_", options.rowId);
+        return link;
+    }
+    </text>
     }
 
     @if (Model.EditLink.IsEnabled)
     {
         <text>
-        var editLink = '@Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" })';
+    var editLink = '@Html.ActionLink(Model.EditLink.Text, ScriptKeys.Edit, new { id = "_id_" })';
 
-        function buildEditLink(cellvalue, options, rowobject) {
-            var link = editLink.replace("_id_", options.rowId);
-            return link;
-        }
-        </text>
+    function buildEditLink(cellvalue, options, rowobject) {
+        var link = editLink.replace("_id_", options.rowId);
+        return link;
+    }
+    </text>
     }
 
     function buildDeleteLink(cellvalue, options, rowobject) {
         var link = "<a name='delete' data-id='" + options.rowId + "' href=''>@Model.DeleteLink.Text</a>";
         return link;
+    }
+
+    function showGridError(xhrResponseText) {
+        var errorMessage = $.parseJSON(xhrResponseText);
+        showErrorWindow(errorMessage, false);
     }
 
     function showConfirmDeleteDialog(e) {
@@ -75,8 +80,11 @@
                 type: 'DELETE',
                 url: '@Url.Action(ScriptKeys.Delete)',
                 data: { id: rowId },
-                success: function (result) {
+                success: function (result, status, xhr) {
                     $('#mainGrid').trigger('reloadGrid');
+                },
+                error: function (xhr, status, error) {
+                    showGridError(xhr.responseText);
                 }
             });
 

@@ -49,7 +49,7 @@ namespace Pizza.Mvc.HtmlHelpers
                 .SetSearchClearButton(true)
                 // events:
                 .OnGridComplete("gridComplete()")
-                .OnLoadError("showErrorWindow(xhr.responseText, false);");
+                .OnLoadError("showGridError(xhr.responseText);");
 
             return grid;
         }

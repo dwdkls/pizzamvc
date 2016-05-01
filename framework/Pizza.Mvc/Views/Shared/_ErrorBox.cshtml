@@ -47,7 +47,15 @@
 
 </script>
 
-@if (TempData[ScriptKeys.Error] != null)
+@if (ViewData[ScriptKeys.Error] != null)
+{
+    <script type="text/javascript">
+        $(function () {
+            showErrorWindow("@(ViewData[ScriptKeys.Error])", false);
+        });
+    </script>
+}
+else if (TempData[ScriptKeys.Error] != null)
 {
     <script type="text/javascript">
         $(function () {

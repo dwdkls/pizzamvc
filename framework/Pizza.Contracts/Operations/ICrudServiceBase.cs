@@ -10,11 +10,11 @@ namespace Pizza.Contracts.Operations
         where TCreateModel : ICreateModelBase
     {
         DataPageResult<TGridModel> GetDataPage(DataRequest<TGridModel> request);
-        TCreateModel GetCreateModel();
-        TEditModel GetEditModel(int id);
-        TDetailsModel GetDetailsModel(int id);
-        int Create(TCreateModel createModel);
-        void Update(TEditModel editModel);
-        void Delete(int id);
+        CrudOperationResult<TCreateModel> GetCreateModel();
+        CrudOperationResult<TEditModel> GetEditModel(int id);
+        CrudOperationResult<TDetailsModel> GetDetailsModel(int id);
+        CrudOperationResult<int> Create(TCreateModel createModel);
+        CrudOperationResult Update(TEditModel editModel);
+        CrudOperationResult Delete(int id);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using MvcJqGrid;
 using Pizza.Contracts;
@@ -21,12 +22,15 @@ namespace Pizza.Mvc.Controllers
         where TEditModel : IEditModelBase
         where TCreateModel : ICreateModelBase
     {
-        protected enum ViewType { Index, Details, Create, Edit, }
+        protected enum ViewType
+        {
+            Index,
+            Details,
+            Create,
+            Edit,
+        }
 
         private static readonly string idPropertyName = ObjectHelper.GetPropertyName<IGridModelBase>(x => x.Id);
-
-        // TODO: to separate service?
-        //protected static readonly CultureInfo currentCulture = new CultureInfo("en-US");
 
         protected readonly TService service;
         protected static GridMetamodel<TGridModel> gridMetamodel;
@@ -38,6 +42,11 @@ namespace Pizza.Mvc.Controllers
             this.InitCachedConfiguration();
         }
 
+        private static readonly Dictionary<CrudOperationState, string> errorMessagesMap = new Dictionary<CrudOperationState, string>() {
+            { CrudOperationState.DatabaseError, Errors.DataBaseError },
+            { CrudOperationState.OptimisticConcurrencyError, Errors.OptimisticConcurrencyError },
+            { CrudOperationState.OtherError, Errors.OtherError },
+        };
 
         private static HashSet<Type> configuredControllers = new HashSet<Type>();
 
@@ -59,11 +68,12 @@ namespace Pizza.Mvc.Controllers
         {
             get
             {
-                return new Dictionary<ViewType, string> {
-                    { ViewType.Index, UiTexts.ViewTitle_Index },
-                    { ViewType.Create, UiTexts.ViewTitle_Create },
-                    { ViewType.Edit, UiTexts.ViewTitle_Edit },
-                    { ViewType.Details, UiTexts.ViewTitle_Details },
+                return new Dictionary<ViewType, string>
+                {
+                    {ViewType.Index, UiTexts.ViewTitle_Index},
+                    {ViewType.Create, UiTexts.ViewTitle_Create},
+                    {ViewType.Edit, UiTexts.ViewTitle_Edit},
+                    {ViewType.Details, UiTexts.ViewTitle_Details},
                 };
             }
         }
@@ -85,18 +95,25 @@ namespace Pizza.Mvc.Controllers
         {
             var request = MvcJqGridRequestBuilder.BuildGridDataRequest(gridSettings, gridMetamodel);
 
-            var listResult = this.GetGridDataFromService(request);
+            var result = this.GetGridDataFromService(request);
 
-            var items = listResult.Items.Select(typeToJqGridObjectMapper).ToList();
-            var jsonData = new
+            if (result.Succeed)
             {
-                total = listResult.PagingInfo.TotalPages,
-                page = gridSettings.PageIndex,
-                records = listResult.PagingInfo.TotalItemsCount,
-                rows = items
-            };
+                var items = result.Items.Select(typeToJqGridObjectMapper).ToList();
+                var jsonData = new
+                {
+                    total = result.PagingInfo.TotalPages,
+                    page = gridSettings.PageIndex,
+                    records = result.PagingInfo.TotalItemsCount,
+                    rows = items
+                };
 
-            return this.Json(jsonData, JsonRequestBehavior.AllowGet);
+                return this.Json(jsonData, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return this.HandleServiceErrorForJson(result);
+            }
         }
 
         protected virtual DataPageResult<TGridModel> GetGridDataFromService(DataRequest<TGridModel> request)
@@ -114,7 +131,8 @@ namespace Pizza.Mvc.Controllers
 
         public virtual ActionResult Create()
         {
-            var createModel = this.service.GetCreateModel();
+            var result = this.service.GetCreateModel();
+            var createModel = result.Data;
 
             this.ViewBag.PageTitle = this.ViewNames[ViewType.Create];
             return this.View(createModel);
@@ -126,8 +144,8 @@ namespace Pizza.Mvc.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                this.service.Create(createModel);
-                return this.RedirectToAction(GetActionName(x => this.Index()));
+                var result = this.service.Create(createModel);
+                return this.HandleServiceResultForView(result, createModel);
             }
 
             this.ViewBag.PageTitle = this.ViewNames[ViewType.Create];
@@ -136,7 +154,8 @@ namespace Pizza.Mvc.Controllers
 
         public ActionResult Edit(int id)
         {
-            var editModel = this.service.GetEditModel(id);
+            var result = this.service.GetEditModel(id);
+            var editModel = result.Data;
 
             this.ViewBag.PageTitle = this.ViewNames[ViewType.Edit];
             return this.View(editModel);
@@ -148,8 +167,8 @@ namespace Pizza.Mvc.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                this.service.Update(editModel);
-                return this.RedirectToAction(GetActionName(x => this.Index()));
+                var result = this.service.Update(editModel);
+                return this.HandleServiceResultForView(result, editModel);
             }
 
             this.ViewBag.PageTitle = this.ViewNames[ViewType.Edit];
@@ -159,8 +178,40 @@ namespace Pizza.Mvc.Controllers
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            this.service.Delete(id);
-            return this.Json("ok", JsonRequestBehavior.AllowGet);
+            var result = this.service.Delete(id);
+
+            if (result.Succeed)
+            {
+                return this.Json("ok", JsonRequestBehavior.AllowGet);
+            }
+
+            return this.HandleServiceErrorForJson(result);
+        }
+
+        private ActionResult HandleServiceResultForView(CrudOperationResultBase result, IViewModelBase viewModel)
+        {
+            if (result.Succeed)
+            {
+                return this.RedirectToAction(GetActionName(x => this.Index()));
+            }
+            else
+            {
+                return this.HandleServiceErrorForAction(result, viewModel);
+            }
+        }
+
+        private ActionResult HandleServiceErrorForAction(CrudOperationResultBase result, IViewModelBase viewModel)
+        {
+            var errorMessage = errorMessagesMap[result.State];
+            this.ShowError(errorMessage);
+            return this.View(viewModel);
+        }
+
+        private JsonResult HandleServiceErrorForJson(CrudOperationResultBase result)
+        {
+            this.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            var errorMessage = errorMessagesMap[result.State];
+            return this.Json(errorMessage, JsonRequestBehavior.AllowGet);
         }
     }
 }

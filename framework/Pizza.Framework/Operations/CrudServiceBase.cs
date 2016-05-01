@@ -30,33 +30,33 @@ namespace Pizza.Framework.Operations
             this.viewModelsReader = new ViewModelsReader<TPersistenceModel, TGridModel, TDetailsModel, TEditModel, TCreateModel>(session);
         }
 
-        public DataPageResult<TGridModel> GetDataPage(DataRequest<TGridModel> request)
+        public virtual DataPageResult<TGridModel> GetDataPage(DataRequest<TGridModel> request)
         {
             return this.viewModelsReader.GetDataPage(request, null, null);
         }
 
-        protected DataPageResult<TGridModel> GetDataPage(DataRequest<TGridModel> request,
+        protected virtual DataPageResult<TGridModel> GetDataPage(DataRequest<TGridModel> request,
             Expression<Func<TPersistenceModel, bool>> whereCondition)
         {
             return this.viewModelsReader.GetDataPage(request, whereCondition, null);
         }
 
-        public virtual TCreateModel GetCreateModel()
+        public virtual CrudOperationResult<TCreateModel> GetCreateModel()
         {
             return this.viewModelsReader.GetCreateModel();
         }
 
-        public virtual TEditModel GetEditModel(int id)
+        public virtual CrudOperationResult<TEditModel> GetEditModel(int id)
         {
             return this.viewModelsReader.GetEditModel(id);
         }
 
-        public virtual TDetailsModel GetDetailsModel(int id)
+        public virtual CrudOperationResult<TDetailsModel> GetDetailsModel(int id)
         {
             return this.viewModelsReader.GetDetailsModel(id);
         }
 
-        public virtual int Create(TCreateModel createModel)
+        public virtual CrudOperationResult<int> Create(TCreateModel createModel)
         {
             if (createModel == null)
             {
@@ -66,19 +66,19 @@ namespace Pizza.Framework.Operations
             return this.persistenceModelsStore.Create(createModel);
         }
 
-        public virtual void Update(TEditModel editModel)
+        public virtual CrudOperationResult Update(TEditModel editModel)
         {
             if (editModel == null)
             {
                 throw new ArgumentNullException("editModel");
             }
 
-            this.persistenceModelsStore.Update(editModel);
+            return this.persistenceModelsStore.Update(editModel);
         }
 
-        public virtual void Delete(int id)
+        public virtual CrudOperationResult Delete(int id)
         {
-            this.persistenceModelsStore.Delete(id);
+            return this.persistenceModelsStore.Delete(id);
         }
     }
 }

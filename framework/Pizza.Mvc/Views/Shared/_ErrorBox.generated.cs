@@ -157,7 +157,7 @@ WriteLiteral(@">
 
             
             #line 50 "..\..\Views\Shared\_ErrorBox.cshtml"
- if (TempData[ScriptKeys.Error] != null)
+ if (ViewData[ScriptKeys.Error] != null)
 {
 
             
@@ -171,7 +171,7 @@ WriteLiteral(">\r\n        $(function () {\r\n            showErrorWindow(\"");
 
             
             #line 54 "..\..\Views\Shared\_ErrorBox.cshtml"
-                         Write(TempData[ScriptKeys.Error]);
+                         Write(ViewData[ScriptKeys.Error]);
 
             
             #line default
@@ -180,6 +180,30 @@ WriteLiteral("\", false);\r\n        });\r\n    </script>\r\n");
 
             
             #line 57 "..\..\Views\Shared\_ErrorBox.cshtml"
+}
+else if (TempData[ScriptKeys.Error] != null)
+{
+
+            
+            #line default
+            #line hidden
+WriteLiteral("    <script");
+
+WriteLiteral(" type=\"text/javascript\"");
+
+WriteLiteral(">\r\n        $(function () {\r\n            showErrorWindow(\"");
+
+            
+            #line 62 "..\..\Views\Shared\_ErrorBox.cshtml"
+                         Write(TempData[ScriptKeys.Error]);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\", false);\r\n        });\r\n    </script>\r\n");
+
+            
+            #line 65 "..\..\Views\Shared\_ErrorBox.cshtml"
 }
             
             #line default

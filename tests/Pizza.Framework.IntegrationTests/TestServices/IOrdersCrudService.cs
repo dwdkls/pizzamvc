@@ -1,5 +1,4 @@
 using Pizza.Contracts.Operations;
-using Pizza.Framework.Operations;
 using Pizza.Framework.TestTypes.ViewModels.Orders;
 
 namespace Pizza.Framework.IntegrationTests.TestServices

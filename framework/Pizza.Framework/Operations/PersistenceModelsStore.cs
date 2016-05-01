@@ -1,6 +1,7 @@
 ﻿using System;
 using NHibernate;
 using Pizza.Contracts;
+using Pizza.Contracts.Operations.Results;
 using Pizza.Framework.Persistence.Transactions;
 using Pizza.Framework.ValueInjection;
 using Pizza.Persistence;
@@ -20,7 +21,7 @@ namespace Pizza.Framework.Operations
             this.session = session;
         }
 
-        public virtual int Create(TCreateModel createModel, Action<TPersistenceModel> additionalOperations = null)
+        public virtual CrudOperationResult<int> Create(TCreateModel createModel, Action<TPersistenceModel> additionalOperations = null)
         {
             var persistenceModel = new TPersistenceModel();
             persistenceModel.InjectFromViewModel(createModel);
@@ -30,20 +31,23 @@ namespace Pizza.Framework.Operations
                 additionalOperations(persistenceModel);
             }
 
-            return (int)this.session.Save(persistenceModel);
+            int id = (int)this.session.Save(persistenceModel);
+            return new CrudOperationResult<int>(id);
         }
 
-        public virtual void Update(TEditModel editModel)
+        public virtual CrudOperationResult Update(TEditModel editModel)
         {
             var persistenceModel = this.session.Get<TPersistenceModel>(editModel.Id);
             persistenceModel.InjectFromViewModel(editModel);
             this.session.Update(persistenceModel);
+            return CrudOperationResult.Success;
         }
 
-        public virtual void Delete(int id)
+        public virtual CrudOperationResult Delete(int id)
         {
             var persistenceModel = this.session.Load<TPersistenceModel>(id);
             this.session.Delete(persistenceModel);
+            return CrudOperationResult.Success;
         }
     }
 }

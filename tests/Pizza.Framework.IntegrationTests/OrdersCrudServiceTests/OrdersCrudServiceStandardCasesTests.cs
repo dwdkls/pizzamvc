@@ -27,7 +27,8 @@ namespace Pizza.Framework.IntegrationTests.OrdersCrudServiceTests
         [Test]
         public void GetEditModel__Success()
         {
-            var editModel = this.GetService().GetEditModel(this.order.Id);
+            var result = this.GetService().GetEditModel(this.order.Id);
+            var editModel = result.Data;
 
             editModel.PaymentInfoOrderedDate = this.order.PaymentInfo.OrderedDate;
 
@@ -44,7 +45,8 @@ namespace Pizza.Framework.IntegrationTests.OrdersCrudServiceTests
         [Test]
         public void GetViewModel__Success()
         {
-            var viewModel = this.GetService().GetDetailsModel(this.order.Id);
+            var result = this.GetService().GetDetailsModel(this.order.Id);
+            var viewModel = result.Data;
 
             viewModel.ShouldNot(Be.Null);
             viewModel.Id.ShouldEqual(this.order.Id);
@@ -74,7 +76,8 @@ namespace Pizza.Framework.IntegrationTests.OrdersCrudServiceTests
                 CustomerId = customerId,
             };
 
-            int orderId = this.GetService().Create(createModel);
+            var crudResult = this.GetService().Create(createModel);
+            int orderId = crudResult.Data;
 
             var orderFromDb = this.nhSessionHelper.GetInNewSession<Order>(orderId);
 

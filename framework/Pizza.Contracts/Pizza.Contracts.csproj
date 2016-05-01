@@ -53,6 +53,9 @@
     <Compile Include="IVersionableEditModelBase.cs" />
     <Compile Include="IViewModelBase.cs" />
     <Compile Include="Operations\ICrudServiceBase.cs" />
+    <Compile Include="Operations\Results\CrudOperationResult.cs" />
+    <Compile Include="Operations\Results\CrudOperationResultBase.cs" />
+    <Compile Include="Operations\Results\CrudOperationState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Operations\Requests\Configuration\FilterCondition.cs" />
     <Compile Include="Operations\Requests\Configuration\FilterConfiguration.cs" />

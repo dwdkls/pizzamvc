@@ -81,23 +81,24 @@ namespace Pizza.Framework.Operations
             return executableQueryOver;
         }
 
-        public virtual TDetailsModel GetDetailsModel(int id)
+        public virtual CrudOperationResult<TDetailsModel> GetDetailsModel(int id)
         {
             var persistenceModel = this.session.Load<TPersistenceModel>(id);
             var viewModel = Injector.CreateViewModelFromPersistenceModel<TPersistenceModel, TDetailsModel>(persistenceModel);
-            return viewModel;
+            return new CrudOperationResult<TDetailsModel>(viewModel);
         }
 
-        public virtual TCreateModel GetCreateModel()
+        public virtual CrudOperationResult<TCreateModel> GetCreateModel()
         {
-            return new TCreateModel();
+            var createModel = new TCreateModel();
+            return new CrudOperationResult<TCreateModel>(createModel);
         }
 
-        public virtual TEditModel GetEditModel(int id)
+        public virtual CrudOperationResult<TEditModel> GetEditModel(int id)
         {
             var persistenceModel = this.session.Load<TPersistenceModel>(id);
             var editModel = Injector.CreateViewModelFromPersistenceModel<TPersistenceModel, TEditModel>(persistenceModel);
-            return editModel;
+            return new CrudOperationResult<TEditModel>(editModel);
         }
     }
 }

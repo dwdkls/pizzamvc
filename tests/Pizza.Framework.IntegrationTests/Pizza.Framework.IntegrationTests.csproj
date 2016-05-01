@@ -72,6 +72,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\Config\TestContainerProvider.cs" />
@@ -94,12 +95,12 @@
     <Compile Include="OrdersCrudServiceTests\GetDataPage\FilterByInt.cs" />
     <Compile Include="OrdersCrudServiceTests\GetDataPage\FilterByString.cs" />
     <Compile Include="OrdersCrudServiceTests\GetDataPage\NoFilter.cs" />
-    <Compile Include="TestServices\ICustomersGridService.cs" />
-    <Compile Include="TestServices\CustomersGridService.cs" />
+    <Compile Include="TestServices\ICustomersCrudService.cs" />
+    <Compile Include="TestServices\CustomersCrudService.cs" />
     <Compile Include="OrdersCrudServiceTests\OrdersCrudServiceStandardCasesTests.cs" />
     <Compile Include="Base\Helpers\NhSessionHelper.cs" />
-    <Compile Include="TestServices\OrdersGridService.cs" />
-    <Compile Include="TestServices\IOrdersGridService.cs" />
+    <Compile Include="TestServices\OrdersCrudService.cs" />
+    <Compile Include="TestServices\IOrdersCrudService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

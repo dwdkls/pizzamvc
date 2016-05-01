@@ -1,5 +1,6 @@
 ﻿using System;
 using NHibernate;
+using Pizza.Contracts.Operations.Results;
 using Pizza.Framework.Operations;
 using Pizza.Framework.Persistence.Transactions;
 using Pizza.Framework.TestTypes.Model.PersistenceModels;
@@ -15,7 +16,7 @@ namespace Pizza.Framework.IntegrationTests.TestServices
     {
         public OrdersCrudService(ISession session) : base(session) { }
 
-        public override int Create(OrderCreateModel createModel)
+        public override CrudOperationResult<int> Create(OrderCreateModel createModel)
         {
             var customer = this.session.Get<Customer>(createModel.CustomerId);
 
@@ -24,7 +25,8 @@ namespace Pizza.Framework.IntegrationTests.TestServices
             order.Customer = customer;
             order.PaymentInfo.OrderedDate = DateTime.Now;
 
-            return (int)this.session.Save(order);
+            int id = (int)this.session.Save(order);
+            return new CrudOperationResult<int>(id);
         }
     }
 }

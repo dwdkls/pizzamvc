@@ -20,7 +20,6 @@ namespace Pizza.Framework.IntegrationTests.Base.Helpers
 
         private ISession OpenSession()
         {
-            
             var session = this.sessionFactory.OpenSession();
             session.EnableFilter(SoftDeletableFilter.FilterName);
 
