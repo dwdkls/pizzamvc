@@ -3,20 +3,19 @@ Fast and simple CRUD framework based on ASP.NET MVC
 
 ## Important!
 
-This is only proof of concept with few large gaps:
+This is only proof of concept with few gaps:
 
- - grids are created using jqGrid library which is not free for commercial purposes
  - there is no ability to change type of database ID
+ - there is no ability to define grid columns with custom actions 
  - probably few more
 
-All those defects will be fixed soon.
+All those defects will be fixed soon. (I hope.)
 
 ## Summary
 
 PizzaMVC was created for making development of CRUD applications very fast. As developer you have to define only few types to add new functionality 
-to your application. (By 'functionality' I mean database entity wity CRUD operations and GUI screens such as list, details, create and edit view.) 
-You don't have to write HTML, JS, SQL code or create many layers of C# applications. Everything from GUI to database will be handled by PizzaMVC.
-Of course if you agree to follow few simple conventions.
+to your application. (By 'functionality' I mean database entity with CRUD operations and GUI screens such as list, details, create and edit view.) 
+You don't have to write HTML, JS and SQL code or create many layers of C# applications. Everything from GUI to database will be handled by PizzaMVC - of course if you agree to follow few simple conventions.
 
 PizzaMVC is designed with MVC pattern in mind. The real MVC, not the "MVC from Microsoft's tutorials". It means that types describing database tables 
 are not sent to user interface and vice versa. It means thin controllers which handle user input, with no business or data access logic inside. 
@@ -24,7 +23,7 @@ are not sent to user interface and vice versa. It means thin controllers which h
 
 Pizza MVC solves simply problems in simple way but doesn't forbid you from doing anything more sophisticated. All default operations can be overriden, 
 services can do much more than only CRUD operations, and of course you can call your custom logic from any part of application. 
-You also can combine Pizza with DDD if you need.
+You also can combine Pizza with DDD if you want to.
 
 ## How to use it
 
@@ -63,7 +62,7 @@ public class Customer : SoftDeletableModelBase
 }
 ```
 
-Then you have to define models for views: grid, create, edit and details. These types defines what users will see on interface. Obviously, models for create and edit operations will probably have some validation attributes.
+Then you have to define models for views: grid, create, edit and details. These types defines what users will see in web browser. Obviously, models for create and edit operations will probably have some validation attributes.
 **Very important thing** - you have to keep same names and types for properties in persistence model and view model if you want them to be automatically maped. You also shouldn't use reserved names like 'Id', 'Version'. But nested properties are handled, so if you have `Order` type with property of type `Customer` with has `string Name` property, you can define it in viewmodel as `string CustomerName` and this property will be handled by framework.
 
 ```C#
@@ -183,6 +182,33 @@ public class CustomersController
 That's all! You don't have to call ORM, write any HTML views, similar actions in all controllers. 
 You don't even have to pass and map identical objects through seven layers of application just because some guy called "architect" said that this is good design.
 
+## Effect
+
+In result you will get database table like that:
+
+![Database table](./docs/images/Customers_Table_Diagram.png)
+
+Index page with grid:
+
+![Database table](./docs/images/Customers_Index.png)
+
+Create form:
+
+![Database table](./docs/images/Customers_Create.png)
+
+Edit form:
+
+![Database table](./docs/images/Customers_Edit.png)
+
+Details form:
+
+![Database table](./docs/images/Customers_Details.png)
+
+And also confirmation dialog during delete:
+
+![Database table](./docs/images/Customers_Delete.png)
+
+
 ## Features
 
 ### Frontend
@@ -207,7 +233,7 @@ PizzaMVC does projections instead of reading whole rows.
 
 For now there is no Nuget package, so you have to:
 
-1. Download code from GitHub. (You need Visual Studio 2013 to open solution.)
+1. Download code from GitHub. (You need Visual Studio 2013 or 2015 to open solution.)
 2. Create two databases: "Pizza_Tests" (for integration tests) and "Kebab" on you SQL Server instance. 
 3. If you don't use default instance name, you also should tune connection strings in projects: 
    Pizza.Framework.IntegrationTests, KebabManager.Web and KebabManager.SchemaBuilder.
