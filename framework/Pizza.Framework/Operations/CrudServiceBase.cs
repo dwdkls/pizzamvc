@@ -19,6 +19,7 @@ namespace Pizza.Framework.Operations
         where TEditModel : IEditModelBase, new()
         where TCreateModel : ICreateModelBase, new()
     {
+        // TODO: does all of these fields need to be protected?
         protected readonly ISession session;
         protected readonly PersistenceModelsStore<TPersistenceModel, TEditModel, TCreateModel> persistenceModelsStore;
         protected readonly ViewModelsReader<TPersistenceModel, TGridModel, TDetailsModel, TEditModel, TCreateModel> viewModelsReader;

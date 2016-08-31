@@ -29,14 +29,13 @@ namespace ASP
     using System.Web.Security;
     using System.Web.UI;
     using System.Web.WebPages;
-    using Pizza.Mvc;
-    using Pizza.Mvc.HtmlHelpers;
+    using KebabManager.Web;
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
-    [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Shared/Index.cshtml")]
-    public partial class _Views_Shared_Index_cshtml : System.Web.Mvc.WebViewPage<GridMetamodel>
+    [System.Web.WebPages.PageVirtualPathAttribute("~/Views/CustomerOrders/Index.cshtml")]
+    public partial class _Views_CustomerOrders_Index_cshtml : System.Web.Mvc.WebViewPage<GridMetamodel>
     {
-        public _Views_Shared_Index_cshtml()
+        public _Views_CustomerOrders_Index_cshtml()
         {
         }
         public override void Execute()
@@ -44,7 +43,7 @@ namespace ASP
 WriteLiteral("<h2>");
 
             
-            #line 1 "..\..\Views\Shared\Index.cshtml"
+            #line 1 "..\..\Views\CustomerOrders\Index.cshtml"
 Write(ViewBag.PageTitle);
 
             
@@ -53,7 +52,16 @@ Write(ViewBag.PageTitle);
 WriteLiteral("</h2>\r\n");
 
             
-            #line 4 "..\..\Views\Shared\Index.cshtml"
+            #line 4 "..\..\Views\CustomerOrders\Index.cshtml"
+Write(Html.Hidden("customerId", ViewData["customerId"]));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
+
+            
+            #line 5 "..\..\Views\CustomerOrders\Index.cshtml"
 Write(Html.DisplayFor(x => Model));
 
             

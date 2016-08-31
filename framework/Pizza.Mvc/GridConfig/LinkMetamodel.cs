@@ -1,4 +1,4 @@
-﻿namespace Pizza.Mvc.Grid.Metamodel
+﻿namespace Pizza.Mvc.GridConfig
 {
     public class LinkMetamodel
     {

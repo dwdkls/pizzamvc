@@ -6,7 +6,7 @@ using System.Reflection;
 using Pizza.Mvc.Helpers;
 using Pizza.Utils;
 
-namespace Pizza.Mvc.Grid
+namespace Pizza.Mvc.JqGrid
 {
     public class TypeToJqGridObjectMapperGenerator
     {

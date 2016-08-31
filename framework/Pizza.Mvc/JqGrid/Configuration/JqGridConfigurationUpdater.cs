@@ -1,7 +1,7 @@
 using System.Globalization;
 using System.Text;
 
-namespace Pizza.Mvc.HtmlHelpers.Utils
+namespace Pizza.Mvc.JqGrid.Configuration
 {
     public static class JqGridConfigurationUpdater
     {

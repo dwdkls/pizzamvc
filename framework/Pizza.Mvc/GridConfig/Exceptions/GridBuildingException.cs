@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Pizza.Mvc.Grid.Metamodel.Exceptions
+namespace Pizza.Mvc.GridConfig.Exceptions
 {
     public class GridBuildingException : Exception
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Pizza.Contracts.Operations.Requests.Configuration;
 
-namespace Pizza.Mvc.Grid.Metamodel
+namespace Pizza.Mvc.GridConfig
 {
     public class FilterMetamodel
     {

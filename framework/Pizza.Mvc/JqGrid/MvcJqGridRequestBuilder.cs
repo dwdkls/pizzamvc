@@ -4,9 +4,10 @@ using MvcJqGrid;
 using Pizza.Contracts;
 using Pizza.Contracts.Operations.Requests;
 using Pizza.Contracts.Operations.Requests.Configuration;
-using Pizza.Mvc.Grid.Metamodel;
+using Pizza.Mvc.GridConfig;
+using Pizza.Mvc.GridConfig.Columns;
 
-namespace Pizza.Mvc.Grid
+namespace Pizza.Mvc.JqGrid
 {
     public static class MvcJqGridRequestBuilder
     {
@@ -42,8 +43,9 @@ namespace Pizza.Mvc.Grid
             {
                 foreach (var rule in gridSettings.Where.rules)
                 {
-                    var column = gridMetamodel.Columns.Single(c => c.PropertyName == rule.field);
-                    var condition = new FilterCondition(column.PropertyName, column.Filter.Operator, column.PropertyType, rule.data);
+                    var propertiesColumns = gridMetamodel.Columns.OfType<PropertyColumnMetamodel>();
+                    var column = propertiesColumns.Single(c => c.Name == rule.field);
+                    var condition = new FilterCondition(column.Name, column.Filter.Operator, column.PropertyType, rule.data);
                     conditions.Add(condition);
                 }
             }

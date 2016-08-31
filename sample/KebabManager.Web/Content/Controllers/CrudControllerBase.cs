@@ -8,8 +8,8 @@ using Pizza.Contracts;
 using Pizza.Contracts.Operations;
 using Pizza.Contracts.Operations.Requests;
 using Pizza.Contracts.Operations.Results;
-using Pizza.Mvc.GridConfig;
-using Pizza.Mvc.JqGrid;
+using Pizza.Mvc.Grid;
+using Pizza.Mvc.GridMetamodel;
 using Pizza.Mvc.Resources;
 using Pizza.Utils;
 
@@ -58,7 +58,6 @@ namespace Pizza.Mvc.Controllers
             if (!configuredControllers.Contains(type))
             {
                 gridMetamodel = this.GetGridMetamodel();
-                // todo: remove this dependency!
                 typeToJqGridObjectMapper = TypeToJqGridObjectMapperGenerator.GetMapper<TGridModel>(idPropertyName, gridMetamodel.ViewModelPropertiesNames);
 
                 configuredControllers.Add(type);
@@ -100,7 +99,6 @@ namespace Pizza.Mvc.Controllers
         /// <returns>JsonResult containing object compatible with JqGrid (includes paging information and records to show).</returns>
         public JsonResult GetGridData(GridSettings gridSettings)
         {
-            // todo: remove this dependency!
             var request = MvcJqGridRequestBuilder.BuildGridDataRequest(gridSettings, gridMetamodel);
 
             var result = this.GetGridDataFromService(request);

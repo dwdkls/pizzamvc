@@ -2,8 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using Pizza.Contracts.Operations.Requests.Configuration;
+using Pizza.Mvc.GridConfig.Columns;
 
-namespace Pizza.Mvc.Grid.Metamodel
+namespace Pizza.Mvc.GridConfig
 {
     public enum ColumnWidthMode { Fixed, Auto }
 
@@ -17,16 +18,21 @@ namespace Pizza.Mvc.Grid.Metamodel
         public LinkMetamodel EditLink { get; protected set; }
         public LinkMetamodel DeleteLink { get; protected set; }
 
-        protected List<ColumnMetamodel> columns;
+        protected List<ColumnMetamodelBase> columns;
 
-        public ReadOnlyCollection<ColumnMetamodel> Columns
+        public ReadOnlyCollection<ColumnMetamodelBase> Columns
         {
-            get { return new ReadOnlyCollection<ColumnMetamodel>(this.columns); }
+            get { return new ReadOnlyCollection<ColumnMetamodelBase>(this.columns); }
         }
 
-        public ReadOnlyCollection<string> ColumnNames
+        public ReadOnlyCollection<string> ViewModelPropertiesNames
         {
-            get { return new ReadOnlyCollection<string>(this.columns.Select(c => c.PropertyName).ToList()); }
+            get
+            {
+                var propertyColumns = this.columns.OfType<PropertyColumnMetamodel>();
+                var propertiesNames = propertyColumns.Select(c => c.Name).ToList();
+                return new ReadOnlyCollection<string>(propertiesNames);
+            }
         }
     }
 
@@ -36,7 +42,7 @@ namespace Pizza.Mvc.Grid.Metamodel
 
         public GridMetamodel(string caption, string getGridDataActionName,
             LinkMetamodel newItemLink, LinkMetamodel detailsLink, LinkMetamodel editLink, LinkMetamodel deleteLink,
-            List<ColumnMetamodel> columns, SortConfiguration defaultSortSettings)
+            List<ColumnMetamodelBase> columns, SortConfiguration defaultSortSettings)
         {
             this.Caption = caption;
             this.GetGridDataActionName = getGridDataActionName;

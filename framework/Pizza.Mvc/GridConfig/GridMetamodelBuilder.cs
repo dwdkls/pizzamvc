@@ -1,24 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Web.Mvc;
 using Pizza.Contracts.Operations.Requests.Configuration;
-using Pizza.Mvc.Grid.Metamodel.Exceptions;
+using Pizza.Mvc.Controllers;
+using Pizza.Mvc.GridConfig.Columns;
+using Pizza.Mvc.GridConfig.Exceptions;
 using Pizza.Mvc.Helpers;
 using Pizza.Mvc.Resources;
 using Pizza.Utils;
 
-namespace Pizza.Mvc.Grid.Metamodel
+namespace Pizza.Mvc.GridConfig
 {
     public class GridMetamodelBuilder<TGridModel>
     {
-        private string caption;
+        private string gridCaption;
         private string getGridDataActionName = "GetGridData";
         private LinkMetamodel newItemLink;
         private LinkMetamodel detailsLink;
         private LinkMetamodel editLink;
         private LinkMetamodel deleteLink;
         private SortConfiguration defaultSortSettings;
-        private readonly List<ColumnMetamodel> columns = new List<ColumnMetamodel>();
+        private readonly List<ColumnMetamodelBase> columns = new List<ColumnMetamodelBase>();
 
         public GridMetamodelBuilder()
         {
@@ -30,7 +33,7 @@ namespace Pizza.Mvc.Grid.Metamodel
 
         public GridMetamodelBuilder<TGridModel> SetCaption(string caption)
         {
-            this.caption = caption;
+            this.gridCaption = caption;
             return this;
         }
 
@@ -90,10 +93,10 @@ namespace Pizza.Mvc.Grid.Metamodel
            FilterOperator filterOperator = FilterOperator.Auto)
         {
             this.defaultSortSettings = new SortConfiguration(ObjectHelper.GetPropertyName(property), sortMode);
-            return this.AddColumn(property, width, widthMode, filterOperator);
+            return this.AddDataColumn(property, width, widthMode, filterOperator);
         }
 
-        public GridMetamodelBuilder<TGridModel> AddColumn<TColumn>(
+        public GridMetamodelBuilder<TGridModel> AddDataColumn<TColumn>(
             Expression<Func<TGridModel, TColumn>> property, int width = 150,
             ColumnWidthMode widthMode = ColumnWidthMode.Auto,
             FilterOperator filterOperator = FilterOperator.Auto)
@@ -104,7 +107,20 @@ namespace Pizza.Mvc.Grid.Metamodel
                 filterMetamodel = AutoResolveFilterConfigurationForColumn<TColumn>();
             }
 
-            var column = new ColumnMetamodel(property, width, widthMode, filterMetamodel);
+            var column = PropertyColumnMetamodel.Create(property, width, widthMode, filterMetamodel);
+            this.columns.Add(column);
+            return this;
+        }
+
+        public GridMetamodelBuilder<TGridModel> AddActionColumn<TController>(
+            Expression<Func<TController, ActionResult>> action, string caption, int width = 150,
+            ColumnWidthMode widthMode = ColumnWidthMode.Auto)
+            where TController : Controller
+        {
+            string controllerName = ControllerHelper.GetName<TController>();
+            string actionName = ControllerHelper.GetActionName(action);
+
+            var column = new ActionColumnMetamodel(controllerName, actionName, actionName, caption, width, widthMode);
             this.columns.Add(column);
             return this;
         }
@@ -120,7 +136,7 @@ namespace Pizza.Mvc.Grid.Metamodel
                 throw new GridBuildingException("Grid without any columns could not be created. Call AddColumn at least one time before Build.");
             }
 
-            var gridMetaModel = new GridMetamodel<TGridModel>(this.caption, this.getGridDataActionName,
+            var gridMetaModel = new GridMetamodel<TGridModel>(this.gridCaption, this.getGridDataActionName,
                 this.newItemLink, this.detailsLink, this.editLink, this.deleteLink, this.columns, this.defaultSortSettings);
 
             return gridMetaModel;

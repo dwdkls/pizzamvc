@@ -1,4 +1,5 @@
 ﻿<h2>@ViewBag.PageTitle</h2>
 @model Pizza.Mvc.GridConfig.GridMetamodel
 
+@Html.Hidden("customerId", ViewData["customerId"])
 @Html.DisplayFor(x => Model)
