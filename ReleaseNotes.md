@@ -1,3 +1,9 @@
+## New in 0.2.6 Released 2016-09-05)
+* Fixed globalization, date format, datepicker for search in jqGrid
+* CrudOperationResult as universal result of ICrudServiceBaseMethods
+* Ability to define columns linking to any controller action
+
+
 ## New in 0.2.5 Released 2016-04-18)
 * jQgrid replaced with free jQgrid
 

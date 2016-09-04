@@ -34,7 +34,7 @@ namespace KebabManager.Web.Controllers
 
         protected override DataPageResult<OrderGridModel> GetGridDataFromService(DataRequest<OrderGridModel> request)
         {
-            // TODO: to some helper method?
+            // TODO: to some helper method? This won't work when we come back from details view  Think about better solution.
             var id = this.Request.UrlReferrer.Segments.Last();
             var customerId = int.Parse(id);
 
