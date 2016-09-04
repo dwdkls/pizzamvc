@@ -131,7 +131,8 @@ namespace Pizza.Mvc.Controllers
 
         public ActionResult Details(int id)
         {
-            var viewModel = this.service.GetDetailsModel(id);
+            var result = this.service.GetDetailsModel(id);
+            var viewModel = result.Data;
 
             this.ViewBag.PageTitle = this.ViewNames[ViewType.Details];
             return this.View(viewModel);
