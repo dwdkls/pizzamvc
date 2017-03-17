@@ -3,7 +3,7 @@ using System.Linq;
 using NUnit.Framework;
 using Pizza.Framework.DataGeneration;
 using Pizza.Framework.IntegrationTests.Base;
-using Pizza.Framework.IntegrationTests.TestServices;
+using Pizza.Framework.IntegrationTests.SutServices;
 using Pizza.Framework.TestTypes.Model.Common;
 using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels.Orders;

@@ -2,13 +2,13 @@
 using NUnit.Framework;
 using Pizza.Contracts.Operations.Results;
 using Pizza.Framework.IntegrationTests.Base;
-using Pizza.Framework.IntegrationTests.TestServices;
 using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels.Customers;
 using Pizza.Framework.ValueInjection;
 using Ploeh.AutoFixture;
 using System;
 using System.Linq;
+using Pizza.Framework.IntegrationTests.SutServices;
 using StringGenerator = Pizza.Framework.DataGeneration.StringGenerator;
 
 namespace Pizza.Framework.IntegrationTests.CustomersCrudServiceTests

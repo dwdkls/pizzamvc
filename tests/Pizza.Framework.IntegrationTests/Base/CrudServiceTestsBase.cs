@@ -10,11 +10,10 @@ using Ploeh.AutoFixture;
 namespace Pizza.Framework.IntegrationTests.Base
 {
     // TODO: This could be class in framework, framework users maybe will use it for they own integration tests
+    // But in order to do that many things have to be configurable: connection string, persistence models source (as ITypeSource and Assembly)
+    // and also application services 
     public abstract class CrudServiceTestsBase<TService>
     {
-        //TODO: allow user to replace this
-        private const string connectionString = @"Data Source=.;Database=Pizza_Tests;Integrated Security=True;";
-
         public Configuration NhConfiguration
         {
             get { return this.Container.Resolve<Configuration>(); }
@@ -32,8 +31,7 @@ namespace Pizza.Framework.IntegrationTests.Base
         [TestFixtureSetUp]
         public void FixtureSetup()
         {
-            LogManagerConfigurator.ConfigureLogManager();
-            this.testContainerProvider = new TestContainerProvider(connectionString, new TestedPeristenceModelsSource());
+            this.testContainerProvider = new TestContainerProvider(new TestedPeristenceModelsSource());
             this.nhSessionHelper = new NhSessionHelper(this.NhConfiguration);
             this.fixture = FixtureFactory.Build();
 

@@ -1,3 +1,4 @@
+using System.Configuration;
 using Autofac;
 using FluentNHibernate;
 using NHibernate;
@@ -13,18 +14,21 @@ namespace Pizza.Framework.IntegrationTests.Base.Config
     {
         public IContainer Container { get; private set; }
 
-        public TestContainerProvider(string connectionString, ITypeSource typeSource)
+        public TestContainerProvider(ITypeSource typeSource)
         {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
             var builder = new ContainerBuilder()
                 .RegisterPersistence(connectionString, typeSource)
                 .RegisterApplicationServices(Assembly.GetExecutingAssembly());
 
-            RegisterMockedUserContext(builder);
+            var mockedUserContext = CreateMockedUserContext();
+            builder.RegisterInstance(mockedUserContext).AsImplementedInterfaces();
 
             this.Container = builder.Build();
         }
 
-        private static void RegisterMockedUserContext(ContainerBuilder builder)
+        private static IPizzaUserContext CreateMockedUserContext()
         {
             var pizzaPrincipal = Substitute.For<IPizzaPrincipal>();
             pizzaPrincipal.Id.Returns(997);
@@ -32,7 +36,7 @@ namespace Pizza.Framework.IntegrationTests.Base.Config
             var userContext = Substitute.For<IPizzaUserContext>();
             userContext.CurrentUser.Returns(pizzaPrincipal);
 
-            builder.RegisterInstance(userContext).AsImplementedInterfaces();
+            return userContext;
         }
 
         public void RefreshNhSessionRegistrationForNewScope()

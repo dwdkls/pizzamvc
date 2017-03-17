@@ -14,7 +14,6 @@ namespace Pizza.Framework.IntegrationTests.Base.Helpers
 
         public NhSessionHelper(Configuration nhConfiguration)
         {
-            // TODO: use Container instead of session factory and Configuration
             this.sessionFactory = nhConfiguration.BuildSessionFactory();
         }
 
@@ -48,6 +47,7 @@ namespace Pizza.Framework.IntegrationTests.Base.Helpers
         {
             this.DoInNewSession(s => s.Update(model));
         }
+
         public void SaveInNewSession<TPersistenceModel>(TPersistenceModel model)
             where TPersistenceModel : IPersistenceModel
         {

@@ -71,6 +71,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
   </ItemGroup>
@@ -79,7 +80,6 @@
     <Compile Include="Base\Helpers\FilterData.cs" />
     <Compile Include="Base\Helpers\GridConfigurationHelper.cs" />
     <Compile Include="Base\CrudServiceTestsBase.cs" />
-    <Compile Include="Base\Config\LogManagerConfigurator.cs" />
     <Compile Include="Base\Config\TestedPeristenceModelsSource.cs" />
     <Compile Include="CustomersCrudServiceTests\GetDataPageTests.cs" />
     <Compile Include="CustomersCrudServiceTests\CustomersCrudServiceTests.cs" />
@@ -95,13 +95,13 @@
     <Compile Include="OrdersCrudServiceTests\GetDataPage\FilterByInt.cs" />
     <Compile Include="OrdersCrudServiceTests\GetDataPage\FilterByString.cs" />
     <Compile Include="OrdersCrudServiceTests\GetDataPage\NoFilter.cs" />
-    <Compile Include="TestServices\ICustomersCrudService.cs" />
-    <Compile Include="TestServices\CustomersCrudService.cs" />
     <Compile Include="OrdersCrudServiceTests\OrdersCrudServiceStandardCasesTests.cs" />
     <Compile Include="Base\Helpers\NhSessionHelper.cs" />
-    <Compile Include="TestServices\OrdersCrudService.cs" />
-    <Compile Include="TestServices\IOrdersCrudService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SutServices\CustomersCrudService.cs" />
+    <Compile Include="SutServices\ICustomersCrudService.cs" />
+    <Compile Include="SutServices\IOrdersCrudService.cs" />
+    <Compile Include="SutServices\OrdersCrudService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\framework\Pizza.Contracts\Pizza.Contracts.csproj">

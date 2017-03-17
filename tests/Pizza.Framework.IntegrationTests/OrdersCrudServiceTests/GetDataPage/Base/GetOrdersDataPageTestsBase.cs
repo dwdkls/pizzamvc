@@ -10,7 +10,7 @@ using Pizza.Framework.DataGeneration;
 using Pizza.Framework.IntegrationTests.Base;
 using Pizza.Framework.IntegrationTests.Base.Helpers;
 using Pizza.Framework.IntegrationTests.Extensions;
-using Pizza.Framework.IntegrationTests.TestServices;
+using Pizza.Framework.IntegrationTests.SutServices;
 using Pizza.Framework.TestTypes.Model.Common;
 using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels.Orders;

@@ -7,7 +7,7 @@ using Pizza.Framework.TestTypes.Model.PersistenceModels;
 using Pizza.Framework.TestTypes.ViewModels.Orders;
 using Pizza.Framework.ValueInjection;
 
-namespace Pizza.Framework.IntegrationTests.TestServices
+namespace Pizza.Framework.IntegrationTests.SutServices
 {
     [Transactional]
     public class OrdersCrudService :
