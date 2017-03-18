@@ -29,8 +29,7 @@ namespace Pizza.Mvc.GridConfig
         {
             get
             {
-                var propertyColumns = this.columns.OfType<PropertyColumnMetamodel>();
-                var propertiesNames = propertyColumns.Select(c => c.Name).ToList();
+                var propertiesNames = this.columns.Select(c => c.Name).ToList();
                 return new ReadOnlyCollection<string>(propertiesNames);
             }
         }

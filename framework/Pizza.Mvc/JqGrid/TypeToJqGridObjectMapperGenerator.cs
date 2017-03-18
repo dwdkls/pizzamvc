@@ -63,27 +63,35 @@ namespace Pizza.Mvc.JqGrid
         /// <returns>Property expression for requested property.</returns>
         private static Expression GetPropertyExpressionForProperty(PropertyInfo propertyInfo, ParameterExpression sourceObjectParameter)
         {
-            Expression propertyExpression = Expression.Property(sourceObjectParameter, propertyInfo);
+            Expression propertyExpression = null;
 
-            var propertyType = propertyInfo.PropertyType.GetRealType();
-
-            if (propertyType.IsEnum)
+            if (propertyInfo == null)
             {
-                // Calling EnumHelper.GetDisplayName(Type enumType, object enumValue)
-                var propertyTypeExpression = Expression.Constant(propertyType);
-                var enumValueExpression = Expression.Convert(propertyExpression, typeof(object));
-                propertyExpression = Expression.Call(getEnumDisplayNameMethodInfo, propertyTypeExpression, enumValueExpression);
+                propertyExpression = Expression.Constant(null);
             }
-            else if (propertyType.IsValueType)
+            else
             {
-                // Calling Convert.ToString(property type, IFormatProvider)
-                var methodParmetersTypes = new[] { propertyType, typeof(IFormatProvider) };
-                MethodInfo convertToStringMethod = typeof(Convert).GetMethod("ToString", methodParmetersTypes);
+                propertyExpression = Expression.Property(sourceObjectParameter, propertyInfo);
+                var propertyType = propertyInfo.PropertyType.GetRealType();
 
-                var cultureInfo = CultureInfoHelper.GetCultureInfoForType(propertyType);
-                var cultureExpression = Expression.Constant(cultureInfo);
+                if (propertyType.IsEnum)
+                {
+                    // Calling EnumHelper.GetDisplayName(Type enumType, object enumValue)
+                    var propertyTypeExpression = Expression.Constant(propertyType);
+                    var enumValueExpression = Expression.Convert(propertyExpression, typeof (object));
+                    propertyExpression = Expression.Call(getEnumDisplayNameMethodInfo, propertyTypeExpression, enumValueExpression);
+                }
+                else if (propertyType.IsValueType)
+                {
+                    // Calling Convert.ToString(property type, IFormatProvider)
+                    var methodParmetersTypes = new[] { propertyType, typeof (IFormatProvider) };
+                    MethodInfo convertToStringMethod = typeof (Convert).GetMethod("ToString", methodParmetersTypes);
 
-                propertyExpression = Expression.Call(convertToStringMethod, propertyExpression, cultureExpression);
+                    var cultureInfo = CultureInfoHelper.GetCultureInfoForType(propertyType);
+                    var cultureExpression = Expression.Constant(cultureInfo);
+
+                    propertyExpression = Expression.Call(convertToStringMethod, propertyExpression, cultureExpression);
+                }
             }
 
             return propertyExpression;
