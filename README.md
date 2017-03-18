@@ -1,16 +1,6 @@
 # PizzaMVC
 Fast and simple CRUD framework based on ASP.NET MVC
 
-## Important!
-
-This is only proof of concept with few gaps:
-
- - there is no ability to change type of database ID
- - there is no ability to define grid columns with custom actions 
- - probably few more
-
-All those defects will be fixed soon. (I hope.)
-
 ## Summary
 
 PizzaMVC was created for making development of CRUD applications very fast. As developer you have to define only few types to add new functionality 

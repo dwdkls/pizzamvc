@@ -1,10 +1,13 @@
-## New in 0.2.6 Released 2016-09-05)
+## New in 0.2.7 Released 2017-03-18)
+* Fixed bug with data in grid columns not corresponding to headers
+* Fixed bug with not working "go back" link on details and edit pages
+
+## New in 0.2.6 ( 2016-09-05)
 * Fixed globalization, date format, datepicker for search in jqGrid
 * CrudOperationResult as universal result of ICrudServiceBaseMethods
 * Ability to define columns linking to any controller action
 
-
-## New in 0.2.5 Released 2016-04-18)
+## New in 0.2.5 (Released 2016-04-18)
 * jQgrid replaced with free jQgrid
 
 ## New in 0.2.4 (Released 2016-04-17)
