@@ -82,7 +82,7 @@ WriteLiteral("    ");
 
             
             #line 16 "..\..\Views\Shared\Details.cshtml"
-Write(Html.ActionLink(UiTexts.Link_BackToIndex, ScriptKeys.Index));
+Write(Html.ActionLink(UiTexts.Link_BackToIndex, (string)ViewBag.GoBackUrl));
 
             
             #line default

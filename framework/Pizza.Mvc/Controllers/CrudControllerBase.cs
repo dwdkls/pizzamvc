@@ -135,6 +135,7 @@ namespace Pizza.Mvc.Controllers
             var viewModel = result.Data;
 
             this.ViewBag.PageTitle = this.ViewNames[ViewType.Details];
+            this.ViewBag.GoBackUrl = GetBackUrlForDetailsAndEdit(this.Request.UrlReferrer);
             return this.View(viewModel);
         }
 
@@ -167,6 +168,7 @@ namespace Pizza.Mvc.Controllers
             var editModel = result.Data;
 
             this.ViewBag.PageTitle = this.ViewNames[ViewType.Edit];
+            this.ViewBag.GoBackUrl = GetBackUrlForDetailsAndEdit(this.Request.UrlReferrer);
             return this.View(editModel);
         }
 
@@ -221,6 +223,13 @@ namespace Pizza.Mvc.Controllers
             this.Response.StatusCode = (int)HttpStatusCode.BadRequest;
             var errorMessage = errorMessagesMap[result.State];
             return this.Json(errorMessage, JsonRequestBehavior.AllowGet);
+        }
+
+        private static string GetBackUrlForDetailsAndEdit(Uri uri)
+        {
+            var elements = uri.AbsolutePath.Split('/');
+            var backUrl = string.Join("/", elements.Skip(2));
+            return backUrl;
         }
     }
 }

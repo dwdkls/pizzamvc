@@ -1,5 +1,6 @@
 ﻿namespace Pizza.Mvc.GridConfig
 {
+    // TODO: probably add Width here
     public class LinkMetamodel
     {
         public bool IsEnabled { get; private set; }

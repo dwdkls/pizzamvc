@@ -193,7 +193,7 @@ WriteLiteral("    ");
 
             
             #line 34 "..\..\Views\Shared\Edit.cshtml"
-Write(Html.ActionLink(UiTexts.Link_BackToIndex, ScriptKeys.Index));
+Write(Html.ActionLink(UiTexts.Link_BackToIndex, (string)ViewBag.GoBackUrl));
 
             
             #line default
