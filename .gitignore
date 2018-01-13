@@ -35,3 +35,4 @@ artifacts
 .artifacts
 *.ncrunchsolution
 *.ncrunchproject
+.vs/**
