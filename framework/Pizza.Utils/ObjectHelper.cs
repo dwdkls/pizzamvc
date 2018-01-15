@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Pizza.Utils
 {
-    public class ObjectHelper
+    public static class ObjectHelper
     {
         public static string GetMethodName<T>(Expression<Action<T>> expression)
         {

@@ -8,7 +8,7 @@ namespace Pizza.Framework.Operations.InternalUtils
 {
     internal class ProjectionsGenerator
     {
-        private static string idPropertyName = ObjectHelper.GetPropertyName<IGridModelBase>(m => m.Id);
+        private static string idPropertyName = nameof(IGridModelBase.Id);
 
         public static ProjectionList GenerateProjectionsList(ViewModelToPersistenceModelPropertyNamesMaps viewModelToPersistenceModelMap)
         {

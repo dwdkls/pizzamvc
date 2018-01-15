@@ -30,7 +30,7 @@ namespace Pizza.Mvc.Controllers
             Edit,
         }
 
-        private static readonly string idPropertyName = ObjectHelper.GetPropertyName<IGridModelBase>(x => x.Id);
+        private static readonly string idPropertyName = nameof(IGridModelBase.Id);
 
         protected readonly TService service;
         protected static GridMetamodel<TGridModel> gridMetamodel;
@@ -42,10 +42,11 @@ namespace Pizza.Mvc.Controllers
             this.InitCachedConfiguration();
         }
 
-        private static readonly Dictionary<CrudOperationState, string> errorMessagesMap = new Dictionary<CrudOperationState, string>() {
-            { CrudOperationState.DatabaseError, Errors.DataBaseError },
-            { CrudOperationState.OptimisticConcurrencyError, Errors.OptimisticConcurrencyError },
-            { CrudOperationState.OtherError, Errors.OtherError },
+        private static readonly Dictionary<CrudOperationState, string> errorMessagesMap = new Dictionary<CrudOperationState, string>()
+        {
+            [CrudOperationState.DatabaseError] = Errors.DataBaseError,
+            [CrudOperationState.OptimisticConcurrencyError] = Errors.OptimisticConcurrencyError,
+            [CrudOperationState.OtherError] = Errors.OtherError,
         };
 
         private static HashSet<Type> configuredControllers = new HashSet<Type>();
@@ -65,19 +66,13 @@ namespace Pizza.Mvc.Controllers
             }
         }
 
-        protected virtual Dictionary<ViewType, string> ViewNames
+        protected virtual Dictionary<ViewType, string> ViewNames => new Dictionary<ViewType, string>
         {
-            get
-            {
-                return new Dictionary<ViewType, string>
-                {
-                    {ViewType.Index, UiTexts.ViewTitle_Index},
-                    {ViewType.Create, UiTexts.ViewTitle_Create},
-                    {ViewType.Edit, UiTexts.ViewTitle_Edit},
-                    {ViewType.Details, UiTexts.ViewTitle_Details},
-                };
-            }
-        }
+            [ViewType.Index] = UiTexts.ViewTitle_Index,
+            [ViewType.Create] = UiTexts.ViewTitle_Create,
+            [ViewType.Edit] = UiTexts.ViewTitle_Edit,
+            [ViewType.Details] = UiTexts.ViewTitle_Details,
+        };
 
         protected abstract GridMetamodel<TGridModel> GetGridMetamodel();
 

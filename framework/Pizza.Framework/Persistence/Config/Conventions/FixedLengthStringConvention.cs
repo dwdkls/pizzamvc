@@ -8,7 +8,7 @@ namespace Pizza.Framework.Persistence.Config.Conventions
     {
         protected override void Apply(FixedLengthUnicodeStringAttribute attribute, IPropertyInstance instance)
         {
-            instance.CustomSqlType(string.Format("nchar({0})", attribute.Length));
+            instance.CustomSqlType($"nchar({attribute.Length})");
         }
     }
 }

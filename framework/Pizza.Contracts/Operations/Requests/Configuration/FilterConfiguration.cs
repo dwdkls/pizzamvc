@@ -7,7 +7,7 @@ namespace Pizza.Contracts.Operations.Requests.Configuration
     public sealed class FilterConfiguration<TGridModel>
         where TGridModel : IGridModelBase
     {
-        public ReadOnlyCollection<FilterCondition> Conditions { get; private set; }
+        public ReadOnlyCollection<FilterCondition> Conditions { get; }
 
         private FilterConfiguration()
         {

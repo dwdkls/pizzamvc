@@ -9,7 +9,7 @@ namespace Pizza.Contracts.Security
             this.Identity = new GenericIdentity(username);
         }
 
-        public IIdentity Identity { get; private set; }
+        public IIdentity Identity { get; }
         public int Id { get; set; }
 
         public bool IsInRole(string role)

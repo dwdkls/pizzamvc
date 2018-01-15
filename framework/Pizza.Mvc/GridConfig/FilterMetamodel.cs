@@ -5,8 +5,8 @@ namespace Pizza.Mvc.GridConfig
 {
     public class FilterMetamodel
     {
-        public FilterOperator Operator { get; private set; }
-        public Dictionary<string, string> SelectFilterMap { get; private set; }
+        public FilterOperator Operator { get; }
+        public Dictionary<string, string> SelectFilterMap { get; }
 
         public FilterMetamodel(FilterOperator @operator, Dictionary<string, string> selectFilterMap)
         {

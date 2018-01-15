@@ -5,8 +5,8 @@ namespace Pizza.Contracts.Operations.Results
 {
     public sealed class DataPageResult<T> : CrudOperationResultBase
     {
-        public IList<T> Items { get; private set; }
-        public PagingInfo PagingInfo { get; private set; }
+        public IList<T> Items { get; }
+        public PagingInfo PagingInfo { get; }
 
         public DataPageResult(IList<T> items, int pageNumber, int pageSize, int totalItemsCount)
             : base(CrudOperationState.Success, null)

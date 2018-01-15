@@ -47,7 +47,7 @@ namespace Pizza.Framework.Operations.InternalUtils
                         break;
 
                     case FilterOperator.Like:
-                        query.UnderlyingCriteria.Add(Restrictions.Like(conditionPropertyName, String.Format("%{0}%", condition.Value)));
+                        query.UnderlyingCriteria.Add(Restrictions.Like(conditionPropertyName, $"%{condition.Value}%"));
                         break;
 
                     case FilterOperator.DateEquals:

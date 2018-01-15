@@ -10,7 +10,7 @@ namespace Pizza.Contracts.Security.ServiceContracts
             get { return this.User != null; }
         }
 
-        public TUserViewModel User { get; private set; }
+        public TUserViewModel User { get; }
 
         public LoginResult()
         {

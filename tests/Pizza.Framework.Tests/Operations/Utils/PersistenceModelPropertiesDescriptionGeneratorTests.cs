@@ -13,7 +13,7 @@ namespace Pizza.Framework.Tests.Operations.Utils
         {
             var joinedEntities = new[] { PropInfo.FromPropertyExpression<Order>(v => v.Customer) };
             var components = new[] {
-                PropInfo.FromPropertyExpression<Order>(v => v.PaymentInfo), 
+                PropInfo.FromPropertyExpression<Order>(v => v.PaymentInfo),
                 PropInfo.FromPropertyExpression<Order>(v => v.AuditInfo)
             };
             var simpleProps = new[] {

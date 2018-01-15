@@ -34,13 +34,13 @@ namespace Pizza.Mvc.JqGrid.Configuration
 
         private static StringBuilder SetClearFiltersInGridText(this StringBuilder sb, string clearFiltersInGridText)
         {
-            return sb.Replace("caption:\"Clear\"", string.Format("caption:\"{0}\"", clearFiltersInGridText))
-                .Replace("title:\"Clear Search\"", string.Format("title:\"{0}\"", clearFiltersInGridText));
+            return sb.Replace("caption:\"Clear\"", $"caption:\"{clearFiltersInGridText}\"")
+                .Replace("title:\"Clear Search\"", $"title:\"{clearFiltersInGridText}\"");
         }
 
         private static StringBuilder AddAllItemTextToSearchDropdown(this StringBuilder sb, string searchDropDownAllItemsText)
         {
-            return sb.Replace("value:\":;", string.Format("value:\":{0};", searchDropDownAllItemsText));
+            return sb.Replace("value:\":;", $"value:\":{searchDropDownAllItemsText};");
         }
     }
 }

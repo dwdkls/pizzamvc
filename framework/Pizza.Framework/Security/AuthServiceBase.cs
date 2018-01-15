@@ -13,7 +13,7 @@ namespace Pizza.Framework.Security
 {
     [Transactional]
     public abstract class AuthServiceBase<TUser> : IAuthService
-        where TUser : IPizzaUser, IPersistenceModel // TODO: remove IPizzaUser to allow use really any persistence model to be used?
+        where TUser : class, IPizzaUser, IPersistenceModel // TODO: remove IPizzaUser to allow use really any persistence model to be used?
     {
         protected readonly ISession session;
 
@@ -59,7 +59,7 @@ namespace Pizza.Framework.Security
 
             if (user == null)
             {
-                throw new AuthenticationException(string.Format("User with name: {0} does not exist", username));
+                throw new AuthenticationException($"User with name: {username} does not exist");
             }
 
             return user;

@@ -9,9 +9,9 @@ namespace Pizza.Framework.Operations.InternalUtils.RuntimeMetadata.Types
     /// </summary>
     public class PersistenceModelPropertiesDescription
     {
-        public ReadOnlyCollection<PropInfo> JoinedModels { get; private set; }
-        public ReadOnlyCollection<PropInfo> ComponentProperties { get; private set; }
-        public ReadOnlyCollection<PropInfo> SimpleProperties { get; private set; }
+        public ReadOnlyCollection<PropInfo> JoinedModels { get; }
+        public ReadOnlyCollection<PropInfo> ComponentProperties { get; }
+        public ReadOnlyCollection<PropInfo> SimpleProperties { get; }
 
         public PersistenceModelPropertiesDescription(IList<PropInfo> simpleProperties, IList<PropInfo> componentProperties, IList<PropInfo> joinedModels)
         {

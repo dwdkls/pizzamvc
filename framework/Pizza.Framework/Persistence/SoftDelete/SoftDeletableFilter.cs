@@ -7,11 +7,11 @@ namespace Pizza.Framework.Persistence.SoftDelete
     public class SoftDeletableFilter : FilterDefinition
     {
         public const string FilterName = "SoftDeletable";
-        private readonly string filterPropertyName = ObjectHelper.GetPropertyName<ISoftDeletable>(x => x.IsDeleted);
+        private readonly string filterPropertyName = nameof(ISoftDeletable.IsDeleted);
 
         public SoftDeletableFilter()
         {
-            this.WithName(FilterName).WithCondition(string.Format("{0} = 0", this.filterPropertyName));
+            this.WithName(FilterName).WithCondition($"{this.filterPropertyName} = 0");
         }
     }
 }

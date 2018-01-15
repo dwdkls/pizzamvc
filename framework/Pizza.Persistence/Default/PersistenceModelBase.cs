@@ -13,7 +13,7 @@ namespace Pizza.Persistence.Default
 
         public override string ToString()
         {
-            return string.Format("Object of type: '{0}' with ID: '{1}'", this.GetType().Name, this.Id);
+            return $"Object of type: '{this.GetType().Name}' with ID: '{this.Id}'";
         }
     }
 }

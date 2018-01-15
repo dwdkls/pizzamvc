@@ -42,7 +42,7 @@ namespace Pizza.Mvc
             var areaNames = RouteTableHelper.GetApplicationAreaNames();
             foreach (var areaName in areaNames)
             {
-                var engine = new PrecompiledMvcEngine(typeof(PizzaMvcPostApplicationStart).Assembly, string.Format("~/Areas/{0}/", areaName))
+                var engine = new PrecompiledMvcEngine(typeof(PizzaMvcPostApplicationStart).Assembly, $"~/Areas/{areaName}/")
                 {
                     UsePhysicalViewsIfNewer = HttpContext.Current.Request.IsLocal,
                 };

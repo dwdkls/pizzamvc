@@ -4,9 +4,9 @@ namespace Pizza.Contracts.Operations.Results
 {
     public sealed class PagingInfo
     {
-        public int CurrentPageNumber { get; private set; }
-        public int PageSize { get; private set; }
-        public int TotalItemsCount { get; private set; }
+        public int CurrentPageNumber { get; }
+        public int PageSize { get; }
+        public int TotalItemsCount { get; }
 
         public int TotalPages
         {
@@ -22,8 +22,7 @@ namespace Pizza.Contracts.Operations.Results
 
         public override string ToString()
         {
-            return string.Format("Current: {0}, Size: {1}, Total items: {2}",
-                this.CurrentPageNumber, this.PageSize, this.TotalItemsCount);
+            return $"Current: {this.CurrentPageNumber}, Size: {this.PageSize}, Total items: {this.TotalItemsCount}";
         }
     }
 }

@@ -5,9 +5,9 @@ namespace Pizza.Contracts.Operations.Requests.Configuration
 {
     public sealed class FilterCondition
     {
-        public string PropertyName { get; private set; }
-        public FilterOperator Operator { get; private set; }
-        public object Value { get; private set; }
+        public string PropertyName { get; }
+        public FilterOperator Operator { get; }
+        public object Value { get; }
 
         public FilterCondition(string propertyName, FilterOperator filterOperator, Type propertyType, string valueAsString)
         {

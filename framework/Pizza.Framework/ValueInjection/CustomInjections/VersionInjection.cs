@@ -9,7 +9,7 @@ namespace Pizza.Framework.ValueInjection.CustomInjections
 {
     internal class VersionInjection : IValueInjection
     {
-        private static readonly string versionPropertyName = ObjectHelper.GetPropertyName<IVersionable>(x => x.Version);
+        private static readonly string versionPropertyName = nameof(IVersionable.Version);
 
         public object Map(object source, object target)
         {

@@ -47,10 +47,11 @@ namespace Pizza.Mvc.JqGrid.Configuration.Columns
             }
         }
 
-        private static readonly Dictionary<FilterOperator, Searchtype> filterToSearchtypeMap = new Dictionary<FilterOperator, Searchtype> {
-            { FilterOperator.DateEquals, Searchtype.Datepicker },
-            { FilterOperator.Select, Searchtype.Select },
-            { FilterOperator.Like, Searchtype.Text },
+        private static readonly Dictionary<FilterOperator, Searchtype> filterToSearchtypeMap = new Dictionary<FilterOperator, Searchtype>
+        {
+            [FilterOperator.DateEquals] = Searchtype.Datepicker,
+            [FilterOperator.Select] = Searchtype.Select,
+            [FilterOperator.Like] = Searchtype.Text,
         };
     }
 }

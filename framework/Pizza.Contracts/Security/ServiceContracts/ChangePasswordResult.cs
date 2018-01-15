@@ -7,7 +7,7 @@
             get { return string.IsNullOrEmpty(this.ErrorMessage); }
         }
 
-        public string ErrorMessage { get; private set; }
+        public string ErrorMessage { get; }
 
         public ChangePasswordResult()
         {

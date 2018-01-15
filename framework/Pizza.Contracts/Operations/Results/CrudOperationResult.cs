@@ -2,7 +2,7 @@
 {
     public sealed class CrudOperationResult<TResultType> : CrudOperationResultBase
     {
-        public TResultType Data { get; private set; }
+        public TResultType Data { get; }
 
         public CrudOperationResult(CrudOperationState state, string errorMessage)
             : base(state, errorMessage)

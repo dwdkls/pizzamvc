@@ -5,7 +5,7 @@ namespace Pizza.Contracts.Attributes
     [AttributeUsage(AttributeTargets.Field)]
     public class EnumDisplayNameAttribute : Attribute
     {
-        public string Name { get; private set; }
+        public string Name { get; }
 
         public EnumDisplayNameAttribute(string name)
         {

@@ -8,7 +8,7 @@ using Pizza.Utils;
 
 namespace Pizza.Framework.Operations.InternalUtils.RuntimeMetadata
 {
-    public class PersistenceModelPropertiesDescriptionGenerator
+    public static class PersistenceModelPropertiesDescriptionGenerator
     {
         private static readonly Type persistenceModelBaseType = typeof(IPersistenceModel);
 

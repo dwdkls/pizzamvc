@@ -6,10 +6,10 @@ namespace Pizza.Contracts.Operations.Requests
     public sealed class DataRequest<TGridModel>
         where TGridModel : IGridModelBase
     {
-        public int PageNumber { get; private set; }
-        public int PageSize { get; private set; }
-        public SortConfiguration SortConfiguration { get; private set; }
-        public FilterConfiguration<TGridModel> FilterConfiguration { get; private set; }
+        public int PageNumber { get; }
+        public int PageSize { get; }
+        public SortConfiguration SortConfiguration { get; }
+        public FilterConfiguration<TGridModel> FilterConfiguration { get; }
 
         public DataRequest(int currentPageNumber, int pageSize, 
             SortConfiguration sortConfiguration, FilterConfiguration<TGridModel> filterConfiguration)

@@ -7,12 +7,7 @@ namespace Pizza.Framework.DataGeneration.SpecimenBuilders
 {
     internal sealed class FixedLengthStringsSpecimenBuilder : StringSpecimenBuilderBase
     {
-        private static readonly Type[] MyAttributeTypes = new[] { typeof(FixedLengthAnsiStringAttribute), typeof(FixedLengthUnicodeStringAttribute) };
-
-        protected override Type[] AttributeTypes
-        {
-            get { return MyAttributeTypes; }
-        }
+        protected override Type[] AttributeTypes => new[] { typeof(FixedLengthAnsiStringAttribute), typeof(FixedLengthUnicodeStringAttribute) };
 
         protected override string BuildString(string prefix, int length)
         {

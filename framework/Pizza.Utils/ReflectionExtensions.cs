@@ -44,7 +44,7 @@ namespace Pizza.Utils
 
         public static string GetFullMethodName(this MethodInfo methodInfo)
         {
-            return string.Format("{0}.{1}", methodInfo.DeclaringType.Name, methodInfo.Name);
+            return $"{methodInfo.DeclaringType.Name}.{methodInfo.Name}";
         }
     }
 }

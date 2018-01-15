@@ -7,7 +7,7 @@ namespace Pizza.Framework.Persistence.Config.Conventions
     {
         public void Apply(IManyToOneInstance instance)
         {
-            var foreignKeyName = string.Format("FK__{0}_{1}__{2}", instance.EntityType.Name, instance.Name, instance.Class.Name);
+            var foreignKeyName = $"FK__{instance.EntityType.Name}_{instance.Name}__{instance.Class.Name}";
 
             instance.ForeignKey(foreignKeyName);
             instance.Column(instance.Name + "Id");

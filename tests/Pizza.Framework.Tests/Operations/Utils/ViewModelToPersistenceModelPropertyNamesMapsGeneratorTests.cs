@@ -18,29 +18,29 @@ namespace Pizza.Framework.Tests.Operations.Utils
         {
             // Prepare expected results
             var joinedModels = new Dictionary<string, string> {
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.CustomerFirstName), "Customer.FirstName" },
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.CustomerLastName), "Customer.LastName" },
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.CustomerFingersCount), "Customer.FingersCount" },
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.CustomerHairLength), "Customer.HairLength" },
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.CustomerPreviousSurgeryDate), "Customer.PreviousSurgeryDate" },
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.CustomerType), "Customer.Type" },
+                { nameof(OrderGridModel.CustomerFirstName), "Customer.FirstName" },
+                { nameof(OrderGridModel.CustomerLastName), "Customer.LastName" },
+                { nameof(OrderGridModel.CustomerFingersCount), "Customer.FingersCount" },
+                { nameof(OrderGridModel.CustomerHairLength), "Customer.HairLength" },
+                { nameof(OrderGridModel.CustomerPreviousSurgeryDate), "Customer.PreviousSurgeryDate" },
+                { nameof(OrderGridModel.CustomerType), "Customer.Type" },
             };
 
             var components = new Dictionary<string, string> {
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.PaymentInfoOrderedDate), "PaymentInfo.OrderedDate" },
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.PaymentInfoState), "PaymentInfo.State" },
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.PaymentInfoDouble), "PaymentInfo.Double" },
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.PaymentInfoExternalPaymentId), "PaymentInfo.ExternalPaymentId" },
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.PaymentInfoNumber), "PaymentInfo.Number" },
+                { nameof(OrderGridModel.PaymentInfoOrderedDate), "PaymentInfo.OrderedDate" },
+                { nameof(OrderGridModel.PaymentInfoState), "PaymentInfo.State" },
+                { nameof(OrderGridModel.PaymentInfoDouble), "PaymentInfo.Double" },
+                { nameof(OrderGridModel.PaymentInfoExternalPaymentId), "PaymentInfo.ExternalPaymentId" },
+                { nameof(OrderGridModel.PaymentInfoNumber), "PaymentInfo.Number" },
             };
 
             var simpleProps = new Dictionary<string, string> {
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.Id), "Id" },
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.Type), "Type" },
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.OrderDate), "OrderDate" },
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.TotalPrice), "TotalPrice" },
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.Note), "Note" },
-                { ObjectHelper.GetPropertyName<OrderGridModel>(v => v.ItemsCount), "ItemsCount" },
+                { nameof(OrderGridModel.Id), "Id" },
+                { nameof(OrderGridModel.Type), "Type" },
+                { nameof(OrderGridModel.OrderDate), "OrderDate" },
+                { nameof(OrderGridModel.TotalPrice), "TotalPrice" },
+                { nameof(OrderGridModel.Note), "Note" },
+                { nameof(OrderGridModel.ItemsCount), "ItemsCount" },
             };
 
             var allProps = joinedModels.Union(components).Union(simpleProps).ToDictionary(x => x.Key, x => x.Value);

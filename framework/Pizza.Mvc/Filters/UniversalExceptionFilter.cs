@@ -17,7 +17,7 @@ namespace Pizza.Mvc.Filters
             string message = filterContext.Exception.Message;
             if (filterContext.Exception.InnerException != null)
             {
-                message = string.Format("{0} {1}", filterContext.Exception.Message, filterContext.Exception.InnerException.Message);
+                message = $"{filterContext.Exception.Message} {filterContext.Exception.InnerException.Message}";
             }
             message = message.Replace("\r\n", " ");
 

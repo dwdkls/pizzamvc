@@ -9,8 +9,8 @@ namespace Pizza.Framework.Operations.InternalUtils.RuntimeMetadata.Types
     [DebuggerDisplay("Name: {Name} TypeName: {Type.Name}")]
     public class PropInfo
     {
-        public Type Type { get; private set; }
-        public string Name { get; private set; }
+        public Type Type { get; }
+        public string Name { get; }
 
         public PropInfo(string name, Type type)
         {

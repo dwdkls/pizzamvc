@@ -12,7 +12,7 @@ namespace Pizza.Framework.IntegrationTests.Base.Config
 {
     public class TestContainerProvider
     {
-        public IContainer Container { get; private set; }
+        public IContainer Container { get; }
 
         public TestContainerProvider(ITypeSource typeSource)
         {

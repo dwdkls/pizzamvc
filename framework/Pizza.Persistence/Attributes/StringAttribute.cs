@@ -7,7 +7,7 @@ namespace Pizza.Persistence.Attributes
     {
         public const int MaxLength = 9999;
 
-        public int Length { get; private set; }
+        public int Length { get; }
 
         protected StringAttribute(int maxLenght)
         {

@@ -16,7 +16,7 @@ namespace Pizza.Framework.Persistence.Transactions.Utils
 
         public void LogTransactionMethodBegin(IInvocation invocation)
         {
-            string methodName = string.Format("{0}.{1}", invocation.Method.DeclaringType.Name, invocation.Method.Name);
+            string methodName = $"{invocation.Method.DeclaringType.Name}.{invocation.Method.Name}";
             var argumentsList = BuildArgumentsList(invocation);
             this.logger.Trace("TransactionManagingInterceptor executes method: {0}", methodName);
             this.logger.Trace(argumentsList);
@@ -24,7 +24,7 @@ namespace Pizza.Framework.Persistence.Transactions.Utils
 
         public void LogTransactionMethodIgnored(IInvocation invocation)
         {
-            string methodName = string.Format("{0}.{1}", invocation.Method.DeclaringType.Name, invocation.Method.Name);
+            string methodName = $"{invocation.Method.DeclaringType.Name}.{invocation.Method.Name}";
             var argumentsList = BuildArgumentsList(invocation);
             this.logger.Trace("TransactionManagingInterceptor ignores method: {0}", methodName);
             this.logger.Trace(argumentsList);
@@ -35,7 +35,7 @@ namespace Pizza.Framework.Persistence.Transactions.Utils
             var argumentsList = new StringBuilder("Arguments: " + Environment.NewLine);
             for (int i = 0; i < invocation.Arguments.Length; i++)
             {
-                argumentsList.AppendLine(string.Format("Id: {0}\tValue: {1}", i, invocation.Arguments[i]));
+                argumentsList.AppendFormat("Id: {0}\tValue: {1}", i, invocation.Arguments[i]).AppendLine();
             }
 
             return argumentsList.ToString();

@@ -5,7 +5,7 @@ using Pizza.Framework.Operations.InternalUtils.RuntimeMetadata.Types;
 
 namespace Pizza.Framework.Operations.InternalUtils.RuntimeMetadata
 {
-    public class ViewModelToPersistenceModelPropertyNamesMapsGenerator
+    public static class ViewModelToPersistenceModelPropertyNamesMapsGenerator
     {
         public static ViewModelToPersistenceModelPropertyNamesMaps Generate(
             Type viewModelType,
@@ -42,7 +42,7 @@ namespace Pizza.Framework.Operations.InternalUtils.RuntimeMetadata
 
                 if (match != null)
                 {
-                    map.Add(vmProp.Name, string.Format("{0}.{1}", match.Name, vmProp.Name.Replace(match.Name, string.Empty)));
+                    map.Add(vmProp.Name, $"{match.Name}.{vmProp.Name.Replace(match.Name, string.Empty)}");
                 }
             }
 

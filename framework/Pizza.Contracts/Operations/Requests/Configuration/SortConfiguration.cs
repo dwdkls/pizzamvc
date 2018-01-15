@@ -2,8 +2,8 @@
 {
     public sealed class SortConfiguration
     {
-        public string PropertyName { get; private set; }
-        public SortMode Mode { get; private set; }
+        public string PropertyName { get; }
+        public SortMode Mode { get; }
 
         public SortConfiguration(string propertyName, SortMode mode)
         {

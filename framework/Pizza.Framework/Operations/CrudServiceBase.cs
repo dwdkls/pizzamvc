@@ -13,11 +13,11 @@ namespace Pizza.Framework.Operations
     [Transactional]
     public abstract class CrudServiceBase<TPersistenceModel, TGridModel, TDetailsModel, TEditModel, TCreateModel>
         : ICrudServiceBase<TGridModel, TDetailsModel, TEditModel, TCreateModel>
-        where TPersistenceModel : IPersistenceModel, new()
-        where TGridModel : IGridModelBase, new()
-        where TDetailsModel : IDetailsModelBase, new()
-        where TEditModel : IEditModelBase, new()
-        where TCreateModel : ICreateModelBase, new()
+        where TPersistenceModel : class, IPersistenceModel, new()
+        where TGridModel : class, IGridModelBase, new()
+        where TDetailsModel : class, IDetailsModelBase, new()
+        where TEditModel : class, IEditModelBase, new()
+        where TCreateModel : class, ICreateModelBase, new()
     {
         // TODO: does all of these fields need to be protected?
         protected readonly ISession session;
@@ -61,7 +61,7 @@ namespace Pizza.Framework.Operations
         {
             if (createModel == null)
             {
-                throw new ArgumentNullException("createModel");
+                throw new ArgumentNullException(nameof(createModel));
             }
 
             return this.persistenceModelsStore.Create(createModel);
@@ -71,7 +71,7 @@ namespace Pizza.Framework.Operations
         {
             if (editModel == null)
             {
-                throw new ArgumentNullException("editModel");
+                throw new ArgumentNullException(nameof(editModel));
             }
 
             return this.persistenceModelsStore.Update(editModel);

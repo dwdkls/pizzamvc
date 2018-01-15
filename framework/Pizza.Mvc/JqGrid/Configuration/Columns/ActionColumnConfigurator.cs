@@ -26,9 +26,7 @@ namespace Pizza.Mvc.JqGrid.Configuration.Columns
 
             // TODO: probably here is place where other than row item id can be placed in link
             var linkTemplate = this.html.ActionLink(metamodel.Caption, metamodel.ActionName, new { controller = metamodel.ControllerName, id = "_id_" });
-            var linkFormatter = string.Format(
-                @"function buildActionLink(cellvalue, options, rowobject) {{ return '{0}'.replace('_id_', options.rowId); }}",
-                linkTemplate);
+            var linkFormatter = $@"function buildActionLink(cellvalue, options, rowobject) {{ return '{linkTemplate}'.replace('_id_', options.rowId); }}";
 
             column.SetCustomFormatter(linkFormatter);
 

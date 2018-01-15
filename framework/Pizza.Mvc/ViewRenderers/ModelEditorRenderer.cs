@@ -36,12 +36,12 @@ namespace Pizza.Mvc.ViewRenderers
 
         private void RenderHiddenProperty(PropertyInfo propertyInfo)
         {
-            if (propertyInfo.Name == ObjectHelper.GetPropertyName<IViewModelBase>(q => q.Id))
+            if (propertyInfo.Name == nameof(IViewModelBase.Id))
             {
                 return;
             }
 
-            if (propertyInfo.Name == ObjectHelper.GetPropertyName<IVersionableEditModelBase>(q => q.Version))
+            if (propertyInfo.Name == nameof(IVersionableEditModelBase.Version))
             {
                 byte[] value = (byte[])propertyInfo.GetValue(this.htmlHelper.ViewContext.ViewData.Model);
                 string asString = Convert.ToBase64String(value);

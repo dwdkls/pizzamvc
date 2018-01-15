@@ -6,8 +6,8 @@ namespace Pizza.Mvc.GridConfig.Columns
 {
     public sealed class PropertyColumnMetamodel : ColumnMetamodelBase
     {
-        public Type PropertyType { get; private set; }
-        public FilterMetamodel Filter { get; private set; }
+        public Type PropertyType { get; }
+        public FilterMetamodel Filter { get; }
 
         public PropertyColumnMetamodel(string name, string caption, int width, ColumnWidthMode widthMode, Type propertyType, FilterMetamodel filter)
             : base(name, caption, width, widthMode)

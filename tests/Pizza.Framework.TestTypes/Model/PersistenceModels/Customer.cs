@@ -22,7 +22,7 @@ namespace Pizza.Framework.TestTypes.Model.PersistenceModels
         
         public virtual string FullName
         {
-            get { return string.Format("{0} {1}", this.FirstName, this.LastName); }
+            get { return $"{this.FirstName} {this.LastName}"; }
         }
     }
 }
