@@ -26,7 +26,6 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
-.nuget/
 packages/
 *.nupkg
 */Pizza.Packager/lib/net45/*
