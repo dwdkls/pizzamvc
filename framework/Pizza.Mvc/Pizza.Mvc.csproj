@@ -219,7 +219,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\bootstrap-datepicker.standalone.css" />
@@ -683,10 +682,10 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Details.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\Shared\DisplayTemplates\GridMetaModel.cshtml">
+    <None Include="Views\Shared\DisplayTemplates\GridMetaModel.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>GridMetaModel.generated.cs</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="Views\Shared\Edit.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Edit.generated.cs</LastGenOutput>
@@ -792,6 +791,9 @@
     <None Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.json" />
     <None Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <None Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pizza.Contracts\Pizza.Contracts.csproj">
