@@ -52,8 +52,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="RazorGenerator.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\RazorGenerator.Mvc.2.4.2\lib\net40\RazorGenerator.Mvc.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\packages\RazorGenerator.Mvc.2.4.9\lib\net40\RazorGenerator.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -230,6 +229,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Pizza.css" />
+    <None Include="app.config" />
     <None Include="Content\bootstrap-datepicker.css.map" />
     <None Include="Content\bootstrap-datepicker.min.css.map" />
     <None Include="Content\bootstrap-datepicker.standalone.css.map" />
